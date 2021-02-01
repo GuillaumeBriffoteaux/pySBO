@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Examples &mdash; pySAO 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Surrogates" href="surrogates.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">pySAO Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#evolutionary-algorithm">Evolutionary Algorithm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synchronous-parallel-ea">Synchronous Parallel EA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-parallel-ea">Asynchronous Parallel EA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#surrogate-assisted-evolutionary-algorithm">Surrogate-Assisted Evolutionary Algorithm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synchronous-parallel-saea">Synchronous Parallel SAEA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-parallel-saea">Asynchronous Parallel SAEA</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#efficient-global-optimization">Efficient Global Optimization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#synchronous-parallel-ego">Synchronous Parallel EGO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#asynchronous-parallel-ego">Asynchronous Parallel EGO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pySAO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Examples</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="examples">
+<h1>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="evolutionary-algorithm">
+<h2>Evolutionary Algorithm<a class="headerlink" href="#evolutionary-algorithm" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/animated_EA.gif"><img alt="_images/animated_EA.gif" class="align-center" src="_images/animated_EA.gif" style="width: 493.0px; height: 530.0px;" /></a>
+<div class="section" id="synchronous-parallel-ea">
+<h3>Synchronous Parallel EA<a class="headerlink" href="#synchronous-parallel-ea" title="Permalink to this headline">¶</a></h3>
+<p>Code <a class="reference download internal" download="" href="_downloads/d568048e8f7a353fad659956f6975693/par_sync_EA.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
+<span class="target" id="module-par_sync_EA"></span><p>Script running a synchronous parallel evolutionary algorithm.</p>
+<p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">./par_sync_EA.py</span></code></p>
+<p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EA.py</span></code></p>
+<p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EA.py</span></code></p>
+<p>Only the simulations (i.e. real evaluations) are executed in parallel.</p>
+<a class="reference internal image-reference" href="_images/animated_sync_EA.gif"><img alt="_images/animated_sync_EA.gif" class="align-center" src="_images/animated_sync_EA.gif" style="width: 561.0px; height: 314.0px;" /></a>
+</div>
+<div class="section" id="asynchronous-parallel-ea">
+<h3>Asynchronous Parallel EA<a class="headerlink" href="#asynchronous-parallel-ea" title="Permalink to this headline">¶</a></h3>
+<p>Code <a class="reference download internal" download="" href="_downloads/7760053bec66a42c38a7fe6dc2423d1d/par_async_EA.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
+<span class="target" id="module-par_async_EA"></span><p>Script running an asynchronous parallel evolutionary algorithm.</p>
+<p>Cannot be run sequentially.</p>
+<p>To run in parallel (in 3 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">python3.7</span> <span class="pre">par_async_EA.py</span></code></p>
+<p>To run in parallel (in 3 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">python3.7</span> <span class="pre">par_async_EA.py</span></code></p>
+<p>Each worker performs an acquisition process and its associated simulations. Master retrieves the simulated candidates and performs replacement.</p>
+<a class="reference internal image-reference" href="_images/animated_async_EA.gif"><img alt="_images/animated_async_EA.gif" class="align-center" src="_images/animated_async_EA.gif" style="width: 441.0px; height: 239.0px;" /></a>
+</div>
+</div>
+<div class="section" id="surrogate-assisted-evolutionary-algorithm">
+<h2>Surrogate-Assisted Evolutionary Algorithm<a class="headerlink" href="#surrogate-assisted-evolutionary-algorithm" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/animated_SAEA.gif"><img alt="_images/animated_SAEA.gif" class="align-center" src="_images/animated_SAEA.gif" style="width: 734.0px; height: 591.0px;" /></a>
+<div class="section" id="synchronous-parallel-saea">
+<h3>Synchronous Parallel SAEA<a class="headerlink" href="#synchronous-parallel-saea" title="Permalink to this headline">¶</a></h3>
+<p>Code <a class="reference download internal" download="" href="_downloads/2da64f9e35f39e183eb8f6202791df8f/par_sync_SAEA.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
+<span class="target" id="module-par_sync_SAEA"></span><p>Script running a synchronous parallel surrogate-assisted evolutionary algorithm.</p>
+<p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">./par_sync_SAEA.py</span></code></p>
+<p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_SAEA.py</span></code></p>
+<p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_SAEA.py</span></code></p>
+<p>Only the simulations (i.e. real evaluations) are executed in parallel.</p>
+<a class="reference internal image-reference" href="_images/animated_sync_EA.gif"><img alt="_images/animated_sync_EA.gif" class="align-center" src="_images/animated_sync_EA.gif" style="width: 561.0px; height: 314.0px;" /></a>
+</div>
+<div class="section" id="asynchronous-parallel-saea">
+<h3>Asynchronous Parallel SAEA<a class="headerlink" href="#asynchronous-parallel-saea" title="Permalink to this headline">¶</a></h3>
+<p>Code <a class="reference download internal" download="" href="_downloads/c5d91f1fec8c3ec152b433971c12d8e4/par_async_SAEA.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
+<span class="target" id="module-par_async_SAEA"></span><p>Script running an asynchronous parallel surrogate-assisted evolutionary algorithm.</p>
+<p>Cannot be run sequentially.</p>
+<p>To run in parallel (in 3 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">python3.7</span> <span class="pre">par_async_SAEA.py</span></code></p>
+<p>To run in parallel (in 3 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">python3.7</span> <span class="pre">par_async_SAEA.py</span></code></p>
+<p>Each worker performs an acquisition process and its associated simulations. Master retrieves the simulated candidates and performs predictions, replacement and surrogate training.</p>
+<a class="reference internal image-reference" href="_images/animated_async_EA.gif"><img alt="_images/animated_async_EA.gif" class="align-center" src="_images/animated_async_EA.gif" style="width: 441.0px; height: 239.0px;" /></a>
+</div>
+</div>
+<div class="section" id="efficient-global-optimization">
+<h2>Efficient Global Optimization<a class="headerlink" href="#efficient-global-optimization" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/animated_EGO.gif"><img alt="_images/animated_EGO.gif" class="align-center" src="_images/animated_EGO.gif" style="width: 591.0px; height: 449.0px;" /></a>
+<div class="section" id="synchronous-parallel-ego">
+<h3>Synchronous Parallel EGO<a class="headerlink" href="#synchronous-parallel-ego" title="Permalink to this headline">¶</a></h3>
+<p>Code <a class="reference download internal" download="" href="_downloads/a5c840b8f2f086689fcdec3ca5443ffa/par_sync_EGO.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
+<span class="target" id="module-par_sync_EGO"></span><p>Script running a synchronous parallel efficient global optimization algorithm.</p>
+<p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">./par_sync_EGO.py</span></code></p>
+<p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EGO.py</span></code></p>
+<p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EGO.py</span></code></p>
+<p>Only the simulations (i.e. real evaluations) are executed in parallel.</p>
+<a class="reference internal image-reference" href="_images/animated_sync_EGO.gif"><img alt="_images/animated_sync_EGO.gif" class="align-center" src="_images/animated_sync_EGO.gif" style="width: 561.0px; height: 321.0px;" /></a>
+</div>
+<div class="section" id="asynchronous-parallel-ego">
+<h3>Asynchronous Parallel EGO<a class="headerlink" href="#asynchronous-parallel-ego" title="Permalink to this headline">¶</a></h3>
+<p>Code <a class="reference download internal" download="" href="_downloads/fae7577f88bd7ffcd7aa01bb1aca6149/par_async_EGO.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
+<span class="target" id="module-par_async_EGO"></span><p>Script running an asynchronous parallel efficient global optimization algorithm.</p>
+<p>Cannot be run sequentially.</p>
+<p>To run in parallel (in 3 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">python3.7</span> <span class="pre">par_async_EGO.py</span></code></p>
+<p>To run in parallel (in 3 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">3</span> <span class="pre">python3.7</span> <span class="pre">par_async_EGO.py</span></code></p>
+<p>Each worker performs an acquisition process and its associated simulations. Master retrieves the simulated candidates and performs predictions and surrogate training.</p>
+<a class="reference internal image-reference" href="_images/animated_async_EGO.gif"><img alt="_images/animated_async_EGO.gif" class="align-center" src="_images/animated_async_EGO.gif" style="width: 441.0px; height: 239.0px;" /></a>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="surrogates.html" class="btn btn-neutral float-left" title="Surrogates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Guillaume Briffoteaux
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

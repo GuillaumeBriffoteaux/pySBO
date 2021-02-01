@@ -1,0 +1,693 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Evolution &mdash; pySAO 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Evolution Controls" href="evolution_controls.html" />
+    <link rel="prev" title="Problems" href="problems.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAO
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAO</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAO Packages</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Evolution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes-summary">Classes summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#population">Population</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mutation">Mutation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mutation-abstract">Mutation (abstract)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#polynomial">Polynomial</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#crossover">Crossover</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#crossover-abstract">Crossover (abstract)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sbx">SBX</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#selection">Selection</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selection-abstract">Selection (abstract)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tournament">Tournament</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#replacement">Replacement</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#replacement-abstract">Replacement (abstract)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elitist">Elitist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#elitist-multiobj">Elitist_Multiobj</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surrogates.html">Surrogates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pySAO</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="packages.html">pySAO Packages</a> &raquo;</li>
+        
+      <li>Evolution</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/evolution.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-Evolution.__init__">
+<span id="evolution"></span><h1>Evolution<a class="headerlink" href="#module-Evolution.__init__" title="Permalink to this headline">¶</a></h1>
+<p>Package related to evolutionary agorithms components.</p>
+<div class="section" id="classes-summary">
+<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Population.Population</span></code></a>(n_dvar)</p></td>
+<td><p>Class for the population of an evolutionary algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Mutation.Mutation" title="Evolution.Mutation.Mutation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Mutation.Mutation</span></code></a>(prob)</p></td>
+<td><p>Abstract class for mutation operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Polynomial.Polynomial" title="Evolution.Polynomial.Polynomial"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Polynomial.Polynomial</span></code></a>(prob, eta)</p></td>
+<td><p>Class for polynomial mutation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Crossover.Crossover</span></code></a>(prob)</p></td>
+<td><p>Abstract class for crossover operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.SBX.SBX" title="Evolution.SBX.SBX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.SBX.SBX</span></code></a>(prob, eta)</p></td>
+<td><p>Class for SBX crossover.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Selection.Selection</span></code></a>()</p></td>
+<td><p>Abstract class for selection operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Tournament.Tournament" title="Evolution.Tournament.Tournament"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Tournament.Tournament</span></code></a>(size)</p></td>
+<td><p>Class for Tournament selection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a>()</p></td>
+<td><p>Abstract class for replacement operators.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Elitist.Elitist" title="Evolution.Elitist.Elitist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Elitist.Elitist</span></code></a>()</p></td>
+<td><p>Class for Elitist replacement.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Elitist_Multiobj.Elitist_Multiobj" title="Evolution.Elitist_Multiobj.Elitist_Multiobj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Elitist_Multiobj.Elitist_Multiobj</span></code></a>(ec)</p></td>
+<td><p>Class for multi-objective elitist replacement.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="population">
+<h2>Population<a class="headerlink" href="#population" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="Evolution.Population.Population">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Population.</code><code class="sig-name descname">Population</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class for the population of an evolutionary algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors of the individuals</p></li>
+<li><p><strong>costs</strong> (<em>np.ndarray</em>) – costs associated with each individual</p></li>
+<li><p><strong>fitness_modes</strong> (<em>np.ndarray</em>) – evaluation mode associated with each individual: True for simulation (i.e. real evaluation) and False for prediction (i.e. surrogate evaluation)</p></li>
+</ul>
+</dd>
+</dl>
+<p>__init__ method’s input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n_dvar</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of decision variables</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution.Population.Population.print_shapes">
+<code class="sig-name descname">print_shapes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.print_shapes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the shapes of the arrays <cite>dvec</cite>, <cite>costs</cite> and <cite>fitness_modes</cite> forming the population.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.check_integrity">
+<code class="sig-name descname">check_integrity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.check_integrity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks arrays’ shapes are consistent.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – the problem the population is associated with</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True for arrays’ consistency and False otherwise</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.append">
+<code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Appends individuals to the current population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – indivials to be appended</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.sort">
+<code class="sig-name descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sorts the population according to individuals’ costs (ascending order).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.split_in_batches">
+<code class="sig-name descname">split_in_batches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.split_in_batches" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits the population in batches.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n_batch</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of batches</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>list of batches</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list(<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a>)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.update_best_sim">
+<code class="sig-name descname">update_best_sim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_best_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.update_best_sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the best individual and logs.</p>
+<p>The best individual is a simulated individual (its <cite>fitness_modes</cite> is True).
+The best decision vector (minimisation assumed) is saved in <cite>Global_Var.dvec_min</cite>.
+The best cost is saved in <cite>Global_Var.cost_min</cite>.
+Both best decision vector and cost are printed to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f_best_profile</strong> (<em>str</em>) – filename for logging</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.save_to_csv_file">
+<code class="sig-name descname">save_to_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the population to a CSV file.</p>
+<p>The CSV file is organized as follows:
+First row: number of decision variables, number of objectives, number of fitness modes
+Second row: lower bounds of the decision variables
+Thrid row: upper bounds of the decision variables
+Remaining rows (one per individual): decision variables, costs, fitness mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file.</p></li>
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is assocated with</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.load_from_csv_file">
+<code class="sig-name descname">load_from_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_csv_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads the population from a CSV file.</p>
+<p>The CSV file has to be organized as follows:
+First row: number of decision variables, number of objectives, number of fitness modes
+Second row: lower bounds of the decision variables
+Thrid row: upper bounds of the decision variables
+Remaining rows (one per individual): decision variables, costs, fitness mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file</p></li>
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is associated with</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.save_sim_archive">
+<code class="sig-name descname">save_sim_archive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Prints the population’s simulated individuals to a CSV file.</p>
+<p>The CSV file is organized as follows:
+One per individual: decision variables, costs, fitness mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f_sim_archive</strong> (<em>str</em>) – filename of the CSV file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.save_to_pickle_file">
+<code class="sig-name descname">save_to_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_pickle_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves the population to a pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p></li>
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is associated with</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Evolution.Population.Population.load_from_pickle_file">
+<code class="sig-name descname">load_from_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_pickle_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a population from a pickle file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p></li>
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is associated with</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="mutation">
+<h2>Mutation<a class="headerlink" href="#mutation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mutation-abstract">
+<h3>Mutation (abstract)<a class="headerlink" href="#mutation-abstract" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Mutation.Mutation">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Mutation.</code><code class="sig-name descname">Mutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Mutation.Mutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class for mutation operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of mutation</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="polynomial">
+<h3>Polynomial<a class="headerlink" href="#polynomial" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Polynomial.Polynomial">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Polynomial.</code><code class="sig-name descname">Polynomial</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em>, <em class="sig-param"><span class="n">eta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Mutation.Mutation" title="Evolution.Mutation.Mutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Mutation.Mutation</span></code></a></p>
+<p>Class for polynomial mutation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of mutation</p></li>
+<li><p><strong>eta</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – distribution index</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution.Polynomial.Polynomial.perform_mutation">
+<code class="sig-name descname">perform_mutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">bounds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial.perform_mutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mutates the individuals of a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p></li>
+<li><p><strong>bounds</strong> (<em>np.ndarray</em>) – bounds of decision variables</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the mutated population</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="crossover">
+<h2>Crossover<a class="headerlink" href="#crossover" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="crossover-abstract">
+<h3>Crossover (abstract)<a class="headerlink" href="#crossover-abstract" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Crossover.Crossover">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Crossover.</code><code class="sig-name descname">Crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Crossover.Crossover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class for crossover operators.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of crossover</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sbx">
+<h3>SBX<a class="headerlink" href="#sbx" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.SBX.SBX">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.SBX.</code><code class="sig-name descname">SBX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em>, <em class="sig-param"><span class="n">eta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Crossover.Crossover</span></code></a></p>
+<p>Class for SBX crossover.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of crossover</p></li>
+<li><p><strong>eta</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – distribution index</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution.SBX.SBX.perform_crossover">
+<code class="sig-name descname">perform_crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">bounds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX.perform_crossover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Applies crossover to the individuals of a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p></li>
+<li><p><strong>bounds</strong> (<em>np.ndarray</em>) – bounds of decision variables</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the mutated population</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="selection">
+<h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="selection-abstract">
+<h3>Selection (abstract)<a class="headerlink" href="#selection-abstract" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Selection.Selection">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Selection.</code><code class="sig-name descname">Selection</code><a class="headerlink" href="#Evolution.Selection.Selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class for selection operators.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="tournament">
+<h3>Tournament<a class="headerlink" href="#tournament" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Tournament.Tournament">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Tournament.</code><code class="sig-name descname">Tournament</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Selection.Selection</span></code></a></p>
+<p>Class for Tournament selection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>size</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – tournament size</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution.Tournament.Tournament.perform_selection">
+<code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament.perform_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects individuals from a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to select from</p></li>
+<li><p><strong>n_par</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of individuals to select</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the selected individuals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="replacement">
+<h2>Replacement<a class="headerlink" href="#replacement" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="replacement-abstract">
+<h3>Replacement (abstract)<a class="headerlink" href="#replacement-abstract" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Replacement.Replacement">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Replacement.</code><code class="sig-name descname">Replacement</code><a class="headerlink" href="#Evolution.Replacement.Replacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Abstract class for replacement operators.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="elitist">
+<h3>Elitist<a class="headerlink" href="#elitist" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Elitist.Elitist">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Elitist.</code><code class="sig-name descname">Elitist</code><a class="headerlink" href="#Evolution.Elitist.Elitist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a></p>
+<p>Class for Elitist replacement.</p>
+<p>Minimization is assumed.</p>
+<dl class="py method">
+<dt id="Evolution.Elitist.Elitist.perform_replacement">
+<code class="sig-name descname">perform_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist.Elitist.perform_replacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keeps the best individuals of from two populations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – first population, will store the best individuals</p></li>
+<li><p><strong>children</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – second population</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="elitist-multiobj">
+<h3>Elitist_Multiobj<a class="headerlink" href="#elitist-multiobj" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Elitist_Multiobj.Elitist_Multiobj">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Elitist_Multiobj.</code><code class="sig-name descname">Elitist_Multiobj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist_Multiobj.Elitist_Multiobj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a></p>
+<p>Class for multi-objective elitist replacement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ec</strong> (<a class="reference internal" href="surrogates.html#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><em>Surrogate</em></a>) – the multi-objective criterion</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution.Elitist_Multiobj.Elitist_Multiobj.perform_replacement">
+<code class="sig-name descname">perform_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist_Multiobj.Elitist_Multiobj.perform_replacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keeps the best individuals from two population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – first population, will store the best individuals</p></li>
+<li><p><strong>children</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – second population</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="evolution_controls.html" class="btn btn-neutral float-right" title="Evolution Controls" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="problems.html" class="btn btn-neutral float-left" title="Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Guillaume Briffoteaux
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
