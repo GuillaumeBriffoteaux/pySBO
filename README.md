@@ -1,1 +1,1 @@
-See documentation at ./docs/build/html/index.html
+See documentation https://pysaea.readthedocs.io/en/latest/index.html
