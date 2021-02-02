@@ -113,12 +113,13 @@ def main():
             # Parallel evaluations
             if TIME_BUDGET>0:
                 t_now = time.time()
-                remaining_time = int(TIME_BUDGET-(t_now-t_start))
-                if remaining_time<=0:
+                remaining_time = TIME_BUDGET-(t_now-t_start)
+                if remaining_time<=SIM_TIME:
                     break
-                sim_afford = remaining_time//SIM_TIME
+                sim_afford = int(remaining_time//SIM_TIME)
                 if np.max(nb_sim_per_proc)>sim_afford: # setting nb_sim_per_proc according to the remaining simulation budget
                     nb_sim_per_proc=sim_afford*np.ones((nprocs,), dtype=int)
+                    
             for i in range(1,nprocs): # sending to workers
                 comm.send(nb_sim_per_proc[i], dest=i, tag=10)
                 comm.send(children.dvec[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])], dest=i, tag=11)

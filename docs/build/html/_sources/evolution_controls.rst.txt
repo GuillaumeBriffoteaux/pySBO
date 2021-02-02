@@ -16,10 +16,10 @@ Classes summary
    Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC
    Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC
    Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC
-   Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC
    Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC
    Evolution_Controls.Ensemble_EC.Ensemble_EC
    Evolution_Controls.Pareto_EC.Pareto_EC
+   Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC
    Evolution_Controls.Dynamic_EC.Dynamic_EC
    Evolution_Controls.Adaptive_EC.Adaptive_EC
    Evolution_Controls.Committee_EC.Committee_EC
@@ -67,10 +67,6 @@ Expected Improvement
 ^^^^^^^^^^^^^^^^^^^^
 .. autoclass:: Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC
 
-Pareto-based (from Tian-2018)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. autoclass:: Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC
-
 Adaptive (from Wang-2020)
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. autoclass:: Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC
@@ -84,9 +80,13 @@ Ensemble (abstract)
 .. autoclass:: Evolution_Controls.Ensemble_EC.Ensemble_EC
 
 Pareto
-^^^^^^^^^
+^^^^^^
 .. autoclass:: Evolution_Controls.Pareto_EC.Pareto_EC
 
+Pareto-based (from Tian-2018)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC
+	       
 Dynamic
 ^^^^^^^
 .. autoclass:: Evolution_Controls.Dynamic_EC.Dynamic_EC

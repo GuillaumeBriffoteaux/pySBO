@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Evolution &mdash; pySAO 0.1 documentation</title>
+  <title>Evolution &mdash; pySAEA 0.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAO
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAEA
           
 
           
@@ -84,8 +84,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAO</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAO Packages</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAEA</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAEA Packages</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Evolution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classes-summary">Classes summary</a></li>
@@ -103,12 +103,13 @@
 <li class="toctree-l3"><a class="reference internal" href="#selection">Selection</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#selection-abstract">Selection (abstract)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tournament">Tournament</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tournament-position">Tournament_Position</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#replacement">Replacement</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#replacement-abstract">Replacement (abstract)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#elitist">Elitist</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#elitist-multiobj">Elitist_Multiobj</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-elitism">Custom_Elitism</a></li>
 </ul>
 </li>
 </ul>
@@ -133,7 +134,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pySAO</a>
+          <a href="index.html">pySAEA</a>
         
       </nav>
 
@@ -164,7 +165,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="packages.html">pySAO Packages</a> &raquo;</li>
+          <li><a href="packages.html">pySAEA Packages</a> &raquo;</li>
         
       <li>Evolution</li>
     
@@ -217,14 +218,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Tournament.Tournament" title="Evolution.Tournament.Tournament"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Tournament.Tournament</span></code></a>(size)</p></td>
 <td><p>Class for Tournament selection.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Tournament_Position.Tournament_Position" title="Evolution.Tournament_Position.Tournament_Position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Tournament_Position.Tournament_Position</span></code></a>(size)</p></td>
+<td><p>Class for Tournament_Position selection.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a>()</p></td>
 <td><p>Abstract class for replacement operators.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Elitist.Elitist" title="Evolution.Elitist.Elitist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Elitist.Elitist</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Elitist.Elitist" title="Evolution.Elitist.Elitist"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Elitist.Elitist</span></code></a>()</p></td>
 <td><p>Class for Elitist replacement.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Elitist_Multiobj.Elitist_Multiobj" title="Evolution.Elitist_Multiobj.Elitist_Multiobj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Elitist_Multiobj.Elitist_Multiobj</span></code></a>(ec)</p></td>
-<td><p>Class for multi-objective elitist replacement.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Custom_Elitism.Custom_Elitism" title="Evolution.Custom_Elitism.Custom_Elitism"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Custom_Elitism.Custom_Elitism</span></code></a>(ec)</p></td>
+<td><p>Class for custom elitist replacement.</p></td>
 </tr>
 </tbody>
 </table>
@@ -526,6 +530,26 @@ One per individual: decision variables, costs, fitness mode.</p>
 <em class="property">class </em><code class="sig-prename descclassname">Evolution.Selection.</code><code class="sig-name descname">Selection</code><a class="headerlink" href="#Evolution.Selection.Selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Abstract class for selection operators.</p>
+<dl class="py method">
+<dt id="Evolution.Selection.Selection.perform_selection">
+<em class="property">abstract </em><code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Selection.Selection.perform_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects individuals from a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to select from</p></li>
+<li><p><strong>n_par</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of individuals to select</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the selected individuals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -544,6 +568,42 @@ One per individual: decision variables, costs, fitness mode.</p>
 <dl class="py method">
 <dt id="Evolution.Tournament.Tournament.perform_selection">
 <code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament.perform_selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Selects individuals from a population.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to select from</p></li>
+<li><p><strong>n_par</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of individuals to select</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the selected individuals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="tournament-position">
+<h3>Tournament_Position<a class="headerlink" href="#tournament-position" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution.Tournament_Position.Tournament_Position">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Tournament_Position.</code><code class="sig-name descname">Tournament_Position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament_Position.Tournament_Position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Selection.Selection</span></code></a></p>
+<p>Class for Tournament_Position selection.</p>
+<p>Candidates are ordered within the population according to their promise (decreasing order).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>size</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – tournament size</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution.Tournament_Position.Tournament_Position.perform_selection">
+<code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament_Position.Tournament_Position.perform_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects individuals from a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -602,22 +662,22 @@ One per individual: decision variables, costs, fitness mode.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="elitist-multiobj">
-<h3>Elitist_Multiobj<a class="headerlink" href="#elitist-multiobj" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="custom-elitism">
+<h3>Custom_Elitism<a class="headerlink" href="#custom-elitism" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Elitist_Multiobj.Elitist_Multiobj">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Elitist_Multiobj.</code><code class="sig-name descname">Elitist_Multiobj</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist_Multiobj.Elitist_Multiobj" title="Permalink to this definition">¶</a></dt>
+<dt id="Evolution.Custom_Elitism.Custom_Elitism">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Custom_Elitism.</code><code class="sig-name descname">Custom_Elitism</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Custom_Elitism.Custom_Elitism" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a></p>
-<p>Class for multi-objective elitist replacement.</p>
+<p>Class for custom elitist replacement.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ec</strong> (<a class="reference internal" href="surrogates.html#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><em>Surrogate</em></a>) – the multi-objective criterion</p>
+<dd class="field-odd"><p><strong>ec</strong> (<a class="reference internal" href="surrogates.html#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><em>Surrogate</em></a>) – the criterion defining elitism</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Elitist_Multiobj.Elitist_Multiobj.perform_replacement">
-<code class="sig-name descname">perform_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist_Multiobj.Elitist_Multiobj.perform_replacement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Keeps the best individuals from two population.</p>
+<dt id="Evolution.Custom_Elitism.Custom_Elitism.perform_replacement">
+<code class="sig-name descname">perform_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Custom_Elitism.Custom_Elitism.perform_replacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Keeps the best individuals from two populations.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

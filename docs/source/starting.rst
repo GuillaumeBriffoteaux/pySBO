@@ -1,11 +1,11 @@
-About pySAO
-===========
+About pySAEA
+============
 
 
 Installation
 ------------
 
-Clone the Github repository from `<https://github.com/GuillaumeBriffoteaux/pySAO.git>`_
+Clone the Github repository from `<https://github.com/GuillaumeBriffoteaux/pySAEA.git>`_
 
 Check `python3.7` is installed on your system.
 
@@ -19,9 +19,9 @@ Notes
 
 For the moment, only mono-objective real unconstrained optimization problems are considered.
 
-pySAO has only been tested on Ubuntu20.04 both on desktop and distributed machines.
+pySAEA has only been tested on Ubuntu20.04 both on desktop and distributed machines.
 
-pySAO is organized following the one-class-per-file Java convention. Consequently, each module is nammed after the class it contains.
+pySAEA is organized following the one-class-per-file Java convention. Consequently, each module is nammed after the class it contains.
 
 
 Support
@@ -48,3 +48,41 @@ License
 -------
 
 :download:`Available here<../../LICENSE.txt>`
+
+
+Supporting institutions
+-----------------------
+
+Faculté Polytech Mons, Université de Mons, Belgique
+
+.. image:: ../logos/logo_polytech.jpeg
+	   :scale: 75%
+	   :align: center
+
+.. image:: ../logos/logo_umons.png
+	   :scale: 75%
+	   :align: center		   
+
+Université de Lille, CNRS CRIStAL, Inria Lille, France
+
+.. image:: ../logos/logo_lille.png
+	   :scale: 50%
+	   :align: center
+
+.. image:: ../logos/logo_cnrs.png
+	   :scale: 30%
+	   :align: center
+
+.. image:: ../logos/logo_cristal.png
+	   :scale: 40%
+	   :align: center
+
+.. image:: ../logos/logo_inria.png
+	   :scale: 10%
+	   :align: center
+
+School of Public Health and Preventive Medicine, Monash University, Australia
+
+.. image:: ../logos/logo_monash.png
+	   :scale: 30%
+	   :align: center

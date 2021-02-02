@@ -1,6 +1,9 @@
 Examples
 ========
 
+
+
+
 Evolutionary Algorithm
 ----------------------
 
@@ -19,48 +22,31 @@ Code :download:`available here<../../examples/par_sync_EA.py>`
 .. image:: ../examples_diagrams/sync_EA/animated_sync_EA.gif
 	   :scale: 100%
 	   :align: center
-
-Asynchronous Parallel EA
-^^^^^^^^^^^^^^^^^^^^^^^^
-
-Code :download:`available here<../../examples/par_async_EA.py>`
-
-.. automodule:: par_async_EA
-
-.. image:: ../examples_diagrams/async_EA/animated_async_EA.gif
-	   :scale: 100%
-	   :align: center
 		   
 
-Surrogate-Assisted Evolutionary Algorithm
------------------------------------------
 
-.. image:: ../examples_diagrams/SAEA/animated_SAEA.gif
+
+Direct Fitness Replacement
+--------------------------
+
+.. image:: ../examples_diagrams/DFR/animated_DFR.gif
 	   :scale: 100%
 	   :align: center
 
-Synchronous Parallel SAEA
-^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Code :download:`available here<../../examples/par_sync_SAEA.py>`
+Synchronous Parallel DFR
+^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. automodule:: par_sync_SAEA
+Code :download:`available here<../../examples/par_sync_DFR.py>`
+
+.. automodule:: par_sync_DFR
 
 .. image:: ../examples_diagrams/sync_EA/animated_sync_EA.gif
 	   :scale: 100%
 	   :align: center
-
-Asynchronous Parallel SAEA
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Code :download:`available here<../../examples/par_async_SAEA.py>`
-
-.. automodule:: par_async_SAEA
-
-.. image:: ../examples_diagrams/async_EA/animated_async_EA.gif
-	   :scale: 100%
-	   :align: center
 		   
+
+
 
 Efficient Global Optimization
 -----------------------------
@@ -68,7 +54,8 @@ Efficient Global Optimization
 .. image:: ../examples_diagrams/EGO/animated_EGO.gif
 	   :scale: 100%
 	   :align: center
-		   
+
+
 Synchronous Parallel EGO
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -79,14 +66,3 @@ Code :download:`available here<../../examples/par_sync_EGO.py>`
 .. image:: ../examples_diagrams/sync_EGO/animated_sync_EGO.gif
 	   :scale: 100%
 	   :align: center
-
-Asynchronous Parallel EGO
-^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Code :download:`available here<../../examples/par_async_EGO.py>`
-
-.. automodule:: par_async_EGO
-
-.. image:: ../examples_diagrams/async_EGO/animated_async_EGO.gif
-	   :scale: 100%
-	   :align: center		   

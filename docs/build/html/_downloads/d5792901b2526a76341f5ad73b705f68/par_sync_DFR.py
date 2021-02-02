@@ -1,11 +1,11 @@
 #!/usr/bin/python3.7
 """Script running a synchronous parallel surrogate-assisted evolutionary algorithm.
 
-To run sequentially: ``./par_sync_SAEA.py``
+To run sequentially: ``./par_sync_DFR.py``
 
-To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.7 par_sync_SAEA.py``
+To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.7 par_sync_DFR.py``
 
-To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python3.7 par_sync_SAEA.py``
+To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python3.7 par_sync_DFR.py``
 
 Only the simulations (i.e. real evaluations) are executed in parallel.
 """
@@ -30,7 +30,6 @@ from Evolution.Tournament import Tournament
 from Evolution.SBX import SBX
 from Evolution.Polynomial import Polynomial
 from Evolution.Elitist import Elitist
-from Evolution.Elitist_Multiobj import Elitist_Multiobj
 
 from Surrogates.BNN_MCD import BNN_MCD
 from Surrogates.BNN_BLR import BNN_BLR
@@ -89,9 +88,9 @@ def main():
         N_PRED=15 # number of predictions per batch
         N_DISC=63 # number of rejections per batch 
         assert BATCH_SIZE==N_SIM+N_PRED+N_DISC
-        N_GEN=1
+        N_GEN=2
         TIME_BUDGET=0 # in seconds (int), DoE excluded (if 0 the search stops after N_GEN generations, that corresponds to N_GEN*N_BATCH*N_SIM simulations)
-        SIM_TIME=0.001 # in seconds, duration of 1 simulation on 1 core
+        SIM_TIME=0.5 # in seconds, duration of 1 simulation on 1 core
         if TIME_BUDGET>0:
             assert TIME_BUDGET>SIM_TIME
             N_GEN=1000000000000
@@ -163,7 +162,7 @@ def main():
         # ec_op = Expected_Improvement_EC(surrogate)
         # ec_op = Probability_Improvement_EC(surrogate)
 
-        ec_op = Pareto_Tian2018_EC(surrogate)
+        ec_op = Pareto_Tian2018_EC([1, -1], ec_base_f, ec_base_s) # min pred cost, min variance
         # ec_op = ec_base_md
         # ec_op = ec_base_ms
 
@@ -182,7 +181,7 @@ def main():
         #     ec_op = Dynamic_EC(N_GEN, [0.25, 0.5, 0.25], ec_base_d, ec_base_md, ec_base_f)
 
         # pred_costs = surrogate.perform_prediction(pop.dvec)[0]
-        # ec_op = Adaptive_EC(N_SIM, N_PRED, N_DISC, "tanh", pop.costs, pred_costs, ec_base_f, ec_base_s)
+        # ec_op = Adaptive_EC("tanh", pop.costs, pred_costs, ec_base_f, ec_base_s)
 
         # ec_op = Committee_EC(N_SIM, ec_base_s, ec_base_ms, ec_base_f)
 
@@ -191,7 +190,6 @@ def main():
         crossover_op = SBX(0.9, 10)
         mutation_op = Polynomial(0.1, 50)
         replace_op = Elitist()
-        # replace_op = Elitist_Multiobj(ec_base_md)
 
 
         #----------------------Start Generation loop----------------------#
@@ -204,7 +202,7 @@ def main():
             children = mutation_op.perform_mutation(children, p.get_bounds())
             assert p.is_feasible(children.dvec)
 
-            # Update active EC in Dynamic_EC
+            # Update active EC in Dynamic_EC (generation level)
             if isinstance(ec_op, Dynamic_EC):
                 if TIME_BUDGET>0:
                     t_now = time.time()
@@ -244,6 +242,7 @@ def main():
                         sim_afford = int(remaining_time//SIM_TIME)
                         if np.max(nb_sim_per_proc)>sim_afford: # setting nb_sim_per_proc according to the remaining simulation budget
                             nb_sim_per_proc=sim_afford*np.ones((nprocs,), dtype=int)
+                            
                     for i in range(1,nprocs): # sending to workers
                         comm.send(nb_sim_per_proc[i], dest=i, tag=10)
                         comm.send(subbatch_to_simulate.dvec[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])], dest=i, tag=11)

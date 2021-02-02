@@ -3,7 +3,7 @@ Documentation sphinx autodoc: https://www.sphinx-doc.org/en/2.0/usage/extensions
 Documentation reStructuredText: https://sphinx-tutorial.readthedocs.io/_/downloads/en/latest/pdf/
 	      			https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#sections
 
-To modify pySAO's documentation, edit ./source/*.rst ./source/conf.py
+To modify pySAEA's documentation, edit ./source/*.rst ./source/conf.py
 
 To generate html files: make clean html
 

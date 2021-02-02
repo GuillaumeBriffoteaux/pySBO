@@ -15,9 +15,10 @@ Classes summary
    Evolution.SBX.SBX
    Evolution.Selection.Selection
    Evolution.Tournament.Tournament
+   Evolution.Tournament_Position.Tournament_Position
    Evolution.Replacement.Replacement
    Evolution.Elitist.Elitist
-   Evolution.Elitist_Multiobj.Elitist_Multiobj
+   Evolution.Custom_Elitism.Custom_Elitism
    
 Population
 ----------
@@ -60,6 +61,10 @@ Tournament
 ^^^^^^^^^^
 .. autoclass:: Evolution.Tournament.Tournament
 
+Tournament_Position
+^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Evolution.Tournament_Position.Tournament_Position
+
    
 Replacement
 -----------
@@ -72,6 +77,6 @@ Elitist
 ^^^^^^^
 .. autoclass:: Evolution.Elitist.Elitist
 
-Elitist_Multiobj
-^^^^^^^^^^^^^^^^
-.. autoclass:: Evolution.Elitist_Multiobj.Elitist_Multiobj
+Custom_Elitism
+^^^^^^^^^^^^^^
+.. autoclass:: Evolution.Custom_Elitism.Custom_Elitism

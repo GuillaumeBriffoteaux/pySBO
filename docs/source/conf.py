@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'pySAO'
+project = 'pySAEA'
 copyright = '2020, Guillaume Briffoteaux'
 author = 'Guillaume Briffoteaux'
 

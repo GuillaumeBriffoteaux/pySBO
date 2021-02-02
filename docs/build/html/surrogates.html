@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Surrogates &mdash; pySAO 0.1 documentation</title>
+  <title>Surrogates &mdash; pySAEA 0.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAO
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAEA
           
 
           
@@ -84,8 +84,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAO</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAO Packages</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAEA</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAEA Packages</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution.html">Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a></li>
@@ -127,7 +127,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pySAO</a>
+          <a href="index.html">pySAEA</a>
         
       </nav>
 
@@ -158,7 +158,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="packages.html">pySAO Packages</a> &raquo;</li>
+          <li><a href="packages.html">pySAEA Packages</a> &raquo;</li>
         
       <li>Surrogates</li>
     
@@ -226,7 +226,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> – filename where will be recorded the trained surrogate model</p></li>
 </ul>
@@ -309,7 +309,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
 <li><p><strong>y_bounds</strong> (<em>np.ndarray</em>) – lower and upper bounds of the costs found in the training set.</p></li>
@@ -392,7 +392,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
 <li><p><strong>model</strong> (<em>pybnn.DNGO</em>) – DNGO model for the network</p></li>
@@ -477,7 +477,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
 <li><p><strong>model</strong> (<em>pyKriging.krige.kriging</em>) – kriging model</p></li>
@@ -559,7 +559,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
 <li><p><strong>likelihood</strong> (<em>gpytorch.likelihoods.GaussianLikelihood</em>) – likelihood function</p></li>
@@ -642,7 +642,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
 <li><p><strong>likelihood</strong> (<em>gpytorch.likelihoods.GaussianLikelihood</em>) – likelihood function</p></li>
@@ -728,7 +728,7 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
-<li><p><strong>n_train_samples</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite></p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
 <li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
 <li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
 <li><p><strong>model</strong> (<em>sklearn.ensemble.RandomForestRegressor</em>) – Random Forest model</p></li>

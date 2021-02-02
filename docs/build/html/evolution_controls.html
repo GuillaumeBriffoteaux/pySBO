@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Evolution Controls &mdash; pySAO 0.1 documentation</title>
+  <title>Evolution Controls &mdash; pySAEA 0.1 documentation</title>
   
 
   
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAO
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAEA
           
 
           
@@ -84,8 +84,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAO</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAO Packages</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAEA</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAEA Packages</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution.html">Evolution</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Evolution Controls</a><ul>
@@ -103,13 +103,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#lower-confident-bound">Lower Confident Bound</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#probability-improvement">Probability Improvement</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#expected-improvement">Expected Improvement</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#pareto-based-from-tian-2018">Pareto-based (from Tian-2018)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adaptive-from-wang-2020">Adaptive (from Wang-2020)</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#ensemble">Ensemble</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#ensemble-abstract">Ensemble (abstract)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#pareto">Pareto</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pareto-based-from-tian-2018">Pareto-based (from Tian-2018)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dynamic">Dynamic</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adaptive">Adaptive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#committee">Committee</a></li>
@@ -136,7 +136,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pySAO</a>
+          <a href="index.html">pySAEA</a>
         
       </nav>
 
@@ -167,7 +167,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="packages.html">pySAO Packages</a> &raquo;</li>
+          <li><a href="packages.html">pySAEA Packages</a> &raquo;</li>
         
       <li>Evolution Controls</li>
     
@@ -226,17 +226,17 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC" title="Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC</span></code></a>(surr)</p></td>
 <td><p>Class for expected improvement EC.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC" title="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC</span></code></a>(surr)</p></td>
-<td><p>Class for bi-objective Pareto-based EC from Tian-2018.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC" title="Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC" title="Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC</span></code></a>(…)</p></td>
 <td><p>Class for Wang-2020’s adaptive EC.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Ensemble_EC.Ensemble_EC</span></code></a>(*ECs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Ensemble_EC.Ensemble_EC</span></code></a>(*ECs)</p></td>
 <td><p>Abstract class for ensembles of EC.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution_Controls.Pareto_EC.Pareto_EC" title="Evolution_Controls.Pareto_EC.Pareto_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Pareto_EC.Pareto_EC</span></code></a>(…)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Evolution_Controls.Pareto_EC.Pareto_EC" title="Evolution_Controls.Pareto_EC.Pareto_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Pareto_EC.Pareto_EC</span></code></a>(…)</p></td>
 <td><p>Class for Pareto-based EC.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC" title="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC</span></code></a>(…)</p></td>
+<td><p>Class for bi-objective Pareto-based EC from Tian-2018.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#Evolution_Controls.Dynamic_EC.Dynamic_EC" title="Evolution_Controls.Dynamic_EC.Dynamic_EC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Dynamic_EC.Dynamic_EC</span></code></a>(…)</p></td>
 <td><p>Class for dynamic EC.</p></td>
@@ -276,23 +276,6 @@
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="Evolution_Controls.Evolution_Control.Evolution_Control.get_IC_value">
-<em class="property">abstract </em><code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Evolution_Control.Evolution_Control.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -313,23 +296,6 @@
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>list of indexes</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Evolution_Controls.Random_EC.Random_EC.get_IC_value">
-<code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Random_EC.Random_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>
@@ -699,57 +665,6 @@ predicted by the surrogate) are more promising.</p>
 </dd></dl>
 
 </div>
-<div class="section" id="pareto-based-from-tian-2018">
-<h3>Pareto-based (from Tian-2018)<a class="headerlink" href="#pareto-based-from-tian-2018" title="Permalink to this headline">¶</a></h3>
-<dl class="py class">
-<dt id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution_Controls.Pareto_Tian2018_EC.</code><code class="sig-name descname">Pareto_Tian2018_EC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">surr</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution_Controls.Informed_EC.Informed_EC</span></code></a></p>
-<p>Class for bi-objective Pareto-based EC from Tian-2018.</p>
-<p>Candidates with lower non-dominated rank according to predicted cost minimization and prediction variance minimization are more promising.</p>
-<p>__init__ method’s input</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>surr</strong> (<a class="reference internal" href="surrogates.html#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><em>Surrogate</em></a>) – surrogate model</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes">
-<code class="sig-name descname">get_sorted_indexes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="evolution.html#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to split</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>list of indexes</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_IC_value">
-<code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="adaptive-from-wang-2020">
 <h3>Adaptive (from Wang-2020)<a class="headerlink" href="#adaptive-from-wang-2020" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
@@ -844,23 +759,6 @@ exploration).</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution_Controls.Ensemble_EC.Ensemble_EC.get_IC_value">
-<em class="property">abstract </em><code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="Evolution_Controls.Ensemble_EC.Ensemble_EC.get_sorted_indexes">
 <em class="property">abstract </em><code class="sig-name descname">get_sorted_indexes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
@@ -919,16 +817,38 @@ exploration).</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
-<dt id="Evolution_Controls.Pareto_EC.Pareto_EC.get_IC_value">
-<code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_EC.Pareto_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="pareto-based-from-tian-2018">
+<h3>Pareto-based (from Tian-2018)<a class="headerlink" href="#pareto-based-from-tian-2018" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC">
+<em class="property">class </em><code class="sig-prename descclassname">Evolution_Controls.Pareto_Tian2018_EC.</code><code class="sig-name descname">Pareto_Tian2018_EC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">coeffs</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">ECs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution_Controls.Ensemble_EC.Ensemble_EC</span></code></a></p>
+<p>Class for bi-objective Pareto-based EC from Tian-2018.</p>
+<p>Candidates with lowest non-dominated and highest rank according to minimization of the ECs (multiplied by their respective coefficient 1 or -1) are more promising. Then, Candidates with increasing non-dominated rank are increasingly promising.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
+<dd class="field-odd"><p><strong>coeffs</strong> (<em>np.ndarray</em>) – coefficients (1 or -1) to multiply the EC with (allow to convert a minimization problem into a maximization problem and reversely)</p>
+</dd>
+</dl>
+<p>__init__ method’s input</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ECs</strong> (<em>list</em><em>(</em><a class="reference internal" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Evolution_Controls.Evolution_Control.Evolution_Control"><em>Evolution_Control</em></a><em>)</em>) – evolution controls</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes">
+<code class="sig-name descname">get_sorted_indexes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="evolution.html#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to split</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
+<dd class="field-even"><p>list of indexes</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>
@@ -980,23 +900,6 @@ exploration).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution_Controls.Dynamic_EC.Dynamic_EC.get_IC_value">
-<code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_EC.Dynamic_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
 <dt id="Evolution_Controls.Dynamic_EC.Dynamic_EC.update_active">
 <code class="sig-name descname">update_active</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">search_progress</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_EC.Dynamic_EC.update_active" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update the active EC.</p>
@@ -1014,16 +917,13 @@ exploration).</p>
 <h3>Adaptive<a class="headerlink" href="#adaptive" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="Evolution_Controls.Adaptive_EC.Adaptive_EC">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution_Controls.Adaptive_EC.</code><code class="sig-name descname">Adaptive_EC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_sim</span></em>, <em class="sig-param"><span class="n">n_pred</span></em>, <em class="sig-param"><span class="n">n_disc</span></em>, <em class="sig-param"><span class="n">rew_func</span></em>, <em class="sig-param"><span class="n">sim_costs</span></em>, <em class="sig-param"><span class="n">pred_costs</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">ECs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">Evolution_Controls.Adaptive_EC.</code><code class="sig-name descname">Adaptive_EC</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rew_func</span></em>, <em class="sig-param"><span class="n">sim_costs</span></em>, <em class="sig-param"><span class="n">pred_costs</span></em>, <em class="sig-param"><span class="o">*</span><span class="n">ECs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution_Controls.Ensemble_EC.Ensemble_EC</span></code></a></p>
 <p>Class for adaptive EC.</p>
 <p>Only one EC is active at a time. The active EC changes during the search according to a reward mechanism based on a reward function, a threshold and the error between the simulated costs and the predicted costs computed on the last batch of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>n_sim</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of simulated candidates from the batch</p></li>
-<li><p><strong>n_pred</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of predicted candidates from the batch</p></li>
-<li><p><strong>n_disc</strong> (<em>positive int</em>) – number of discarded candidates from the batch</p></li>
 <li><p><strong>ECs_reward</strong> (<em>list</em>) – rewards of each EC</p></li>
 <li><p><strong>idx_active</strong> (<em>positive int</em>) – index of the current active EC in ECs_list</p></li>
 <li><p><strong>threshold</strong> (<em>float</em>) – threshold value (mean error between simulated costs and predicted costs from the last batches of simulations)</p></li>
@@ -1054,23 +954,6 @@ exploration).</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>list of indexes</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Evolution_Controls.Adaptive_EC.Adaptive_EC.get_IC_value">
-<code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>
@@ -1125,23 +1008,6 @@ exploration).</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>list of indexes</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>np.ndarray</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="Evolution_Controls.Committee_EC.Committee_EC.get_IC_value">
-<code class="sig-name descname">get_IC_value</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dvec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Committee_EC.Committee_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the promise values of candidates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>the promise</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>

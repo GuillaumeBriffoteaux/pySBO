@@ -27,11 +27,10 @@ from Problems.CEC2013 import CEC2013
 from Problems.DoE import DoE
 
 from Evolution.Population import Population
-from Evolution.Tournament import Tournament
+from Evolution.Tournament_Position import Tournament_Position
 from Evolution.SBX import SBX
 from Evolution.Polynomial import Polynomial
-from Evolution.Elitist import Elitist
-from Evolution.Elitist_Multiobj import Elitist_Multiobj
+from Evolution.Custom_Elitism import Custom_Elitism
 
 from Surrogates.BNN_MCD import BNN_MCD
 from Surrogates.BNN_BLR import BNN_BLR
@@ -52,6 +51,7 @@ from Evolution_Controls.Committee_EC import Committee_EC
 from Evolution_Controls.Dynamic_EC import Dynamic_EC
 from Evolution_Controls.Adaptive_EC import Adaptive_EC
 from Evolution_Controls.Pareto_EC import Pareto_EC
+from Evolution_Controls.Adaptive_Wang2020_EC import Adaptive_Wang2020_EC
 
 from Global_Var import *
 
@@ -80,11 +80,11 @@ def main():
     if rank==0:
 
         # Argument of the search
-        N_CYCLES=4
+        N_CYCLES=2
         INIT_DB_SIZE=48
         q=48 # number of simulated solutions per Cycle (could be less for the last Cycle according to time budget)
         TIME_BUDGET=0 # in seconds (int), DoE excluded (if 0 the search stops after N_CYCLES cycles, that corresponds to N_CYCLES*q simulations)
-        SIM_TIME=0.001 # in seconds, duration of 1 simulation on 1 core
+        SIM_TIME=1 # in seconds, duration of 1 simulation on 1 core
         if TIME_BUDGET>0:
             assert TIME_BUDGET>SIM_TIME
             N_CYCLES=1000000000000
@@ -131,7 +131,7 @@ def main():
         nb_sim_per_proc = (q//nprocs)*np.ones((nprocs,), dtype=int)
         for i in range(q%nprocs):
             nb_sim_per_proc[i+1]+=1
-
+            
         if TIME_BUDGET>0:
             t_start = time.time()
 
@@ -144,67 +144,83 @@ def main():
         # surrogate = RF(F_SIM_ARCHIVE, p, INIT_DB_SIZE, F_TRAIN_LOG, F_TRAINED_MODEL)
         surrogate.perform_training()
 
-        # Infill Criteria
-        ic_base_f = Best_Predicted_EC(surrogate)
-        ic_base_s = Variance_EC(surrogate)
-        ic_base_d = Distance_EC(surrogate)
-        ic_base_md = Pareto_EC([1, 1], 'hvc', ic_base_f, ic_base_d) # min pred cost, max distance
-        ic_base_ms = Pareto_EC([1, 1], 'hvc', ic_base_f, ic_base_s) # min pred cost, max variance
+        # Evolution Control
+        ec_base_f = Best_Predicted_EC(surrogate)
+        ec_base_s = Variance_EC(surrogate)
+        ec_base_d = Distance_EC(surrogate)
+        ec_base_md = Pareto_EC([1, 1], 'rand', ec_base_f, ec_base_d) # min pred cost, max distance
+        ec_base_ms = Pareto_EC([1, 1], 'rand', ec_base_f, ec_base_s) # min pred cost, max variance
     
-        # ic_op = Random_EC()
-        ic_op = ic_base_f
-        # ic_op = ic_base_s
-        # ic_op = ic_base_d
+        # ec_op = Random_EC()
+        ec_op = ec_base_f
+        # ec_op = ec_base_s
+        # ec_op = ec_base_d
     
-        # ic_op = Lower_Confident_Bound_EC(surrogate)
-        # ic_op = Expected_Improvement_EC(surrogate)
-        # ic_op = Probability_Improvement_EC(surrogate)
+        # ec_op = Lower_Confident_Bound_EC(surrogate)
+        # ec_op = Expected_Improvement_EC(surrogate)
+        # ec_op = Probability_Improvement_EC(surrogate)
 
-        # ic_op = Pareto_Tian2018_EC(surrogate)
-        # ic_op = ic_base_md
-        # ic_op = ic_base_ms
+        # ec_op = Pareto_Tian2018_EC([1, -1], ec_base_f, ec_base_s) # min pred cost, min variance
+        # ec_op = ec_base_md
+        # ec_op = ec_base_ms
 
         # if TIME_BUDGET>0:
-        #     ic_op = Dynamic_EC(TIME_BUDGET, [0.25, 0.5, 0.25], ic_base_d, ic_base_md, ic_base_f)
+        #     ec_op = Adaptive_Wang2020_EC(surrogate, TIME_BUDGET, "min")
         # else:
-        #     ic_op = Dynamic_EC(N_CYCLES, [0.25, 0.5, 0.25], ic_base_d, ic_base_md, ic_base_f)
+        #     ec_op = Adaptive_Wang2020_EC(surrogate, N_CYCLES, "min")
+        # if TIME_BUDGET>0:
+        #     ec_op = Adaptive_Wang2020_EC(surrogate, TIME_BUDGET, "max")
+        # else:
+        #     ec_op = Adaptive_Wang2020_EC(surrogate, N_CYCLES, "max")
+
+        # if TIME_BUDGET>0:
+        #     ec_op = Dynamic_EC(TIME_BUDGET, [0.25, 0.5, 0.25], ec_base_d, ec_base_md, ec_base_f)
+        # else:
+        #     ec_op = Dynamic_EC(N_CYCLES, [0.25, 0.5, 0.25], ec_base_d, ec_base_md, ec_base_f)
 
         # pred_costs = surrogate.perform_prediction(db.dvec)[0]
-        # ic_op = Adaptive_EC(0, 0, 0, "tanh", db.costs, pred_costs, ic_base_f, ic_base_s)
-        
-        # ic_op = Committee_EC(0, ic_base_s, ic_base_ms, ic_base_f)
+        # ec_op = Adaptive_EC("tanh", db.costs, pred_costs, ec_base_f, ec_base_s)
+
+        # ec_op = Committee_EC(POP_SIZE, ec_base_s, ec_base_ms, ec_base_f)
         
         # Operators
-        select_op = Tournament(2)
+        select_op = Tournament_Position(2)
         crossover_op = SBX(0.9, 10)
         mutation_op = Polynomial(0.1, 50)
-        replace_op = Elitist()
-        # replace_op = Elitist_Multiobj(ic_base_md)
+        replace_op = Custom_Elitism(ec_op)
 
         # Population initialization
         del db
-        pop = Population(p.n_dvar)
 
 
         #----------------------Loop over Cycles----------------------#    
         for curr_cycle in range(N_CYCLES):
-            print("cycle ", curr_cycle)
+            print("cycle "+str(curr_cycle))
 
-            # Update active EC in Dynamic_EC
-            if isinstance(ic_op, Dynamic_EC):
+            # Update Adaptive_Wang2020_EC (cycle level)
+            if isinstance(ec_op, Adaptive_Wang2020_EC):
                 if TIME_BUDGET>0:
                     t_now = time.time()
                     elapsed_time = int(t_now-t_start)
-                    ic_op.update_active(elapsed_time)
+                    ec_op.update_EC(elapsed_time)
                 else:
-                    ic_op.update_active(curr_cycle)
+                    ec_op.update_EC(curr_cycle)
+
+            # Update active EC in Dynamic_EC (cycle level)
+            if isinstance(ec_op, Dynamic_EC):
+                if TIME_BUDGET>0:
+                    t_now = time.time()
+                    elapsed_time = int(t_now-t_start)
+                    ec_op.update_active(elapsed_time)
+                else:
+                    ec_op.update_active(curr_cycle)
 
             # Population initialization
+            pop = Population(p.n_dvar)
             pop.dvec = d.latin_hypercube_sampling(POP_SIZE)
-            pop.costs = ic_op.get_IC_value(pop.dvec)
-            if isinstance(ic_op, Adaptive_EC):
-                ic_op.to_be_updated=False
-            pop.fitness_modes = False*np.ones(pop.costs.shape, dtype=bool)
+            pop.dvec = pop.dvec[ec_op.get_sorted_indexes(pop)]
+            if isinstance(ec_op, Adaptive_EC):
+                ec_op.to_be_updated=False
 
             #----------------------Evolution loop----------------------#
             for curr_gen in range(N_GEN):
@@ -215,10 +231,6 @@ def main():
                 children = mutation_op.perform_mutation(children, p.get_bounds())
                 assert p.is_feasible(children.dvec)
 
-                # Children evaluation
-                children.costs = ic_op.get_IC_value(children.dvec)
-                children.fitness_modes = False*np.ones(children.costs.shape, dtype=bool)
-
                 # Replacement
                 replace_op.perform_replacement(pop, children)
                 assert p.is_feasible(pop.dvec)
@@ -228,23 +240,25 @@ def main():
             # Computing number of affordable simulations
             if TIME_BUDGET>0:
                 t_now = time.time()
-                remaining_time = int(TIME_BUDGET-(t_now-t_start))
-                if remaining_time<=0:
+                remaining_time = TIME_BUDGET-(t_now-t_start)
+                if remaining_time<SIM_TIME:
                     break
-                sim_afford = remaining_time//SIM_TIME
+                sim_afford = int(remaining_time//SIM_TIME)
                 if np.max(nb_sim_per_proc)>sim_afford: # setting nb_sim_per_proc according to the remaining simulation budget
                     nb_sim_per_proc=sim_afford*np.ones((nprocs,), dtype=int)
-
+                    
             # q(=np.sum(np_sim_per_proc)) best candidates from the population are simulated in parallel
             for i in range(1,nprocs): # sending to workers
                 comm.send(nb_sim_per_proc[i], dest=i, tag=10)
                 comm.send(pop.dvec[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])], dest=i, tag=11)
+            pop.costs = np.zeros((pop.dvec.shape[0],))
             pop.costs[0:nb_sim_per_proc[0]] = p.perform_real_evaluation(pop.dvec[0:nb_sim_per_proc[0]])
             for i in range(1,nprocs): # receiving from workers
                 pop.costs[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])] = comm.recv(source=i, tag=12)
+            pop.fitness_modes = False*np.ones(pop.costs.shape, dtype=bool)
             pop.fitness_modes[:np.sum(nb_sim_per_proc)] = True
 
-            # New simulation added to database
+            # New simulations added to database
             pop.save_sim_archive(F_SIM_ARCHIVE)
             pop.update_best_sim(F_BEST_PROFILE)
 
@@ -255,12 +269,14 @@ def main():
                     break
 
             # Update active EC in Adaptive_EC
-            if isinstance(ic_op, Adaptive_EC):
+            if isinstance(ec_op, Adaptive_EC):
                 pred_costs = surrogate.perform_prediction(pop.dvec[:np.sum(nb_sim_per_proc)])[0]
-                ic_op.update_active(pop.costs[:np.sum(nb_sim_per_proc)], pred_costs)
+                ec_op.update_active(pop.costs[:np.sum(nb_sim_per_proc)], pred_costs)
             
             # Surrogate update
             surrogate.perform_training()
+
+            del pop
 
         #----------------------End loop over Cycles----------------------#
 
