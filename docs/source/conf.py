@@ -12,9 +12,12 @@
 #
 import os
 import sys
-sys.path.append('../')
-sys.path.append('../src/')
-sys.path.append('../examples/')
+sys.path.insert(0, os.path.abspath('../../'))
+sys.path.insert(0, os.path.abspath('../../src/'))
+sys.path.insert(0, os.path.abspath('../../examples'))
+# sys.path.append('../')
+# sys.path.append('../src/')
+# sys.path.append('../examples/')
 
 import sphinx_rtd_theme
 
