@@ -81,7 +81,7 @@ class Population:
     def append(self, pop):
         """Appends individuals to the current population.
         
-        :param pop: indivials to be appended
+        :param pop: individuals to be appended
         :type pop: Population
         """
         
@@ -187,7 +187,7 @@ class Population:
         The CSV file has to be organized as follows:
         First row: number of decision variables, number of objectives, number of fitness modes
         Second row: lower bounds of the decision variables
-        Thrid row: upper bounds of the decision variables
+        Third row: upper bounds of the decision variables
         Remaining rows (one per individual): decision variables, costs, fitness mode
         
         :param f_pop_archive: filename of the CSV file
