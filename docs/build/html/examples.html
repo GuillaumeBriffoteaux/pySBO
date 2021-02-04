@@ -87,15 +87,15 @@
 <li class="toctree-l1"><a class="reference internal" href="packages.html">pySAEA Packages</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#evolutionary-algorithm">Evolutionary Algorithm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#synchronous-parallel-ea">Synchronous Parallel EA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-par_sync_EA">Synchronous Parallel EA</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#direct-fitness-replacement">Direct Fitness Replacement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#synchronous-parallel-dfr">Synchronous Parallel DFR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-par_sync_DFR">Synchronous Parallel DFR</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#efficient-global-optimization">Efficient Global Optimization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#synchronous-parallel-ego">Synchronous Parallel EGO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-par_sync_EGO">Synchronous Parallel EGO</a></li>
 </ul>
 </li>
 </ul>
@@ -170,10 +170,9 @@
 <div class="section" id="evolutionary-algorithm">
 <h2>Evolutionary Algorithm<a class="headerlink" href="#evolutionary-algorithm" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/animated_EA.gif"><img alt="_images/animated_EA.gif" class="align-center" src="_images/animated_EA.gif" style="width: 493.0px; height: 530.0px;" /></a>
-<div class="section" id="synchronous-parallel-ea">
-<h3>Synchronous Parallel EA<a class="headerlink" href="#synchronous-parallel-ea" title="Permalink to this headline">¶</a></h3>
-<p>Code <a class="reference download internal" download="" href="_downloads/d568048e8f7a353fad659956f6975693/par_sync_EA.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
-<span class="target" id="module-par_sync_EA"></span><p>Script running a synchronous parallel evolutionary algorithm.</p>
+<div class="section" id="module-par_sync_EA">
+<span id="synchronous-parallel-ea"></span><h3>Synchronous Parallel EA<a class="headerlink" href="#module-par_sync_EA" title="Permalink to this headline">¶</a></h3>
+<p>Script running a synchronous parallel evolutionary algorithm.</p>
 <p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">./par_sync_EA.py</span></code></p>
 <p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EA.py</span></code></p>
 <p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EA.py</span></code></p>
@@ -184,10 +183,9 @@
 <div class="section" id="direct-fitness-replacement">
 <h2>Direct Fitness Replacement<a class="headerlink" href="#direct-fitness-replacement" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/animated_DFR.gif"><img alt="_images/animated_DFR.gif" class="align-center" src="_images/animated_DFR.gif" style="width: 734.0px; height: 591.0px;" /></a>
-<div class="section" id="synchronous-parallel-dfr">
-<h3>Synchronous Parallel DFR<a class="headerlink" href="#synchronous-parallel-dfr" title="Permalink to this headline">¶</a></h3>
-<p>Code <a class="reference download internal" download="" href="_downloads/d5792901b2526a76341f5ad73b705f68/par_sync_DFR.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
-<span class="target" id="module-par_sync_DFR"></span><p>Script running a synchronous parallel surrogate-assisted evolutionary algorithm.</p>
+<div class="section" id="module-par_sync_DFR">
+<span id="synchronous-parallel-dfr"></span><h3>Synchronous Parallel DFR<a class="headerlink" href="#module-par_sync_DFR" title="Permalink to this headline">¶</a></h3>
+<p>Script running a synchronous parallel surrogate-assisted evolutionary algorithm.</p>
 <p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">./par_sync_DFR.py</span></code></p>
 <p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_DFR.py</span></code></p>
 <p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_DFR.py</span></code></p>
@@ -198,10 +196,9 @@
 <div class="section" id="efficient-global-optimization">
 <h2>Efficient Global Optimization<a class="headerlink" href="#efficient-global-optimization" title="Permalink to this headline">¶</a></h2>
 <a class="reference internal image-reference" href="_images/animated_EGO.gif"><img alt="_images/animated_EGO.gif" class="align-center" src="_images/animated_EGO.gif" style="width: 591.0px; height: 449.0px;" /></a>
-<div class="section" id="synchronous-parallel-ego">
-<h3>Synchronous Parallel EGO<a class="headerlink" href="#synchronous-parallel-ego" title="Permalink to this headline">¶</a></h3>
-<p>Code <a class="reference download internal" download="" href="_downloads/a5c840b8f2f086689fcdec3ca5443ffa/par_sync_EGO.py"><code class="xref download docutils literal notranslate"><span class="pre">available</span> <span class="pre">here</span></code></a></p>
-<span class="target" id="module-par_sync_EGO"></span><p>Script running a synchronous parallel efficient global optimization algorithm.</p>
+<div class="section" id="module-par_sync_EGO">
+<span id="synchronous-parallel-ego"></span><h3>Synchronous Parallel EGO<a class="headerlink" href="#module-par_sync_EGO" title="Permalink to this headline">¶</a></h3>
+<p>Script running a synchronous parallel efficient global optimization algorithm.</p>
 <p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">./par_sync_EGO.py</span></code></p>
 <p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EGO.py</span></code></p>
 <p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python3.7</span> <span class="pre">par_sync_EGO.py</span></code></p>

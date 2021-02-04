@@ -1,1 +1,1 @@
-See documentation https://pysaea.readthedocs.io/en/latest/index.html
+See documentation locally: firefox ./docs/build/html/index.html

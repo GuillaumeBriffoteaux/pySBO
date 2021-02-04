@@ -15,8 +15,6 @@ Evolutionary Algorithm
 Synchronous Parallel EA
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Code :download:`available here<../../examples/par_sync_EA.py>`
-
 .. automodule:: par_sync_EA
 
 .. image:: ../examples_diagrams/sync_EA/animated_sync_EA.gif
@@ -37,8 +35,6 @@ Direct Fitness Replacement
 Synchronous Parallel DFR
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-Code :download:`available here<../../examples/par_sync_DFR.py>`
-
 .. automodule:: par_sync_DFR
 
 .. image:: ../examples_diagrams/sync_EA/animated_sync_EA.gif
@@ -58,8 +54,6 @@ Efficient Global Optimization
 
 Synchronous Parallel EGO
 ^^^^^^^^^^^^^^^^^^^^^^^^
-
-Code :download:`available here<../../examples/par_sync_EGO.py>`
 
 .. automodule:: par_sync_EGO
 

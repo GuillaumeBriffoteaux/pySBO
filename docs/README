@@ -1,11 +1,12 @@
+To modify pySAEA's documentation, edit ./source/*.rst ./source/conf.py
+
+To generate documentation (i.e. html files) locally: make clean html
+
+To open index.html locally: firefox build/html/index.html
+
+
+
 Documentation sphinx autodoc: https://www.sphinx-doc.org/en/2.0/usage/extensions/autodoc.html
 
 Documentation reStructuredText: https://sphinx-tutorial.readthedocs.io/_/downloads/en/latest/pdf/
 	      			https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#sections
-
-To modify pySAEA's documentation, edit ./source/*.rst ./source/conf.py
-
-To generate html files: make clean html
-
-To open index.html: firefox build/html/index.html
-

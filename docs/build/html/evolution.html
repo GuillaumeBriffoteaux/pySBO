@@ -197,7 +197,7 @@
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Population.Population</span></code></a>(n_dvar)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Population.Population</span></code></a>(pb)</p></td>
 <td><p>Class for the population of an evolutionary algorithm.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#Evolution.Mutation.Mutation" title="Evolution.Mutation.Mutation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Mutation.Mutation</span></code></a>(prob)</p></td>
@@ -237,22 +237,17 @@
 <h2>Population<a class="headerlink" href="#population" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
 <dt id="Evolution.Population.Population">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Population.</code><code class="sig-name descname">Population</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">Evolution.Population.</code><code class="sig-name descname">Population</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for the population of an evolutionary algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – the problem the population is associated with</p></li>
 <li><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors of the individuals</p></li>
 <li><p><strong>costs</strong> (<em>np.ndarray</em>) – costs associated with each individual</p></li>
 <li><p><strong>fitness_modes</strong> (<em>np.ndarray</em>) – evaluation mode associated with each individual: True for simulation (i.e. real evaluation) and False for prediction (i.e. surrogate evaluation)</p></li>
 </ul>
-</dd>
-</dl>
-<p>__init__ method’s input</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>n_dvar</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of decision variables</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -263,17 +258,14 @@
 
 <dl class="py method">
 <dt id="Evolution.Population.Population.check_integrity">
-<code class="sig-name descname">check_integrity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.check_integrity" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">check_integrity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.check_integrity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks arrays’ shapes are consistent.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – the problem the population is associated with</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True for arrays’ consistency and False otherwise</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True for arrays’ consistency and False otherwise</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>bool</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
@@ -284,7 +276,7 @@
 <dd><p>Appends individuals to the current population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – indivials to be appended</p>
+<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – individuals to be appended</p>
 </dd>
 </dl>
 </dd></dl>
@@ -292,7 +284,7 @@
 <dl class="py method">
 <dt id="Evolution.Population.Population.sort">
 <code class="sig-name descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.sort" title="Permalink to this definition">¶</a></dt>
-<dd><p>Sorts the population according to individuals’ costs (ascending order).</p>
+<dd><p>Sorts the population according to ascending individuals’ costs (mono-objective) or non-dominated and crowded distance sorting (multi-objective).</p>
 </dd></dl>
 
 <dl class="py method">
@@ -315,11 +307,12 @@
 <dl class="py method">
 <dt id="Evolution.Population.Population.update_best_sim">
 <code class="sig-name descname">update_best_sim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_best_profile</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.update_best_sim" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates the best individual and logs.</p>
-<p>The best individual is a simulated individual (its <cite>fitness_modes</cite> is True).
-The best decision vector (minimisation assumed) is saved in <cite>Global_Var.dvec_min</cite>.
-The best cost is saved in <cite>Global_Var.cost_min</cite>.
-Both best decision vector and cost are printed to a file.</p>
+<dd><p>Updates the best individual (mono-objective only) and logs.</p>
+<p>For mono-objective:
+The best simulated decision vector (minimisation assumed) is saved in <cite>Global_Var.dvec_min</cite> and its associated simulated cost is saved in <cite>Global_Var.cost_min</cite>.
+The best simulated decision vector is printed to a file along with its associated simulated cost.</p>
+<p>For multi-objective:
+The simulated decision vectors composing the best non-dominated front are printed to a file along with their respective simulated costs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>f_best_profile</strong> (<em>str</em>) – filename for logging</p>
@@ -329,7 +322,7 @@ Both best decision vector and cost are printed to a file.</p>
 
 <dl class="py method">
 <dt id="Evolution.Population.Population.save_to_csv_file">
-<code class="sig-name descname">save_to_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">save_to_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the population to a CSV file.</p>
 <p>The CSV file is organized as follows:
 First row: number of decision variables, number of objectives, number of fitness modes
@@ -338,29 +331,23 @@ Thrid row: upper bounds of the decision variables
 Remaining rows (one per individual): decision variables, costs, fitness mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file.</p></li>
-<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is assocated with</p></li>
-</ul>
+<dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Evolution.Population.Population.load_from_csv_file">
-<code class="sig-name descname">load_from_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_csv_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_from_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_csv_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the population from a CSV file.</p>
 <p>The CSV file has to be organized as follows:
 First row: number of decision variables, number of objectives, number of fitness modes
 Second row: lower bounds of the decision variables
-Thrid row: upper bounds of the decision variables
+Third row: upper bounds of the decision variables
 Remaining rows (one per individual): decision variables, costs, fitness mode</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file</p></li>
-<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is associated with</p></li>
-</ul>
+<dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file</p>
 </dd>
 </dl>
 </dd></dl>
@@ -380,28 +367,22 @@ One per individual: decision variables, costs, fitness mode.</p>
 
 <dl class="py method">
 <dt id="Evolution.Population.Population.save_to_pickle_file">
-<code class="sig-name descname">save_to_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_pickle_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">save_to_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_pickle_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the population to a pickle file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p></li>
-<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is associated with</p></li>
-</ul>
+<dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="Evolution.Population.Population.load_from_pickle_file">
-<code class="sig-name descname">load_from_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_pickle_file" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_from_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_pickle_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a population from a pickle file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p></li>
-<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the population is associated with</p></li>
-</ul>
+<dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p>
 </dd>
 </dl>
 </dd></dl>
@@ -443,14 +424,11 @@ One per individual: decision variables, costs, fitness mode.</p>
 </dl>
 <dl class="py method">
 <dt id="Evolution.Polynomial.Polynomial.perform_mutation">
-<code class="sig-name descname">perform_mutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">bounds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial.perform_mutation" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">perform_mutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial.perform_mutation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mutates the individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p></li>
-<li><p><strong>bounds</strong> (<em>np.ndarray</em>) – bounds of decision variables</p></li>
-</ul>
+<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the mutated population</p>
@@ -499,14 +477,11 @@ One per individual: decision variables, costs, fitness mode.</p>
 </dl>
 <dl class="py method">
 <dt id="Evolution.SBX.SBX.perform_crossover">
-<code class="sig-name descname">perform_crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">bounds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX.perform_crossover" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">perform_crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX.perform_crossover" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies crossover to the individuals of a population.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p></li>
-<li><p><strong>bounds</strong> (<em>np.ndarray</em>) – bounds of decision variables</p></li>
-</ul>
+<dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>the mutated population</p>

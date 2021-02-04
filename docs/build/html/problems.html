@@ -88,16 +88,26 @@
 <li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySAEA Packages</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Problems</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classes-summary">Classes summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mono-objective-problems">Mono-objective problems</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#abstract-problems">Abstract problems</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#problem-abstract">Problem (abstract)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#box-constrained-abstract">Box-constrained (abstract)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#benchmark-abstract">Benchmark (abstract)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mono-objective-problems">Mono-objective problems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mono-objective-abstract">Mono_Objective (abstract)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ackley">Ackley</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#xiong">Xiong</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#schwefel">Schwefel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rastrigin">Rastrigin</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rosenbrock">Rosenbrock</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cec2013">CEC2013</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#cec2014">CEC2014</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#multi-objective-problems">Multi-objective problems</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#multi-objective-abstract">Multi_Objective (abstract)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#zdt">ZDT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#dtlz">DTLZ</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#design-of-experiments">Design of Experiments</a></li>
@@ -193,8 +203,8 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#Problems.Box_Constrained.Box_Constrained" title="Problems.Box_Constrained.Box_Constrained"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.Box_Constrained.Box_Constrained</span></code></a>(…)</p></td>
 <td><p>Abstract class for real-valued box-constraints optimization problems.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a>(n_dvar, n_obj)</p></td>
-<td><p>Abstract class for artificial real-valued box-constraints optimization problems.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a>(…)</p></td>
+<td><p>Abstract class for artificial mono-objective real-valued box-constraints optimization problems.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#Problems.Ackley.Ackley" title="Problems.Ackley.Ackley"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.Ackley.Ackley</span></code></a>(n_dvar)</p></td>
 <td><p>Class for the mono-objective Ackley problem.</p></td>
@@ -214,14 +224,20 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#Problems.CEC2013.CEC2013" title="Problems.CEC2013.CEC2013"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.CEC2013.CEC2013</span></code></a>(f_id, n_dvar)</p></td>
 <td><p>Class for mono-objective problems from the CEC2013.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Problems.CEC2014.CEC2014" title="Problems.CEC2014.CEC2014"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.CEC2014.CEC2014</span></code></a>(f_id, n_dvar)</p></td>
+<td><p>Class for mono-objective problems from the CEC2014.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Problems.Multi_Objective.Multi_Objective" title="Problems.Multi_Objective.Multi_Objective"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.Multi_Objective.Multi_Objective</span></code></a>(…)</p></td>
+<td><p>Abstract class for artificial multi-objective real-valued box-constraints optimization problems.</p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#Problems.DoE.DoE" title="Problems.DoE.DoE"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.DoE.DoE</span></code></a>(pb)</p></td>
 <td><p>Class for Design of Experiments.</p></td>
 </tr>
 </tbody>
 </table>
 </div>
-<div class="section" id="mono-objective-problems">
-<h2>Mono-objective problems<a class="headerlink" href="#mono-objective-problems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="abstract-problems">
+<h2>Abstract problems<a class="headerlink" href="#abstract-problems" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="problem-abstract">
 <h3>Problem (abstract)<a class="headerlink" href="#problem-abstract" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
@@ -250,13 +266,16 @@
 </dd></dl>
 
 </div>
-<div class="section" id="benchmark-abstract">
-<h3>Benchmark (abstract)<a class="headerlink" href="#benchmark-abstract" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="mono-objective-problems">
+<h2>Mono-objective problems<a class="headerlink" href="#mono-objective-problems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mono-objective-abstract">
+<h3>Mono_Objective (abstract)<a class="headerlink" href="#mono-objective-abstract" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
-<dt id="Problems.Benchmark.Benchmark">
-<em class="property">class </em><code class="sig-prename descclassname">Problems.Benchmark.</code><code class="sig-name descname">Benchmark</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em>, <em class="sig-param"><span class="n">n_obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Benchmark.Benchmark" title="Permalink to this definition">¶</a></dt>
+<dt id="Problems.Mono_Objective.Mono_Objective">
+<em class="property">class </em><code class="sig-prename descclassname">Problems.Mono_Objective.</code><code class="sig-name descname">Mono_Objective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em>, <em class="sig-param"><span class="n">n_obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Mono_Objective.Mono_Objective" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Box_Constrained.Box_Constrained" title="Problems.Box_Constrained.Box_Constrained"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Box_Constrained.Box_Constrained</span></code></a></p>
-<p>Abstract class for artificial real-valued box-constraints optimization problems.</p>
+<p>Abstract class for artificial mono-objective real-valued box-constraints optimization problems.</p>
 </dd></dl>
 
 </div>
@@ -265,7 +284,7 @@
 <dl class="py class">
 <dt id="Problems.Ackley.Ackley">
 <em class="property">class </em><code class="sig-prename descclassname">Problems.Ackley.</code><code class="sig-name descname">Ackley</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
 <p>Class for the mono-objective Ackley problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -334,7 +353,7 @@
 <dl class="py class">
 <dt id="Problems.Xiong.Xiong">
 <em class="property">class </em><code class="sig-prename descclassname">Problems.Xiong.</code><code class="sig-name descname">Xiong</code><a class="headerlink" href="#Problems.Xiong.Xiong" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
 <p>Class for 1D mono-objective Xiong problem.</p>
 <dl class="py method">
 <dt id="Problems.Xiong.Xiong.perform_real_evaluation">
@@ -398,7 +417,7 @@
 <dl class="py class">
 <dt id="Problems.Schwefel.Schwefel">
 <em class="property">class </em><code class="sig-prename descclassname">Problems.Schwefel.</code><code class="sig-name descname">Schwefel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
 <p>Class for the mono-objective Schwefel problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -467,7 +486,7 @@
 <dl class="py class">
 <dt id="Problems.Rastrigin.Rastrigin">
 <em class="property">class </em><code class="sig-prename descclassname">Problems.Rastrigin.</code><code class="sig-name descname">Rastrigin</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
 <p>Class for the mono-objective Rastrigin problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -536,7 +555,7 @@
 <dl class="py class">
 <dt id="Problems.Rosenbrock.Rosenbrock">
 <em class="property">class </em><code class="sig-prename descclassname">Problems.Rosenbrock.</code><code class="sig-name descname">Rosenbrock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
 <p>Class for the mono-objective Rosenbrock problem.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -605,12 +624,12 @@
 <dl class="py class">
 <dt id="Problems.CEC2013.CEC2013">
 <em class="property">class </em><code class="sig-prename descclassname">Problems.CEC2013.</code><code class="sig-name descname">CEC2013</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_id</span></em>, <em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Problems.Benchmark.Benchmark" title="Problems.Benchmark.Benchmark"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Benchmark.Benchmark</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
 <p>Class for mono-objective problems from the CEC2013.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>f_id</strong> (<em>int</em>) – problem’s identifier into the pygmo library</p></li>
+<li><p><strong>f_id</strong> (<em>int in {1</em><em>,</em><em>..</em><em>,</em><em>28}</em>) – problem’s identifier into the pygmo library</p></li>
 <li><p><strong>n_dvar</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of decision variable</p></li>
 </ul>
 </dd>
@@ -667,6 +686,224 @@
 <dt id="Problems.CEC2013.CEC2013.plot">
 <code class="sig-name descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the 2D CEC2013 considered problem’s fitness function.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cec2014">
+<h3>CEC2014<a class="headerlink" href="#cec2014" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Problems.CEC2014.CEC2014">
+<em class="property">class </em><code class="sig-prename descclassname">Problems.CEC2014.</code><code class="sig-name descname">CEC2014</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_id</span></em>, <em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Mono_Objective.Mono_Objective" title="Problems.Mono_Objective.Mono_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Mono_Objective.Mono_Objective</span></code></a></p>
+<p>Class for mono-objective problems from the CEC2014.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_id</strong> (<em>int in {1</em><em>,</em><em>..</em><em>,</em><em>30}</em>) – problem’s identifier into the pygmo library</p></li>
+<li><p><strong>n_dvar</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of decision variable</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Problems.CEC2014.CEC2014.perform_real_evaluation">
+<code class="sig-name descname">perform_real_evaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fitness function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidate decision vectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>costs (i.e. objective values)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.CEC2014.CEC2014.get_bounds">
+<code class="sig-name descname">get_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.get_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns search space bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>search space bounds</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.CEC2014.CEC2014.is_feasible">
+<code class="sig-name descname">is_feasible</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.is_feasible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check feasibility of candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidate decision vectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>boolean indicating whether candidates are feasible</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.CEC2014.CEC2014.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot the 2D CEC2014 considered problem’s fitness function.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="multi-objective-problems">
+<h2>Multi-objective problems<a class="headerlink" href="#multi-objective-problems" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="multi-objective-abstract">
+<h3>Multi_Objective (abstract)<a class="headerlink" href="#multi-objective-abstract" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Problems.Multi_Objective.Multi_Objective">
+<em class="property">class </em><code class="sig-prename descclassname">Problems.Multi_Objective.</code><code class="sig-name descname">Multi_Objective</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_dvar</span></em>, <em class="sig-param"><span class="n">n_obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Multi_Objective.Multi_Objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Box_Constrained.Box_Constrained" title="Problems.Box_Constrained.Box_Constrained"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Box_Constrained.Box_Constrained</span></code></a></p>
+<p>Abstract class for artificial multi-objective real-valued box-constraints optimization problems.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="zdt">
+<h3>ZDT<a class="headerlink" href="#zdt" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Problems.ZDT.ZDT">
+<em class="property">class </em><code class="sig-prename descclassname">Problems.ZDT.</code><code class="sig-name descname">ZDT</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_id</span></em>, <em class="sig-param"><span class="n">n_dvar</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Multi_Objective.Multi_Objective" title="Problems.Multi_Objective.Multi_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Multi_Objective.Multi_Objective</span></code></a></p>
+<p>Class for bi-objective problems from the ZDT test suite.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_id</strong> (<em>int in {1</em><em>,</em><em>..</em><em>,</em><em>6}</em>) – problem’s identifier into the pygmo library</p></li>
+<li><p><strong>n_dvar</strong> (<em>positive int</em><em>, </em><em>strictly greater than 1</em>) – number of decision variable</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Problems.ZDT.ZDT.perform_real_evaluation">
+<code class="sig-name descname">perform_real_evaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fitness function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidate decision vectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>costs (i.e. objective values)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.ZDT.ZDT.get_bounds">
+<code class="sig-name descname">get_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.get_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns search space bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>search space bounds</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.ZDT.ZDT.is_feasible">
+<code class="sig-name descname">is_feasible</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.is_feasible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check feasibility of candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidate decision vectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>boolean indicating whether candidates are feasible</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="dtlz">
+<h3>DTLZ<a class="headerlink" href="#dtlz" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Problems.DTLZ.DTLZ">
+<em class="property">class </em><code class="sig-prename descclassname">Problems.DTLZ.</code><code class="sig-name descname">DTLZ</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_id</span></em>, <em class="sig-param"><span class="n">n_dvar</span></em>, <em class="sig-param"><span class="n">n_obj</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Problems.Multi_Objective.Multi_Objective" title="Problems.Multi_Objective.Multi_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problems.Multi_Objective.Multi_Objective</span></code></a></p>
+<p>Class for multi-objective problems from the DTLZ test suite.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_id</strong> (<em>int in {1</em><em>,</em><em>..</em><em>,</em><em>7}</em>) – problem’s identifier into the pygmo library</p></li>
+<li><p><strong>n_dvar</strong> (<em>positive int</em><em>, </em><em>not zero</em><em>, </em><em>strictly greater than n_obj</em>) – number of decision variable</p></li>
+<li><p><strong>n_obj</strong> (<em>positive int</em><em>, </em><em>strictly greater than 1</em>) – number of objectives</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Problems.DTLZ.DTLZ.perform_real_evaluation">
+<code class="sig-name descname">perform_real_evaluation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fitness function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidate decision vectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>costs (i.e. objective values)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.DTLZ.DTLZ.get_bounds">
+<code class="sig-name descname">get_bounds</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.get_bounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns search space bounds.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>search space bounds</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Problems.DTLZ.DTLZ.is_feasible">
+<code class="sig-name descname">is_feasible</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.is_feasible" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check feasibility of candidates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidate decision vectors</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>boolean indicating whether candidates are feasible</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
