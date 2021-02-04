@@ -106,7 +106,7 @@ def main():
 
         # Population initialization / Parallel DoE
         d = DoE(p)
-        pop = Population(p.n_dvar)
+        pop = Population(p)
         pop.dvec = d.latin_hypercube_sampling(POP_SIZE)
         nb_sim_per_proc = (POP_SIZE//nprocs)*np.ones((nprocs,), dtype=int) # number of simulations per proc
         for i in range(POP_SIZE%nprocs):
@@ -119,13 +119,13 @@ def main():
         for i in range(1,nprocs): # receiving from workers
             pop.costs[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])] = comm.recv(source=i, tag=12)
         pop.fitness_modes = True*np.ones(pop.costs.shape, dtype=bool)
-        pop.save_to_csv_file(F_INIT_POP, p)
+        pop.save_to_csv_file(F_INIT_POP)
         pop.save_sim_archive(F_SIM_ARCHIVE)
         pop.update_best_sim(F_BEST_PROFILE)
 
         # # Population initialization / Loading from a file
-        # pop = Population(p.n_dvar)
-        # pop.load_from_csv_file(F_INIT_POP, p)
+        # pop = Population(p)
+        # pop.load_from_csv_file(F_INIT_POP)
         # pop.save_sim_archive(F_SIM_ARCHIVE)
         # pop.update_best_sim(F_BEST_PROFILE)
     
@@ -198,8 +198,8 @@ def main():
 
             # Acquisition Process
             parents = select_op.perform_selection(pop, N_CHLD)
-            children = crossover_op.perform_crossover(parents, p.get_bounds())
-            children = mutation_op.perform_mutation(children, p.get_bounds())
+            children = crossover_op.perform_crossover(parents)
+            children = mutation_op.perform_mutation(children)
             assert p.is_feasible(children.dvec)
 
             # Update active EC in Dynamic_EC (generation level)
@@ -213,7 +213,7 @@ def main():
 
             #------------Start batches loop------------#
             batches = children.split_in_batches(N_BATCH)
-            children = Population(p.n_dvar)
+            children = Population(p)
             for curr_batch,batch in enumerate(batches):
 
                 # Update Adaptive_Wang2020_EC (batch level)
@@ -227,9 +227,9 @@ def main():
 
                 # Evolution Control
                 idx_split = ec_op.get_sorted_indexes(batch)
-                subbatch_to_simulate = Population(N_DV)
+                subbatch_to_simulate = Population(p)
                 subbatch_to_simulate.dvec = batch.dvec[idx_split[0:N_SIM]]
-                subbatch_to_predict = Population(N_DV)
+                subbatch_to_predict = Population(p)
                 subbatch_to_predict.dvec = batch.dvec[idx_split[N_SIM:N_SIM+N_PRED]]
 
                 if N_SIM>0:

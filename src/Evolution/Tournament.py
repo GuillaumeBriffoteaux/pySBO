@@ -62,7 +62,7 @@ class Tournament(Selection):
         Selection.perform_selection(self, pop, n_par)
         assert pop.dvec.shape[0]>0
 
-        parents = Population(pop.dvec.shape[1])
+        parents = Population(pop.pb)
 
         # first tournament
         idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=np.int), self.__size, False)

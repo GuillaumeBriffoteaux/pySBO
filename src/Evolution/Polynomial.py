@@ -62,21 +62,17 @@ class Polynomial(Mutation):
     #----------------------------------------#
 
     #-------------perform_mutation-------------#    
-    def perform_mutation(self, pop, bounds):
+    def perform_mutation(self, pop):
         """Mutates the individuals of a population.
 
         :param pop: population to mutate
         :type pop: Population
-        :param bounds: bounds of decision variables
-        :type bounds: np.ndarray
         :returns: the mutated population
         :rtype: Population
         """
         Mutation.perform_mutation(self, pop)
-        assert isinstance(bounds, np.ndarray)
-        assert bounds.shape[1]==pop.dvec.shape[1]
 
-        children = Population(pop.dvec.shape[1])
+        children = Population(pop.pb)
         children.dvec = np.copy(pop.dvec)
 
         # Loop over the children population
@@ -92,9 +88,9 @@ class Polynomial(Mutation):
                 mu = np.random.uniform()
                 if mu<=0.5:
                     delta_l = pow(2.0*mu, 1.0/(1.0+self.__eta)) - 1.0
-                    child[i] += delta_l*(child[i]-bounds[0,i])
+                    child[i] += delta_l*(child[i]-pop.pb.get_bounds()[0,i])
                 else:
                     delta_r = 1.0 - pow(2.0*(1.0-mu), 1.0/(1.0+self.__eta))
-                    child[i] += delta_r*(bounds[1,i]-child[i])
+                    child[i] += delta_r*(pop.pb.get_bounds()[1,i]-child[i])
 
         return children

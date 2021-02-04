@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
-from Problems.Benchmark import Benchmark
+from Problems.Mono_Objective import Mono_Objective
 
 
 #-------------------------------------#
 #-------------class Xiong-------------#
 #-------------------------------------#
-class Xiong(Benchmark):
+class Xiong(Mono_Objective):
     """Class for 1D mono-objective Xiong problem."""
 
     
@@ -19,15 +19,15 @@ class Xiong(Benchmark):
 
     #-------------__init__-------------#    
     def __init__(self):
-        Benchmark.__init__(self, 1, 1)
+        Mono_Objective.__init__(self, 1, 1)
 
     #-------------__del__-------------#
     def __del__(self):
-        Benchmark.__del__(self)
+        Mono_Objective.__del__(self)
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Xiong problem "+str(self.n_dvar)+" decision variable"
+        return "Xiong problem "+str(self.n_dvar)+" decision variable "+str(self.n_obj)+" objective"
 
 
     #----------------------------------------#
@@ -74,7 +74,7 @@ class Xiong(Benchmark):
         """
 
         res=False
-        if Benchmark.is_feasible(self, candidates)==True:
+        if Mono_Objective.is_feasible(self, candidates)==True:
             lower_bounds=self.get_bounds()[0,:]
             upper_bounds=self.get_bounds()[1,:]
             res=(lower_bounds<=candidates).all() and (candidates<=upper_bounds).all()

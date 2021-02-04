@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
-from Problems.Benchmark import Benchmark
+from Problems.Mono_Objective import Mono_Objective
 
 
 #----------------------------------------#
 #-------------class Schwefel-------------#
 #----------------------------------------#
-class Schwefel(Benchmark):
+class Schwefel(Mono_Objective):
     """Class for the mono-objective Schwefel problem.
 
     :param n_dvar: number of decision variable
@@ -24,15 +24,15 @@ class Schwefel(Benchmark):
 
     #-------------__init__-------------#    
     def __init__(self, n_dvar):
-        Benchmark.__init__(self, n_dvar, 1)
+        Mono_Objective.__init__(self, n_dvar, 1)
 
     #-------------__del__-------------#
     def __del__(self):
-        Benchmark.__del__(self)
+        Mono_Objective.__del__(self)
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Schwefel problem "+str(self.n_dvar)+" decision variables"
+        return "Schwefel problem "+str(self.n_dvar)+" decision variables "+str(self.n_obj)+" objective"
 
 
     #----------------------------------------#
@@ -80,7 +80,7 @@ class Schwefel(Benchmark):
         """
 
         res=False
-        if Benchmark.is_feasible(self, candidates)==True:
+        if Mono_Objective.is_feasible(self, candidates)==True:
             lower_bounds=self.get_bounds()[0,:]
             upper_bounds=self.get_bounds()[1,:]
             res=(lower_bounds<=candidates).all() and (candidates<=upper_bounds).all()

@@ -47,7 +47,7 @@ class Elitist(Replacement):
         Replacement.perform_replacement(self, pop, children)
 
         # merging
-        merged_pop = Population(pop.dvec.shape[1])
+        merged_pop = Population(pop.pb)
         merged_pop.append(pop)
         merged_pop.append(children)
 
@@ -62,5 +62,5 @@ class Elitist(Replacement):
         # adding best predicted 
         if False not in pop.fitness_modes and False in merged_pop.fitness_modes:
             pop.dvec[pop.dvec.shape[0]-1] = merged_pop.dvec[np.where(merged_pop.fitness_modes==False)[0][0]]
-            pop.costs[pop.costs.size-1] = merged_pop.costs[np.where(merged_pop.fitness_modes==False)[0][0]]
+            pop.costs[pop.costs.shape[0]-1] = merged_pop.costs[np.where(merged_pop.fitness_modes==False)[0][0]]
             pop.fitness_modes[pop.fitness_modes.size-1] = False

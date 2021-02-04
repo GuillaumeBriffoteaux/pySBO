@@ -4,17 +4,17 @@ from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import pygmo
 
-from Problems.Benchmark import Benchmark
+from Problems.Mono_Objective import Mono_Objective
 
 
 #---------------------------------------#
 #-------------class CEC2013-------------#
 #---------------------------------------#
-class CEC2013(Benchmark):
+class CEC2013(Mono_Objective):
     """Class for mono-objective problems from the CEC2013.
 
     :param f_id: problem's identifier into the pygmo library
-    :type f_id: int
+    :type f_id: int in {1,...,28}
     :param n_dvar: number of decision variable
     :type n_dvar: positive int, not zero
     """
@@ -25,17 +25,19 @@ class CEC2013(Benchmark):
 
     #-------------__init__-------------#    
     def __init__(self, f_id, n_dvar):
+        assert type(f_id)==int
+        assert f_id>=1 and f_id<=28
         assert n_dvar==2 or n_dvar==5 or n_dvar==20 or n_dvar==30 or n_dvar==40 or n_dvar==50 or n_dvar==60 or n_dvar==70 or n_dvar==80 or n_dvar==90 or n_dvar==100
-        Benchmark.__init__(self, n_dvar, 1)
+        Mono_Objective.__init__(self, n_dvar, 1)
         self.__pb = pygmo.problem(pygmo.cec2013(f_id, n_dvar))
 
     #-------------__del__-------------#
     def __del__(self):
-        Benchmark.__del__(self)
+        Mono_Objective.__del__(self)
 
     #-------------__str__-------------#
     def __str__(self):
-        return self.__pb.get_name()+" "+str(self.n_dvar)+" decision variables"
+        return self.__pb.get_name()+" "+str(self.n_dvar)+" decision variables "+str(self.n_obj)+" objective"
 
     
     #---------------------------------------------#
@@ -78,12 +80,9 @@ class CEC2013(Benchmark):
         if candidates.ndim==1:
             candidates = np.array([candidates])
 
-        costs = np.zeros((candidates.shape[0], self.n_obj))
+        costs = np.zeros((candidates.shape[0],))
         for i,cand in enumerate(candidates):
             costs[i] = self.__pb.fitness(cand)
-        if costs.ndim==2:
-            if costs.shape[1]==1:
-                costs = costs.flatten()
 
         return costs
 
@@ -111,7 +110,7 @@ class CEC2013(Benchmark):
         """
 
         res=False
-        if Benchmark.is_feasible(self, candidates)==True:
+        if Mono_Objective.is_feasible(self, candidates)==True:
             lower_bounds=self.get_bounds()[0,:]
             upper_bounds=self.get_bounds()[1,:]
             res=(lower_bounds<=candidates).all() and (candidates<=upper_bounds).all()

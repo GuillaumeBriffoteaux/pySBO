@@ -104,7 +104,7 @@ def main():
 
         # Database initialization / Parallel DoE
         d = DoE(p)
-        db = Population(p.n_dvar)
+        db = Population(p)
         db.dvec = d.latin_hypercube_sampling(INIT_DB_SIZE)
         nb_sim_per_proc = (INIT_DB_SIZE//nprocs)*np.ones((nprocs,), dtype=int) # number of simulations per proc
         for i in range(INIT_DB_SIZE%nprocs):
@@ -117,13 +117,13 @@ def main():
         for i in range(1,nprocs): # receiving from workers
             db.costs[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])] = comm.recv(source=i, tag=12)
         db.fitness_modes = True*np.ones(db.costs.shape, dtype=bool)
-        db.save_to_csv_file(F_INIT_DB, p)
+        db.save_to_csv_file(F_INIT_DB)
         db.save_sim_archive(F_SIM_ARCHIVE)
         db.update_best_sim(F_BEST_PROFILE)
 
         # # Database initialization / Loading from a file
-        # db = Population(p.n_dvar)
-        # db.load_from_csv_file(F_INIT_DB, p)
+        # db = Population(p)
+        # db.load_from_csv_file(F_INIT_DB)
         # db.save_sim_archive(F_SIM_ARCHIVE)
         # db.update_best_sim(F_BEST_PROFILE)
 
@@ -216,7 +216,7 @@ def main():
                     ec_op.update_active(curr_cycle)
 
             # Population initialization
-            pop = Population(p.n_dvar)
+            pop = Population(p)
             pop.dvec = d.latin_hypercube_sampling(POP_SIZE)
             pop.dvec = pop.dvec[ec_op.get_sorted_indexes(pop)]
             if isinstance(ec_op, Adaptive_EC):
@@ -227,8 +227,8 @@ def main():
 
                 # Acquisition Process
                 parents = select_op.perform_selection(pop, N_CHLD)
-                children = crossover_op.perform_crossover(parents, p.get_bounds())
-                children = mutation_op.perform_mutation(children, p.get_bounds())
+                children = crossover_op.perform_crossover(parents)
+                children = mutation_op.perform_mutation(children)
                 assert p.is_feasible(children.dvec)
 
                 # Replacement

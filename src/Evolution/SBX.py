@@ -62,13 +62,11 @@ class SBX(Crossover):
     #----------------------------------------#
     
     #-------------perform_crossover-------------#
-    def perform_crossover(self, pop, bounds):
+    def perform_crossover(self, pop):
         """Applies crossover to the individuals of a population.
 
         :param pop: population to mutate
         :type pop: Population
-        :param bounds: bounds of decision variables
-        :type bounds: np.ndarray
         :returns: the mutated population
         :rtype: Population
         """
@@ -77,10 +75,8 @@ class SBX(Crossover):
         Crossover.perform_crossover(self, pop)
         assert isinstance(pop, Population)
         assert pop.dvec.shape[0]%2==0
-        assert isinstance(bounds, np.ndarray)
-        assert bounds.shape[1]==pop.dvec.shape[1]
 
-        children_pop = Population(pop.dvec.shape[1])
+        children_pop = Population(pop.pb)
         children_pop.dvec = np.copy(pop.dvec)
 
         it = iter(children_pop.dvec)
@@ -93,7 +89,7 @@ class SBX(Crossover):
                 # Loop over the decision variables
                 for i in range(childA.size):
 
-                    if np.random.uniform()<=0.5 and abs(childA[i]-childB[i])>1e-14 and bounds[0,i]!=bounds[1,i]:
+                    if np.random.uniform()<=0.5 and abs(childA[i]-childB[i])>1e-14 and pop.pb.get_bounds()[0,i]!=pop.pb.get_bounds()[1,i]:
                         
                         if childA[i]<childB[i]:
                             y1 = childA[i]
@@ -102,8 +98,8 @@ class SBX(Crossover):
                             y2 = childA[i]
                             y1 = childB[i]
                         
-                        yl = bounds[0,i]
-                        yu = bounds[1,i]
+                        yl = pop.pb.get_bounds()[0,i]
+                        yu = pop.pb.get_bounds()[1,i]
 
                         mu = np.random.uniform()
                         

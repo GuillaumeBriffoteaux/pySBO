@@ -72,7 +72,7 @@ class Custom_Elitism(Replacement):
         Replacement.perform_replacement(self, pop, children)
 
         # merging
-        merged_pop = Population(pop.dvec.shape[1])
+        merged_pop = Population(pop.pb)
         merged_pop.append(pop)
         merged_pop.append(children)
 

@@ -64,7 +64,7 @@ class Tournament_Position(Selection):
         Selection.perform_selection(self, pop, n_par)
         assert pop.dvec.shape[0]>0
 
-        parents = Population(pop.dvec.shape[1])
+        parents = Population(pop.pb)
 
         # n_par tournaments
         for i in range(0, n_par):

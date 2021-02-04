@@ -23,6 +23,7 @@ from Problems.Xiong import Xiong
 from Problems.Rastrigin import Rastrigin
 from Problems.Rosenbrock import Rosenbrock
 from Problems.CEC2013 import CEC2013
+from Problems.CEC2014 import CEC2014
 from Problems.DoE import DoE
 
 from Evolution.Population import Population
@@ -44,12 +45,12 @@ def main():
     N_DV = 6
     p = Schwefel(N_DV)
     # p = Ackley(N_DV)
-    # N_DV = 1
-    # p = Xiong()
     # p = Rastrigin(N_DV)
     # p = Rosenbrock(N_DV)
     # N_DV = 5
     # p = CEC2013(1, N_DV)
+    # N_DV = 1
+    # p = Xiong()
 
     #--------------------------------#
     #-------------MASTER-------------#
@@ -74,7 +75,7 @@ def main():
 
         # Population initialization / Parallel DoE
         d = DoE(p)
-        pop = Population(p.n_dvar)
+        pop = Population(p)
         pop.dvec = d.latin_hypercube_sampling(POP_SIZE)
         nb_sim_per_proc = (POP_SIZE//nprocs)*np.ones((nprocs,), dtype=int) # number of simulations per proc
         for i in range(POP_SIZE%nprocs):
@@ -87,7 +88,7 @@ def main():
         for i in range(1,nprocs): # receiving from workers
             pop.costs[np.sum(nb_sim_per_proc[:i]):np.sum(nb_sim_per_proc[:i+1])] = comm.recv(source=i, tag=12)
         pop.fitness_modes = True*np.ones(pop.costs.shape, dtype=bool)
-        pop.save_to_csv_file(F_INIT_POP, p)
+        pop.save_to_csv_file(F_INIT_POP)
         pop.save_sim_archive(F_SIM_ARCHIVE)
         pop.update_best_sim(F_BEST_PROFILE)
 
@@ -106,8 +107,8 @@ def main():
 
             # Acquisition Process
             parents = select_op.perform_selection(pop, POP_SIZE)
-            children = crossover_op.perform_crossover(parents, p.get_bounds())
-            children = mutation_op.perform_mutation(children, p.get_bounds())
+            children = crossover_op.perform_crossover(parents)
+            children = mutation_op.perform_mutation(children)
             assert p.is_feasible(children.dvec)
 
             # Parallel evaluations
