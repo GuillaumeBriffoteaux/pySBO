@@ -19,7 +19,7 @@ from Problems.Problem import Problem
 #-------------class BNN_MCD-------------#
 #---------------------------------------#
 class BNN_MCD(Surrogate):
-    """Class for Bayesian Neural Network with Monte Carlo Dropout.
+    """Class for Bayesian Neural Network with Monte Carlo Dropout (mono and multi dimensional targets).
 
     :param f_sim_archive: filename where are stored the past simulated individuals
     :type f_sim_archive: str
@@ -45,7 +45,7 @@ class BNN_MCD(Surrogate):
     def __init__(self, f_sim_archive, pb, n_train_samples, f_train_log, f_trained_model):
         Surrogate.__init__(self, f_sim_archive, pb, n_train_samples, f_train_log, f_trained_model)
 
-        self.__y_bounds=np.empty((2,))
+        self.__y_bounds=np.empty((2,self.pb.n_obj))
         
         # Network hyperparameters
         n_hidden_layers = 2
@@ -63,7 +63,7 @@ class BNN_MCD(Surrogate):
             inter_layer = tf.keras.layers.Dropout(p_drop)(inter_layer, training=True)
             inter_layer = tf.keras.layers.Dense(n_units, activation=act_func)(inter_layer)
         inter_layer = tf.keras.layers.Dropout(p_drop)(inter_layer, training=True)
-        output_layer = tf.keras.layers.Dense(1)(inter_layer)
+        output_layer = tf.keras.layers.Dense(self.pb.n_obj)(inter_layer)
         self.__model = tf.keras.Model(input_layer, output_layer)
         self.__model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False), loss='mse')
     
@@ -131,17 +131,18 @@ class BNN_MCD(Surrogate):
         # Predictions
         mean_preds=np.zeros((copy_candidates.shape[0], self.pb.n_obj))
         var_preds=np.zeros((copy_candidates.shape[0], self.pb.n_obj))
-        n_subnets=20
+        n_subnets=2
         for i in range(0,n_subnets):
             preds = self.__model.predict(copy_candidates) # lies in [-1,1]
             preds = ((self.__y_bounds[1]-self.__y_bounds[0])*preds + (self.__y_bounds[1]+self.__y_bounds[0]))/2 # denormalization
             mean_preds += preds
             var_preds += pow(preds, 2)
         mean_preds = mean_preds/n_subnets
-        mean_preds = np.ndarray.flatten(mean_preds)
-        var_preds = np.ndarray.flatten(var_preds)
+        if mean_preds.shape[1]==1:
+            mean_preds = np.ndarray.flatten(mean_preds)
+        if var_preds.shape[1]==1:
+            var_preds = np.ndarray.flatten(var_preds)
         var_preds = (var_preds/n_subnets) - pow(mean_preds, 2)
-        # print(var_preds)
         
         return (mean_preds, var_preds)
     
@@ -154,20 +155,20 @@ class BNN_MCD(Surrogate):
         (x_train, y_train) = self.load_sim_archive()
         x_train = x_train[max(x_train.shape[0]-self.n_train_samples,0):x_train.shape[0]]
         y_train = y_train[max(y_train.shape[0]-self.n_train_samples,0):y_train.shape[0]]
-        y_train = y_train.reshape(-1, 1)
+        if y_train.ndim==1:
+            y_train = y_train.reshape(-1, 1)
 
         # Normalizing training data
         x_train_scaled = (2/(self.pb.get_bounds()[1]-self.pb.get_bounds()[0]))*x_train+(-self.pb.get_bounds()[1]-self.pb.get_bounds()[0])/(self.pb.get_bounds()[1]-self.pb.get_bounds()[0]) # lies in [-1,1]
-        self.__y_bounds[0]=np.amin(y_train)
-        self.__y_bounds[1]=np.amax(y_train)
+        self.__y_bounds[0]=np.amin(y_train,0)
+        self.__y_bounds[1]=np.amax(y_train,0)
         y_train_scaled = (2/(self.__y_bounds[1]-self.__y_bounds[0]))*y_train+(-self.__y_bounds[1]-self.__y_bounds[0])/(self.__y_bounds[1]-self.__y_bounds[0]) # lies in [-1,1]
-        
+
         # Training
         t_start = time.time()
         my_histo = self.__model.fit( x=x_train_scaled, y=y_train_scaled, batch_size=y_train_scaled.shape[0], epochs=10, verbose=0, callbacks=[tf.keras.callbacks.ModelCheckpoint(filepath=self.f_trained_model, monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=True, mode='min', save_freq='epoch')], validation_data=(x_train_scaled, y_train_scaled), shuffle=True )
         self.__model.load_weights(self.f_trained_model)
         t_end = time.time()
-        # print(t_end-t_start)
         mse = self.__model.evaluate(x_train_scaled, y_train_scaled, verbose=0)
 
         # Saving the trained model
@@ -176,7 +177,7 @@ class BNN_MCD(Surrogate):
         # Log about training
         with open(self.f_train_log, 'a') as my_file:
             my_file.write(str(x_train_scaled.shape[0])+" "+str(mse)+" "+str((t_end-t_start))+"\n")
-            
+
     #-------------load_trained_model-------------#
     def load_trained_model(self):
         self.__model = tf.keras.models.load_model(self.f_trained_model)

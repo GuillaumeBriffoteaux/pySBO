@@ -92,6 +92,7 @@ class Pareto_Tian2018_EC(Ensemble_EC):
         for i,ec in enumerate(self.ECs_list):
             criteria[i] = self.__coeffs[i]*ec.get_IC_value(pop.dvec)
         criteria = criteria.T
+        print(criteria)
 
         (ndf, dom_list, dom_count, ndr) = pygmo.fast_non_dominated_sorting(criteria)
         idx = np.argsort(ndr)

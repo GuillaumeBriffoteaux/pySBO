@@ -99,8 +99,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#gaussian-processes">Gaussian Processes</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#kriging">Kriging</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#radial-basis-function">Radial Basis Function</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#matern-kernel">Matern kernel</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#spectral-mixture-kernel">Spectral Mixture kernel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#multitask-gaussian-process">Multitask Gaussian Process</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#others">Others</a><ul>
@@ -194,22 +196,28 @@
 <td><p>Abstract class for surrogate models.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.BNN_MCD.BNN_MCD" title="Surrogates.BNN_MCD.BNN_MCD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.BNN_MCD.BNN_MCD</span></code></a>(f_sim_archive, …)</p></td>
-<td><p>Class for Bayesian Neural Network with Monte Carlo Dropout.</p></td>
+<td><p>Class for Bayesian Neural Network with Monte Carlo Dropout (mono and multi dimensional targets).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.BNN_BLR.BNN_BLR" title="Surrogates.BNN_BLR.BNN_BLR"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.BNN_BLR.BNN_BLR</span></code></a>(f_sim_archive, …)</p></td>
-<td><p>Class for Bayesian Neural Network with Bayesian Linear Regressor.</p></td>
+<td><p>Class for Bayesian Neural Network with Bayesian Linear Regressor (mono dimensional targets only).</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.KRG.KRG" title="Surrogates.KRG.KRG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.KRG.KRG</span></code></a>(f_sim_archive, pb, …)</p></td>
-<td><p>Class for Kriging surrogate model.</p></td>
+<td><p>Class for Kriging surrogate model (mono dimensional targets only).</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.GP_Matern.GP_Matern" title="Surrogates.GP_Matern.GP_Matern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_Matern.GP_Matern</span></code></a>(…)</p></td>
-<td><p>Class for Gaussian Process model with Matern kernel function.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.GP_RBF.GP_RBF" title="Surrogates.GP_RBF.GP_RBF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_RBF.GP_RBF</span></code></a>(f_sim_archive, pb, …)</p></td>
+<td><p>Class for Gaussian Process model with Radial Basis kernel function (mono dimensional targets only).</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.GP_SMK.GP_SMK" title="Surrogates.GP_SMK.GP_SMK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_SMK.GP_SMK</span></code></a>(f_sim_archive, pb, …)</p></td>
-<td><p>Class for Gaussian Process model with Spectral Mixture kernel.</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.GP_Matern.GP_Matern" title="Surrogates.GP_Matern.GP_Matern"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_Matern.GP_Matern</span></code></a>(…)</p></td>
+<td><p>Class for Gaussian Process model with Matern kernel function (mono dimensional targets only).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.GP_SMK.GP_SMK" title="Surrogates.GP_SMK.GP_SMK"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_SMK.GP_SMK</span></code></a>(f_sim_archive, pb, …)</p></td>
+<td><p>Class for Gaussian Process model with Spectral Mixture kernel (mono dimensional targets only).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF" title="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_Multitask_RBF.GP_Multitask_RBF</span></code></a>(…)</p></td>
+<td><p>Class for Gaussian Process multitask model with Radial Basis kernel function (multi dimensional targets only).</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.RF.RF" title="Surrogates.RF.RF"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.RF.RF</span></code></a>(f_sim_archive, pb, …)</p></td>
-<td><p>Class for Random Forest model.</p></td>
+<td><p>Class for Random Forest model (mono and multi dimensional targets).</p></td>
 </tr>
 </tbody>
 </table>
@@ -303,7 +311,7 @@
 <dt id="Surrogates.BNN_MCD.BNN_MCD">
 <em class="property">class </em><code class="sig-prename descclassname">Surrogates.BNN_MCD.</code><code class="sig-name descname">BNN_MCD</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
-<p>Class for Bayesian Neural Network with Monte Carlo Dropout.</p>
+<p>Class for Bayesian Neural Network with Monte Carlo Dropout (mono and multi dimensional targets).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -386,7 +394,7 @@
 <dt id="Surrogates.BNN_BLR.BNN_BLR">
 <em class="property">class </em><code class="sig-prename descclassname">Surrogates.BNN_BLR.</code><code class="sig-name descname">BNN_BLR</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_BLR.BNN_BLR" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
-<p>Class for Bayesian Neural Network with Bayesian Linear Regressor.</p>
+<p>Class for Bayesian Neural Network with Bayesian Linear Regressor (mono dimensional targets only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -471,7 +479,7 @@
 <dt id="Surrogates.KRG.KRG">
 <em class="property">class </em><code class="sig-prename descclassname">Surrogates.KRG.</code><code class="sig-name descname">KRG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.KRG.KRG" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
-<p>Class for Kriging surrogate model.</p>
+<p>Class for Kriging surrogate model (mono dimensional targets only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -547,13 +555,96 @@
 </dd></dl>
 
 </div>
+<div class="section" id="radial-basis-function">
+<h3>Radial Basis Function<a class="headerlink" href="#radial-basis-function" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Surrogates.GP_RBF.GP_RBF">
+<em class="property">class </em><code class="sig-prename descclassname">Surrogates.GP_RBF.</code><code class="sig-name descname">GP_RBF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_RBF.GP_RBF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<p>Class for Gaussian Process model with Radial Basis kernel function (mono dimensional targets only).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
+<li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
+<li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
+<li><p><strong>likelihood</strong> (<em>gpytorch.likelihoods.GaussianLikelihood</em>) – likelihood function</p></li>
+<li><p><strong>model</strong> (<em>gpytorch.models.ExactGP</em>) – Gaussian Process model</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Surrogates.GP_RBF.GP_RBF.perform_prediction">
+<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_RBF.GP_RBF.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the predicted cost of the candidates and the uncertainty around it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>predicted costs and uncertainties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_RBF.GP_RBF.perform_training">
+<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_RBF.GP_RBF.perform_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains the surrogate model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_RBF.GP_RBF.load_trained_model">
+<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_RBF.GP_RBF.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a model trained in the past.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_RBF.GP_RBF.load_sim_archive">
+<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_RBF.GP_RBF.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the past simulated individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>past simulated decision vectors along with their cost</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_RBF.GP_RBF.perform_distance">
+<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_RBF.GP_RBF.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the distance from each candidate to the set of past simulated individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distances from the candidates to the set of past simulated individuals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="matern-kernel">
 <h3>Matern kernel<a class="headerlink" href="#matern-kernel" title="Permalink to this headline">¶</a></h3>
 <dl class="py class">
 <dt id="Surrogates.GP_Matern.GP_Matern">
 <em class="property">class </em><code class="sig-prename descclassname">Surrogates.GP_Matern.</code><code class="sig-name descname">GP_Matern</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Matern.GP_Matern" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
-<p>Class for Gaussian Process model with Matern kernel function.</p>
+<p>Class for Gaussian Process model with Matern kernel function (mono dimensional targets only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -636,7 +727,7 @@
 <dt id="Surrogates.GP_SMK.GP_SMK">
 <em class="property">class </em><code class="sig-prename descclassname">Surrogates.GP_SMK.</code><code class="sig-name descname">GP_SMK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_SMK.GP_SMK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
-<p>Class for Gaussian Process model with Spectral Mixture kernel.</p>
+<p>Class for Gaussian Process model with Spectral Mixture kernel (mono dimensional targets only).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -713,6 +804,89 @@
 </dd></dl>
 
 </div>
+<div class="section" id="multitask-gaussian-process">
+<h3>Multitask Gaussian Process<a class="headerlink" href="#multitask-gaussian-process" title="Permalink to this headline">¶</a></h3>
+<dl class="py class">
+<dt id="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF">
+<em class="property">class </em><code class="sig-prename descclassname">Surrogates.GP_Multitask_RBF.</code><code class="sig-name descname">GP_Multitask_RBF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<p>Class for Gaussian Process multitask model with Radial Basis kernel function (multi dimensional targets only).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the past simulated individuals</p></li>
+<li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
+<li><p><strong>n_train_samples</strong> (<em>positive int</em><em> or </em><em>inf</em><em>, </em><em>not zero</em>) – number of training samples to extract from the end of <cite>f_sim_archive</cite>, if float(‘inf’) all the samples from <cite>f_sim_archive</cite> are considered</p></li>
+<li><p><strong>f_train_log</strong> (<em>str</em>) – filename where will be recorded training log</p></li>
+<li><p><strong>f_trained_model</strong> (<em>str</em>) – filename where will be recorded the trained surrogate model</p></li>
+<li><p><strong>likelihood</strong> (<em>gpytorch.likelihoods.GaussianLikelihood</em>) – likelihood function</p></li>
+<li><p><strong>model</strong> (<em>gpytorch.models.ExactGP</em>) – Gaussian Process model</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.perform_prediction">
+<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the predicted cost of the candidates and the uncertainty around it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>predicted costs and uncertainties</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.perform_training">
+<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.perform_training" title="Permalink to this definition">¶</a></dt>
+<dd><p>Trains the surrogate model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.load_trained_model">
+<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a model trained in the past.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.load_sim_archive">
+<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the past simulated individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>past simulated decision vectors along with their cost</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.perform_distance">
+<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_Multitask_RBF.GP_Multitask_RBF.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the distance from each candidate to the set of past simulated individuals.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>distances from the candidates to the set of past simulated individuals</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 </div>
 <div class="section" id="others">
 <h2>Others<a class="headerlink" href="#others" title="Permalink to this headline">¶</a></h2>
@@ -722,7 +896,7 @@
 <dt id="Surrogates.RF.RF">
 <em class="property">class </em><code class="sig-prename descclassname">Surrogates.RF.</code><code class="sig-name descname">RF</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.RF.RF" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
-<p>Class for Random Forest model.</p>
+<p>Class for Random Forest model (mono and multi dimensional targets).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

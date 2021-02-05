@@ -13,7 +13,7 @@ from Surrogates.Surrogate import Surrogate
 #-------------class BNN_BLR-------------#
 #---------------------------------------#
 class BNN_BLR(Surrogate):
-    """Class for Bayesian Neural Network with Bayesian Linear Regressor.
+    """Class for Bayesian Neural Network with Bayesian Linear Regressor (mono dimensional targets only).
 
     :param f_sim_archive: filename where are stored the past simulated individuals
     :type f_sim_archive: str
@@ -93,6 +93,7 @@ class BNN_BLR(Surrogate):
         x_train = x_train[max(x_train.shape[0]-self.n_train_samples,0):x_train.shape[0]]
         y_train = y_train[max(y_train.shape[0]-self.n_train_samples,0):y_train.shape[0]]
         t_start = time.time()
+        
         # No Early Stopping is implemented in DNGO (from pybnn)
         self.__model.train(x_train, y_train, do_optimize=False)
         t_end = time.time()

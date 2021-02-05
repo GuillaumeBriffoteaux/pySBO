@@ -157,23 +157,40 @@ class Population:
 
                 with open(f_best_profile, 'a') as my_file:
                     my_file.write(" ".join(map(str, Global_Var.dvec_min))+" "+str(Global_Var.cost_min)+"\n")
+
+        else: #multi-objective
+
+            # considering only simulated decision vectors
+            idx = np.where(self.fitness_modes==True)[0]
+            
+            # update reference point
+            hv = pygmo.hypervolume(self.costs[idx,:])
+            ref_point = hv.refpoint()
+            if Global_Var.ref_point.size==0:
+                Global_Var.ref_point = ref_point
+            else:
+                if np.where(ref_point>Global_Var.ref_point)[0].size>0:
+                    Global_Var.ref_point[np.where(ref_point>Global_Var.ref_point)[0]] = ref_point[np.where(ref_point>Global_Var.ref_point)[0]]
                     
-        elif self.costs.shape[1]==2: # bi-objective
-            idx = np.where(self.fitness_modes==True)[0]
-            idx_idx = pygmo.non_dominated_front_2d(self.costs[idx,:])
+            # bi-objective
+            if self.costs.shape[1]==2: 
+                idx_idx = pygmo.non_dominated_front_2d(self.costs[idx,:])
+            # three ojectives or more
+            else: 
+                (ndf, dom_list, dom_count, ndr) = pygmo.fast_non_dominated_sorting(self.costs[idx,:])
+                idx_idx = ndf[0]
+
+            # update best hypervolume
+            hv = pygmo.hypervolume(self.costs[idx[idx_idx],:])
+            hv_value = hv.compute(Global_Var.ref_point)
+            if hv_value>Global_Var.best_hv:
+                Global_Var.best_hv = hv_value
+
+            # write to logging file
             with open(f_best_profile, 'a') as my_file:
                 for (dvec, cost, fitness_mode) in itertools.zip_longest(self.dvec[idx[idx_idx],:], self.costs[idx[idx_idx],:], self.fitness_modes[idx[idx_idx]], fillvalue=''):
                     my_file.write(" ".join(map(str, dvec))+" "+" ".join(map(str, cost))+(" "+str(int(fitness_mode)) if type(fitness_mode)==np.bool_ else "")+"\n")
-                my_file.write("\n")
-                
-        else: # multi-objective
-            idx = np.where(self.fitness_modes==True)[0]
-            (ndf, dom_list, dom_count, ndr) = pygmo.fast_non_dominated_sorting(self.costs[idx,:])
-            idx_idx = ndf[0]
-            with open(f_best_profile, 'a') as my_file:
-                for (dvec, cost, fitness_mode) in itertools.zip_longest(self.dvec[idx[idx_idx],:], self.costs[idx[idx_idx],:], self.fitness_modes[idx[idx_idx]], fillvalue=''):
-                    my_file.write(" ".join(map(str, dvec))+" "+" ".join(map(str, cost))+(" "+str(int(fitness_mode)) if type(fitness_mode)==np.bool_ else "")+"\n")
-                my_file.write("\n")
+                my_file.write(" ".join(map(str, Global_Var.ref_point))+"\n"+str(Global_Var.best_hv)+"\n\n")
             
                 
     #-------------save_to_csv_file-------------#

@@ -7,25 +7,25 @@ from sklearn.metrics import mean_squared_error
 
 from Surrogates.Surrogate import Surrogate
 
-#---------------------------Defining Spectral Mixture Kernel Gaussian Process model---------------------------#
-class SpectralMixtureGPModel(gpytorch.models.ExactGP):
-    def __init__(self, x_train, y_train, likelihood):
-        super(SpectralMixtureGPModel, self).__init__(x_train, y_train, likelihood)
-        self.mean_module = gpytorch.means.ConstantMean()
-        self.covar_module = gpytorch.kernels.SpectralMixtureKernel(num_mixtures=4, ard_num_dims=x_train.shape[1])
-        self.covar_module.initialize_from_data(x_train, y_train)
 
-    def forward(self,x):
+#---------------------------Defining Gaussian Process RBF kernel---------------------------#
+class ExactGPModel(gpytorch.models.ExactGP):
+    def __init__(self, x_train, y_train, likelihood):
+        super(ExactGPModel, self).__init__(x_train, y_train, likelihood)
+        self.mean_module = gpytorch.means.ConstantMean()
+        self.covar_module = gpytorch.kernels.ScaleKernel(gpytorch.kernels.RBFKernel())
+
+    def forward(self, x):
         mean_x = self.mean_module(x)
         covar_x = self.covar_module(x)
         return gpytorch.distributions.MultivariateNormal(mean_x, covar_x)
 
 
 #--------------------------------------#
-#-------------class GP_SMK-------------#
+#-------------class GP_RBF-------------#
 #--------------------------------------#
-class GP_SMK(Surrogate):
-    """Class for Gaussian Process model with Spectral Mixture kernel (mono dimensional targets only).
+class GP_RBF(Surrogate):
+    """Class for Gaussian Process model with Radial Basis kernel function (mono dimensional targets only).
 
     :param f_sim_archive: filename where are stored the past simulated individuals
     :type f_sim_archive: str
@@ -54,8 +54,7 @@ class GP_SMK(Surrogate):
         (x_train, y_train) = self.load_sim_archive()
         x_train = torch.from_numpy(x_train).float()
         y_train = torch.from_numpy(y_train.flatten()).float()
-        self.__model = SpectralMixtureGPModel(x_train, y_train, self.__likelihood)
-
+        self.__model = ExactGPModel(x_train, y_train, self.__likelihood)
 
     #-------------__del__-------------#
     def __del__(self):
@@ -65,7 +64,7 @@ class GP_SMK(Surrogate):
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Gaussian Process Spectral Mixture Kernel\n  training set filename: "+self.f_sim_archive+"\n  associated problem: {"+self.pb.__str__()+"}\n  training set size = "+str(self.n_train_samples)+"\n  training log filename: "+self.f_train_log+"\n  trained model saved in "+self.f_trained_model
+        return "Gaussian Process RBF Kernel\n  training set filename: "+self.f_sim_archive+"\n  associated problem: {"+self.pb.__str__()+"}\n  training set size = "+str(self.n_train_samples)+"\n  training log filename: "+self.f_train_log+"\n  trained model saved in "+self.f_trained_model
 
 
     #---------------------------------------------#
@@ -74,29 +73,29 @@ class GP_SMK(Surrogate):
 
     #-------------_get_likelihood-------------#
     def _get_likelihood(self):
-        print("[GP_SMK.py] Impossible to modify the likelihood")
+        print("[GP_RBF.py] Impossible to modify the likelihood")
         return None
 
     #-------------_set_likelihood-------------#
     def _set_likelihood(self,new_likelihood):
-        print("[GP_SMK.py] Impossible to modify the likelihood")
+        print("[GP_RBF.py] Impossible to modify the likelihood")
 
     #-------------_del_likelihood-------------#
     def _del_likelihood(self):
-        print("[GP_SMK.py] Impossible to delete the likelihood")
+        print("[GP_RBF.py] Impossible to delete the likelihood")
 
     #-------------_get_model-------------#
     def _get_model(self):
-        print("[GP_SMK.py] Impossible to modify the model")
+        print("[GP_RBF.py] Impossible to modify the model")
         return None
 
     #-------------_set_model-------------#
     def _set_model(self,new_model):
-        print("[GP_SMK.py] Impossible to modify the model")
+        print("[GP_RBF.py] Impossible to modify the model")
 
     #-------------_del_model-------------#
     def _del_model(self):
-        print("[GP_SMK.py] Impossible to delete the model")
+        print("[GP_RBF.py] Impossible to delete the model")
 
     #-------------property-------------#
     likelihood=property(_get_likelihood, _set_likelihood, _del_likelihood)
@@ -135,30 +134,30 @@ class GP_SMK(Surrogate):
         x_train_np = x_train_np[max(x_train_np.shape[0]-self.n_train_samples,0):x_train_np.shape[0]]
         y_train_np = y_train_np[max(y_train_np.shape[0]-self.n_train_samples,0):y_train_np.shape[0]]        
         x_train = torch.from_numpy(x_train_np).float()
-        y_train = torch.from_numpy(y_train_np.flatten()).float()
-        self.__model = SpectralMixtureGPModel(x_train, y_train, self.__likelihood)
+        y_train = torch.from_numpy(y_train_np.flatten()).float()        
+        self.__model = ExactGPModel(x_train, y_train, self.__likelihood)
 
         self.__model.train()
         self.__likelihood.train()
 
-        optimizer = torch.optim.Adam(self.__model.parameters(), lr=0.1)
+        optimizer = torch.optim.Adam([{'params': self.__model.parameters()},], lr=0.1)
         mll = gpytorch.mlls.ExactMarginalLogLikelihood(self.__likelihood, self.__model)
-        # training_iter = 10000
-        training_iter = 10 # for debugging
-        
+        # iterations_num = 10000
+        iterations_num = 10 # for debugging
+
         # Early Stopping parameters
         es_tolerance = 1e-4
         es_patience = 56
         es_best_mse = None
         es_counter = 0
-    
+
         t_start = time.time()
-        for i in range(training_iter):
+        for i in range(iterations_num):
             optimizer.zero_grad()
             output = self.__model(x_train)
             loss = -mll(output, y_train)
             loss.backward()
-            # print('Iter %d/%d - Loss: %.3f' % (i + 1, training_iter, loss.item()))
+            # print('Iter %d/%d - Loss: %.3f   lengthscale: %.3f   noise: %.3f' % (i+1, iterations_num, loss.item(), model.covar_module.base_kernel.lengthscale.item(), model.likelihood.noise.item()))
             optimizer.step()
             mse = mean_squared_error(y_train.detach().numpy(), self.__likelihood(self.__model(x_train)).mean.detach().numpy() )
             # Early Stopping
@@ -183,7 +182,7 @@ class GP_SMK(Surrogate):
         # Log about training
         with open(self.f_train_log, 'a') as my_file:
             my_file.write(str(x_train_np.shape[0])+" "+str(mse)+" "+str((t_end-t_start))+"\n")
-
+        
     #-------------load_trained_model-------------#
     def load_trained_model(self):
         self.__model.load_state_dict(torch.load(self.f_trained_model))

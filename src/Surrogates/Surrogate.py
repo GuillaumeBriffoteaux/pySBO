@@ -189,7 +189,7 @@ class Surrogate(ABC):
             reader = csv.reader(my_file, delimiter=' ')
             n_samples = sum(1 for line in reader)
             my_file.seek(0)
-
+            
             # Following lines contain (candidate, cost)
             candidates = np.zeros((n_samples, self.__pb.n_dvar))
             costs = np.zeros((n_samples, self.__pb.n_obj))

@@ -12,7 +12,7 @@ from Surrogates.Surrogate import Surrogate
 #-------------class RF-------------#
 #----------------------------------#
 class RF(Surrogate):
-    """Class for Random Forest model.
+    """Class for Random Forest model (mono and multi dimensional targets).
 
     :param f_sim_archive: filename where are stored the past simulated individuals
     :type f_sim_archive: str
@@ -78,6 +78,9 @@ class RF(Surrogate):
         if candidates.ndim==1:
             candidates = np.array([candidates])
 
+        print(candidates.shape)
+        print()
+            
         check_is_fitted(self.__model, 'estimators_')
         candidates = self.__model._validate_X_predict(candidates)
 
@@ -90,18 +93,13 @@ class RF(Surrogate):
 
         for e in self.__model.estimators_:
             prediction = e.predict(candidates)
-            if len(mean_preds) == 1:
-                mean_preds[0] += prediction
-                out_sum_sq[0] += prediction**2
-            else:
-                for i in range(len(mean_preds)):
-                    mean_preds[i] += prediction[i]
-                    var_preds[i] += prediction[i]**2
+            mean_preds += prediction
+            var_preds += pow(prediction, 2)
 
         mean_preds /= len(self.__model.estimators_)
         var_preds /= len(self.__model.estimators_)
         var_preds = var_preds - mean_preds**2
-
+        
         return (mean_preds, var_preds)
 
     #-------------perform_training-------------#
@@ -112,7 +110,6 @@ class RF(Surrogate):
         (x_train, y_train) = self.load_sim_archive()
         x_train = x_train[max(x_train.shape[0]-self.n_train_samples,0):x_train.shape[0]]
         y_train = y_train[max(y_train.shape[0]-self.n_train_samples,0):y_train.shape[0]]
-        y_train = np.ravel(y_train)
 
         t_start = time.time()
         self.__model.fit(x_train, y_train)

@@ -1,3 +1,4 @@
+import numpy as np
 import time
 import pickle
 import gpytorch
@@ -24,7 +25,7 @@ class ExactGPModel(gpytorch.models.ExactGP):
 #-------------class GP_Matern-------------#
 #-----------------------------------------#
 class GP_Matern(Surrogate):
-    """Class for Gaussian Process model with Matern kernel function.
+    """Class for Gaussian Process model with Matern kernel function (mono dimensional targets only).
 
     :param f_sim_archive: filename where are stored the past simulated individuals
     :type f_sim_archive: str
@@ -126,7 +127,7 @@ class GP_Matern(Surrogate):
         return (mean_preds, var_preds)
 
     #-------------perform_training-------------#
-    # from scratch
+    # from scratch (i.e. non incremental)
     def perform_training(self):
         Surrogate.perform_training(self)
 
@@ -134,7 +135,7 @@ class GP_Matern(Surrogate):
         x_train_np = x_train_np[max(x_train_np.shape[0]-self.n_train_samples,0):x_train_np.shape[0]]
         y_train_np = y_train_np[max(y_train_np.shape[0]-self.n_train_samples,0):y_train_np.shape[0]]        
         x_train = torch.from_numpy(x_train_np).float()
-        y_train = torch.from_numpy(y_train_np.flatten()).float()
+        y_train = torch.from_numpy(y_train_np.flatten()).float()        
         self.__model = ExactGPModel(x_train, y_train, self.__likelihood)
 
         self.__model.train()

@@ -11,7 +11,7 @@ from Surrogates.Surrogate import Surrogate
 #-------------class KRG-------------#
 #-----------------------------------#
 class KRG(Surrogate):
-    """Class for Kriging surrogate model.
+    """Class for Kriging surrogate model (mono dimensional targets only).
 
     :param f_sim_archive: filename where are stored the past simulated individuals
     :type f_sim_archive: str
