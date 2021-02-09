@@ -152,7 +152,7 @@ def main():
         ec_base_ms = Pareto_EC([1, 1], 'rand', ec_base_f, ec_base_s) # min pred cost, max variance
     
         # ec_op = Random_EC()
-        ec_op = ec_base_f
+        # ec_op = ec_base_f
         # ec_op = ec_base_s
         # ec_op = ec_base_d
     
@@ -161,7 +161,7 @@ def main():
         # ec_op = Probability_Improvement_EC(surrogate)
 
         # ec_op = Pareto_Tian2018_EC([1, -1], ec_base_f, ec_base_s) # min pred cost, min variance
-        # ec_op = ec_base_md
+        ec_op = ec_base_md
         # ec_op = ec_base_ms
 
         # if TIME_BUDGET>0:

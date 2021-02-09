@@ -81,6 +81,10 @@ Université de Lille, CNRS CRIStAL, Inria Lille, France
 	   :scale: 10%
 	   :align: center
 
+
+Collaborators
+-------------
+		   
 School of Public Health and Preventive Medicine, Monash University, Australia
 
 .. image:: ../logos/logo_monash.png
