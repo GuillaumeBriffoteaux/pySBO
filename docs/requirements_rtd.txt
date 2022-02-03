@@ -1,6 +1,5 @@
 pygmo
 numpy
-mpi4py
 matplotlib
 torch
 gpytorch
