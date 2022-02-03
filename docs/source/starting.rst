@@ -17,7 +17,7 @@ Requirement file :download:`available here<../../requirements.txt>`
 Notes
 -----
 
-pySBO allows to address expensive single- and multi-objective optimization problems with continuous decision variables. Box-constraints are explicitly taken into account while more elaborated constraints must be handled by the user. The surrogate-based algorithms implemented within pySBO allow to address expensive optimization problems where the evaluation of the objective function is computationally expensive. The surrogate-free algorithms implemented within pySBO allow to address unexpensive optimization problems.
+pySBO allows to address expensive single- and multi-objective optimization problems with continuous decision variables. Box-constraints are explicitly taken into account while more elaborated constraints must be handled by the user. The surrogate-based algorithms implemented within pySBO allow to address expensive optimization problems where the evaluation of the objective function is computationally expensive. The surrogate-free algorithms implemented within pySBO allow to address unexpensive optimization problems. All the implemented algorithms can run in parallel (MPI).
 
 pySBO has only been tested on Ubuntu20.04 both on desktop and distributed machines.
 
