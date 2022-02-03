@@ -45,16 +45,8 @@ class SBX(Crossover):
     def _get_eta(self):
         return self.__eta
 
-    #-------------_set_eta-------------#
-    def _set_eta(self,new_eta):
-        print("[SBX.py] Impossible to modify the distribution index")
-
-    #-------------_del_eta-------------#
-    def _del_eta(self):
-        print("[SBX.py] Impossible to delete the distribution index")
-
     #-------------property-------------#
-    eta=property(_get_eta, _set_eta, _del_eta)
+    eta=property(_get_eta, None, None)
 
 
     #----------------------------------------#
@@ -62,25 +54,22 @@ class SBX(Crossover):
     #----------------------------------------#
     
     #-------------perform_crossover-------------#
-    def perform_crossover(self, pop, bounds):
+    def perform_crossover(self, pop):
         """Applies crossover to the individuals of a population.
 
         :param pop: population to mutate
         :type pop: Population
-        :param bounds: bounds of decision variables
-        :type bounds: np.ndarray
         :returns: the mutated population
         :rtype: Population
         """
-
         
         Crossover.perform_crossover(self, pop)
         assert isinstance(pop, Population)
         assert pop.dvec.shape[0]%2==0
-        assert isinstance(bounds, np.ndarray)
+        bounds = pop.pb.get_bounds()
         assert bounds.shape[1]==pop.dvec.shape[1]
 
-        children_pop = Population(pop.dvec.shape[1])
+        children_pop = Population(pop.pb)
         children_pop.dvec = np.copy(pop.dvec)
 
         it = iter(children_pop.dvec)

@@ -1,1 +1,1 @@
-"""Package related to evolutionary agorithms components."""
+"""Package related to evolutionary agorithms."""

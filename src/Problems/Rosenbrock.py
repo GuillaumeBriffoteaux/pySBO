@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
-from Problems.Benchmark import Benchmark
+from Problems.Single_Objective import Single_Objective
 
 #------------------------------------------#
 #-------------class Rosenbrock-------------#
 #------------------------------------------#
-class Rosenbrock(Benchmark):
-    """Class for the mono-objective Rosenbrock problem.
+class Rosenbrock(Single_Objective):
+    """Class for the single-objective Rosenbrock problem.
 
     :param n_dvar: number of decision variable
-    :type n_dvar: positive int, not zero
+    :type n_dvar: positive int, >1
     """
 
     
@@ -23,15 +23,15 @@ class Rosenbrock(Benchmark):
     #-------------__init__-------------#    
     def __init__(self, n_dvar):
         assert n_dvar>1
-        Benchmark.__init__(self, n_dvar, 1)
+        Single_Objective.__init__(self, n_dvar)
 
     #-------------__del__-------------#
     def __del__(self):
-        Benchmark.__del__(self)
+        Single_Objective.__del__(self)
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Rosenbrock problem "+str(self.n_dvar)+" decision variables"
+        return "Rosenbrock problem "+str(self.n_dvar)+" decision variables "+str(self.n_obj)+" objective"
 
     
     #----------------------------------------#
@@ -40,19 +40,19 @@ class Rosenbrock(Benchmark):
     
     #-------------perform_real_evaluation-------------#
     def perform_real_evaluation(self, candidates):
-        """Fitness function.
+        """Objective function.
 
         :param candidates: candidate decision vectors
         :type candidates: np.ndarray
-        :return: costs (i.e. objective values)
+        :return: objective values
         :rtype: np.ndarray
         """
 
         assert self.is_feasible(candidates)
         if candidates.ndim==1:
             candidates = np.array([candidates])
-        costs = np.sum(100*(candidates[:,0:candidates.shape[1]-1].__pow__(2)-candidates[:,1:]).__pow__(2) + (candidates[:,0:candidates.shape[1]-1]-1).__pow__(2), axis=1)
-        return costs
+        obj_vals = np.sum(100*(candidates[:,0:candidates.shape[1]-1].__pow__(2)-candidates[:,1:]).__pow__(2) + (candidates[:,0:candidates.shape[1]-1]-1).__pow__(2), axis=1)
+        return obj_vals
 
     #-------------get_bounds-------------#
     def get_bounds(self):
@@ -78,7 +78,7 @@ class Rosenbrock(Benchmark):
         """
 
         res=False
-        if Benchmark.is_feasible(self, candidates)==True:
+        if Single_Objective.is_feasible(self, candidates)==True:
             lower_bounds=self.get_bounds()[0,:]
             upper_bounds=self.get_bounds()[1,:]
             res=(lower_bounds<=candidates).all() and (candidates<=upper_bounds).all()
@@ -86,7 +86,7 @@ class Rosenbrock(Benchmark):
 
     #-------------plot-------------#
     def plot(self):
-        """Plot the 2D Rosenbrock fitness function."""
+        """Plot the 2D Rosenbrock objective function."""
         
         if self.n_dvar==2:
             fig = plt.figure()

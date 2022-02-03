@@ -25,8 +25,8 @@ autodoc_mock_imports = ["mpi4py"]
 
 # -- Project information -----------------------------------------------------
 
-project = 'pySAEA'
-copyright = '2020, Guillaume Briffoteaux'
+project = 'pySBO'
+copyright = '2021, Guillaume Briffoteaux'
 author = 'Guillaume Briffoteaux'
 
 # The full version, including alpha/beta/rc tags

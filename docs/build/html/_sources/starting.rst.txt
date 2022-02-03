@@ -1,15 +1,15 @@
-About pySAEA
-============
+About pySBO
+===========
 
 
 Installation
 ------------
 
-Clone the Github repository from `<https://github.com/GuillaumeBriffoteaux/pySAEA.git>`_
+Clone the Github repository from `<https://github.com/GuillaumeBriffoteaux/pySBO.git>`_
 
-Check `python3.7` is installed on your system.
+Check `python3.9` is installed on your system.
 
-Install the required libraires: ``python3.7 -m pip install -r requirements.txt``
+Install the required libraires: ``python3.9 -m pip install -r requirements.txt``
 
 Requirement file :download:`available here<../../requirements.txt>`
 
@@ -17,11 +17,11 @@ Requirement file :download:`available here<../../requirements.txt>`
 Notes
 -----
 
-For the moment, only mono-objective real unconstrained optimization problems are considered.
+pySBO allows to address expensive single- and multi-objective optimization problems with continuous decision variables. Box-constraints are explicitly taken into account while more elaborated constraints must be handled by the user. The surrogate-based algorithms implemented within pySBO allow to address expensive optimization problems where the evaluation of the objective function is computationally expensive. The surrogate-free algorithms implemented within pySBO allow to address unexpensive optimization problems.
 
-pySAEA has only been tested on Ubuntu20.04 both on desktop and distributed machines.
+pySBO has only been tested on Ubuntu20.04 both on desktop and distributed machines.
 
-pySAEA is organized following the one-class-per-file Java convention. Consequently, each module is nammed after the class it contains.
+pySBO is organized following the one-class-per-file Java convention. Consequently, each module is nammed after the class it contains.
 
 
 Support
@@ -30,12 +30,14 @@ Support
 guillaume.briffoteaux@gmail.com
 
 
-Background on Surrogate-Assisted Optimization
----------------------------------------------
+Background on Surrogate-Based Optimization
+------------------------------------------
 
-`G.Briffoteaux, R.Ragonnet, M.Mezmaz, N.Melab and D.Tuyttens. Evolution Control for Parallel ANN-assisted Simulation-based Optimization, Application to Tuberculosis Transmission Control. Future Generation Computer System , 113:454-467, 2020. <https://www.sciencedirect.com/science/article/abs/pii/S0167739X19308635>`_
+`G. Briffoteaux, R. Ragonnet, M. Mezmaz, N. Melab and D. Tuyttens. Evolution Control Ensemble Models for Surrogate-Assisted Evolutionary Algorithms. HPCS 2020 - International Conference on High Performance Computing and Simulation, 22-27 March 2021, Onlineconference. <https://hal.inria.fr/hal-03332521>`_
 
 `G.Briffoteaux, M.Gobert, R.Ragonnet, J.Gmys, M.Mezmaz, N.Melab and D.Tuyttens. Parallel Surrogate-assisted Optimization: Batched Bayesian Neural Network-assisted GA versus q-EGO. Swarm and Evolutionary Computation , 57:100717, 2020. <https://www.sciencedirect.com/science/article/abs/pii/S2210650220303709?via%3Dihub>`_
+
+`G.Briffoteaux, R.Ragonnet, M.Mezmaz, N.Melab and D.Tuyttens. Evolution Control for Parallel ANN-assisted Simulation-based Optimization, Application to Tuberculosis Transmission Control. Future Generation Computer System , 113:454-467, 2020. <https://www.sciencedirect.com/science/article/abs/pii/S0167739X19308635>`_
 
 
 Author
@@ -81,6 +83,10 @@ Université de Lille, CNRS CRIStAL, Inria Lille, France
 	   :scale: 10%
 	   :align: center
 
+
+Collaborators
+-------------
+		   
 School of Public Health and Preventive Medicine, Monash University, Australia
 
 .. image:: ../logos/logo_monash.png

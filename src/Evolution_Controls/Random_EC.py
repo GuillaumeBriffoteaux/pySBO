@@ -23,7 +23,7 @@ class Random_EC(Evolution_Control):
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Random Adaptive Evolution Control"
+        return "Random Evolution Control"
 
 
     #----------------------------------------#

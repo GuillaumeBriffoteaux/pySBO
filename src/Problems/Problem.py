@@ -15,6 +15,7 @@ class Problem(ABC):
     :param n_obj: number of objectives
     :type n_obj: positive int, not zero
     """
+
     
     #-----------------------------------------#
     #-------------special methods-------------#
@@ -39,38 +40,22 @@ class Problem(ABC):
     def __str__(self):
         pass
 
-
+    
     #---------------------------------------------#
     #-------------getters and setters-------------#
     #---------------------------------------------#
-
+    
     #-------------_get_n_dvar-------------#
     def _get_n_dvar(self):
         return self.__n_dvar
 
-    #-------------_set_n_dvar-------------#
-    def _set_n_dvar(self,new_n_dvar):
-        print("[Problem.py] Impossible to modify the number of decision variables")
-
-    #-------------_del_n_dvar-------------#
-    def _del_n_dvar(self):
-        print("[Problem.py] Impossible to delete the number of decision variables")
-
     #-------------_get_n_obj-------------#
     def _get_n_obj(self):
         return self.__n_obj
-
-    #-------------_set_n_obj-------------#
-    def _set_n_obj(self,new_n_obj):
-        print("[Problem.py] Impossible to modify the number of objectives")
-
-    #-------------_del_n_obj-------------#
-    def _del_n_obj(self):
-        print("[Problem.py] Impossible to delete the number of objectives")
-
+    
     #-------------property-------------#
-    n_dvar=property(_get_n_dvar, _set_n_dvar, _del_n_dvar)
-    n_obj=property(_get_n_obj, _set_n_obj, _del_n_obj)
+    n_dvar=property(_get_n_dvar, None, None)
+    n_obj=property(_get_n_obj, None, None)
 
     
     #----------------------------------------#
@@ -92,8 +77,3 @@ class Problem(ABC):
             else:
                 res=(candidates.shape[1]==self.__n_dvar)
         return res
-
-    #-------------get_bounds-------------#
-    @abstractmethod
-    def get_bounds(self):
-        pass

@@ -36,7 +36,7 @@ class Probability_Improvement_EC(Informed_EC):
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Probability Improvement Adaptive Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
+        return "Probability Improvement Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
 
 
     #----------------------------------------#
@@ -48,13 +48,12 @@ class Probability_Improvement_EC(Informed_EC):
         Informed_EC.get_sorted_indexes(self, pop)
 
         (preds, uncert) = self.surr.perform_prediction(pop.dvec)
+        norm_y_min = self.surr.normalize_obj_vals(Global_Var.obj_val_min)[0]
 
-        # treat division by zero case
-        idx_zero_var=np.where(uncert<1e-100)
-        uncert[idx_zero_var[0]]=1
-        pis = sp.stats.norm.cdf((Global_Var.cost_min-preds)/uncert)
-        pis[idx_zero_var[0]]=1
+        idx_nonzero_stdev=np.where(uncert>1e-16)
+        pis = np.zeros(preds.shape)
         
+        pis[idx_nonzero_stdev] = (0.5 + 0.5 * sp.special.erf((norm_y_min - preds[idx_nonzero_stdev])/(uncert[idx_nonzero_stdev]*np.sqrt(2.0))))
         idx = np.argsort(-pis)
 
         return idx
@@ -62,5 +61,12 @@ class Probability_Improvement_EC(Informed_EC):
     #-------------get_IC_value-------------#
     def get_IC_value(self, dvec):
         Informed_EC.get_IC_value(self, dvec)
+
         (preds, uncert) = self.surr.perform_prediction(dvec)
-        return -sp.stats.norm.cdf((Global_Var.cost_min-preds)/uncert)
+        norm_y_min = self.surr.normalize_obj_vals(Global_Var.obj_val_min)[0]
+
+        idx_nonzero_stdev=np.where(uncert>1e-16)
+        pis = np.zeros(preds.shape)
+        
+        pis[idx_nonzero_stdev] = (0.5 + 0.5 * sp.special.erf((norm_y_min - preds[idx_nonzero_stdev])/(uncert[idx_nonzero_stdev]*np.sqrt(2.0))))
+        return -pis

@@ -35,16 +35,8 @@ class Informed_EC(Evolution_Control):
     def _get_surr(self):
         return self.__surr
 
-    #-------------_set_surr-------------#
-    def _set_surr(self,new_surr):
-        print("[Informed_EC.py] Impossible to modify the surrogate")
-
-    #-------------_del_surr-------------#
-    def _del_surr(self):
-        print("[Informed_EC.py] Impossible to delete the surrogate")
-
     #-------------property-------------#
-    surr=property(_get_surr, _set_surr, _del_surr)
+    surr=property(_get_surr, None, None)
 
 
     #----------------------------------------#
@@ -54,7 +46,7 @@ class Informed_EC(Evolution_Control):
     #-------------get_IC_value-------------#
     @abstractmethod
     def get_IC_value(self, dvec):
-        """Returns the promise values of candidates.
+        """Returns the promisingness values of candidates.
 
         :param dvec: decision vectors
         :type dvec: np.ndarray

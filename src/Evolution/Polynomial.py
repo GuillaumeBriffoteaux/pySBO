@@ -45,16 +45,8 @@ class Polynomial(Mutation):
     def _get_eta(self):
         return self.__eta
 
-    #-------------_set_eta-------------#
-    def _set_eta(self,new_eta):
-        print("[Polynomial.py] Impossible to modify the distribution index")
-
-    #-------------_del_eta-------------#
-    def _del_eta(self):
-        print("[Polynomial.py] Impossible to delete the distribution index")
-
     #-------------property-------------#
-    eta=property(_get_eta, _set_eta, _del_eta)
+    eta=property(_get_eta, None, None)
 
 
     #----------------------------------------#
@@ -62,21 +54,19 @@ class Polynomial(Mutation):
     #----------------------------------------#
 
     #-------------perform_mutation-------------#    
-    def perform_mutation(self, pop, bounds):
+    def perform_mutation(self, pop):
         """Mutates the individuals of a population.
 
         :param pop: population to mutate
         :type pop: Population
-        :param bounds: bounds of decision variables
-        :type bounds: np.ndarray
         :returns: the mutated population
         :rtype: Population
         """
         Mutation.perform_mutation(self, pop)
-        assert isinstance(bounds, np.ndarray)
+        bounds = pop.pb.get_bounds()
         assert bounds.shape[1]==pop.dvec.shape[1]
 
-        children = Population(pop.dvec.shape[1])
+        children = Population(pop.pb)
         children.dvec = np.copy(pop.dvec)
 
         # Loop over the children population

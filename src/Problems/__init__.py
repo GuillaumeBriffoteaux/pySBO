@@ -1,1 +1,1 @@
-"""Package related to optimization problem's description and design of experiment."""
+"""Package related to problem description and design of experiment."""

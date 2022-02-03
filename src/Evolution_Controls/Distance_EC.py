@@ -9,7 +9,7 @@ from Evolution_Controls.Informed_EC import Informed_EC
 class Distance_EC(Informed_EC):
     """Class for distance EC.
 
-    Candidates with greater distance from the training set are more promising.
+    Candidates with greater distance from the set of already simulated candidates are more promising.
     """
 
     
@@ -34,7 +34,7 @@ class Distance_EC(Informed_EC):
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Distance Adaptive Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
+        return "Distance Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
 
 
     #----------------------------------------#

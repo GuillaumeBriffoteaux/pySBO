@@ -9,11 +9,11 @@ Classes summary
 
    Surrogates.Surrogate.Surrogate
    Surrogates.BNN_MCD.BNN_MCD
-   Surrogates.BNN_BLR.BNN_BLR
-   Surrogates.KRG.KRG
-   Surrogates.GP_Matern.GP_Matern
-   Surrogates.GP_SMK.GP_SMK
-   Surrogates.RF.RF
+   Surrogates.BLR_ANN.BLR_ANN
+   Surrogates.iKRG.iKRG
+   Surrogates.rKRG.rKRG
+   Surrogates.GP.GP
+   Surrogates.GP_MO.GP_MO
    
 Surrogate (abstract)
 --------------------
@@ -27,29 +27,30 @@ Monte Carlo Dropout
 ^^^^^^^^^^^^^^^^^^^
 .. autoclass:: Surrogates.BNN_MCD.BNN_MCD
 
+	       
 Bayesian Linear Regressor
-^^^^^^^^^^^^^^^^^^^^^^^^^
-.. autoclass:: Surrogates.BNN_BLR.BNN_BLR
+-------------------------
+	       
+Artificial Neural Network basis functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Surrogates.BLR_ANN.BLR_ANN
 
 
 Gaussian Processes
 ------------------
 
-Kriging
-^^^^^^^
-.. autoclass:: Surrogates.KRG.KRG
+Interpolation Kriging
+^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Surrogates.iKRG.iKRG
 
-Matern kernel
-^^^^^^^^^^^^^
-.. autoclass:: Surrogates.GP_Matern.GP_Matern
-
-Spectral Mixture kernel
-^^^^^^^^^^^^^^^^^^^^^^^
-.. autoclass:: Surrogates.GP_SMK.GP_SMK
+Regression Kriging
+^^^^^^^^^^^^^^^^^^
+.. autoclass:: Surrogates.rKRG.rKRG
 	       
-Others
-------
+GP with different kernels
+^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Surrogates.GP.GP
 
-Random Forest
-^^^^^^^^^^^^^
-.. autoclass:: Surrogates.RF.RF
+GP for multiple ojbectives
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. autoclass:: Surrogates.GP_MO.GP_MO

@@ -23,7 +23,7 @@ class Elitist(Replacement):
 
     #-------------__del__-------------#
     def __del__(self):
-        Replacement.__init__(self)
+        Replacement.__del__(self)
 
     #-------------__str__-------------#
     def __str__(self):
@@ -47,7 +47,7 @@ class Elitist(Replacement):
         Replacement.perform_replacement(self, pop, children)
 
         # merging
-        merged_pop = Population(pop.dvec.shape[1])
+        merged_pop = Population(pop.pb)        
         merged_pop.append(pop)
         merged_pop.append(children)
 
@@ -56,11 +56,11 @@ class Elitist(Replacement):
 
         # retaining
         pop.dvec = merged_pop.dvec[0:pop.dvec.shape[0]]
-        pop.costs = merged_pop.costs[0:pop.dvec.shape[0]]
+        pop.obj_vals = merged_pop.obj_vals[0:pop.dvec.shape[0]]
         pop.fitness_modes = merged_pop.fitness_modes[0:pop.dvec.shape[0]]
 
         # adding best predicted 
         if False not in pop.fitness_modes and False in merged_pop.fitness_modes:
             pop.dvec[pop.dvec.shape[0]-1] = merged_pop.dvec[np.where(merged_pop.fitness_modes==False)[0][0]]
-            pop.costs[pop.costs.size-1] = merged_pop.costs[np.where(merged_pop.fitness_modes==False)[0][0]]
+            pop.obj_vals[pop.obj_vals.shape[0]-1] = merged_pop.obj_vals[np.where(merged_pop.fitness_modes==False)[0][0]]
             pop.fitness_modes[pop.fitness_modes.size-1] = False

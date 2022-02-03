@@ -36,7 +36,7 @@ class Expected_Improvement_EC(Informed_EC):
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Expected Improvement Adaptive Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
+        return "Expected Improvement Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
 
 
     #----------------------------------------#
@@ -48,13 +48,12 @@ class Expected_Improvement_EC(Informed_EC):
         Informed_EC.get_sorted_indexes(self, pop)
 
         (preds, uncert) = self.surr.perform_prediction(pop.dvec)
-
-        # treat division by zero case
-        idx_zero_var=np.where(uncert<1e-100)
-        uncert[idx_zero_var[0]]=1
-        eis = (Global_Var.cost_min-preds) * sp.stats.norm.cdf((Global_Var.cost_min-preds)/uncert) + uncert * sp.stats.norm.pdf((Global_Var.cost_min-preds)/uncert)
-        eis[idx_zero_var[0]]=(Global_Var.cost_min-preds[idx_zero_var[0]])
+        norm_y_min = self.surr.normalize_obj_vals(Global_Var.obj_val_min)[0]
         
+        idx_nonzero_stdev=np.where(uncert>1e-16)
+        eis = np.zeros(preds.shape)
+        
+        eis[idx_nonzero_stdev] = ((norm_y_min - preds[idx_nonzero_stdev]) * (0.5 + 0.5*sp.special.erf((1./np.sqrt(2.))*((norm_y_min - preds[idx_nonzero_stdev]) / uncert[idx_nonzero_stdev])))) + ((uncert[idx_nonzero_stdev] * (1. / np.sqrt(2. * np.pi))) * (np.exp(-(1./2.) * ((norm_y_min - preds[idx_nonzero_stdev])**2. / uncert[idx_nonzero_stdev]**2.))))
         idx = np.argsort(-eis)
 
         return idx
@@ -62,6 +61,13 @@ class Expected_Improvement_EC(Informed_EC):
     #-------------get_IC_value-------------#
     def get_IC_value(self, dvec):
         Informed_EC.get_IC_value(self, dvec)
+        
         (preds, uncert) = self.surr.perform_prediction(dvec)
+        norm_y_min = self.surr.normalize_obj_vals(Global_Var.obj_val_min)[0]
+        
+        idx_nonzero_stdev=np.where(uncert>1e-16)
+        eis = np.zeros(preds.shape)
+        
+        eis[idx_nonzero_stdev] = ((norm_y_min - preds[idx_nonzero_stdev]) * (0.5 + 0.5*sp.special.erf((1./np.sqrt(2.))*((norm_y_min - preds[idx_nonzero_stdev]) / uncert[idx_nonzero_stdev])))) + ((uncert[idx_nonzero_stdev] * (1. / np.sqrt(2. * np.pi))) * (np.exp(-(1./2.) * ((norm_y_min - preds[idx_nonzero_stdev])**2. / uncert[idx_nonzero_stdev]**2.))))
 
-        return -((Global_Var.cost_min-preds) * sp.stats.norm.cdf((Global_Var.cost_min-preds)/uncert) + uncert * sp.stats.norm.pdf((Global_Var.cost_min-preds)/uncert))
+        return -eis

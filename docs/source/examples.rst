@@ -4,59 +4,85 @@ Examples
 
 
 
-Evolutionary Algorithm
-----------------------
+Synchronous Parallel Evaluations
+--------------------------------
+
+.. image:: ../examples_diagrams/par_sync/animated_par_sync.gif
+	   :scale: 100%
+	   :align: center
+
+
+Single-Objective Evolutionary Algorithm (surrogate-free)
+--------------------------------------------------------
+
+.. automodule:: EA
 
 .. image:: ../examples_diagrams/EA/animated_EA.gif
 	   :scale: 100%
 	   :align: center
-		   
-
-Synchronous Parallel EA
-^^^^^^^^^^^^^^^^^^^^^^^
-
-.. automodule:: par_sync_EA
-
-.. image:: ../examples_diagrams/sync_EA/animated_sync_EA.gif
-	   :scale: 100%
-	   :align: center
-		   
 
 
+Single-Objective Surrogate-Assisted Evolutionary Algorithm
+----------------------------------------------------------
 
-Direct Fitness Replacement
---------------------------
+.. automodule:: SAEA
 
-.. image:: ../examples_diagrams/DFR/animated_DFR.gif
+.. image:: ../examples_diagrams/SAEA/animated_SAEA.gif
 	   :scale: 100%
 	   :align: center
 
+		   
+Single-Objective Surrogate-Driven Algorithms
+--------------------------------------------
 
-Synchronous Parallel DFR
+.. image:: ../examples_diagrams/SDA/animated_SDA.gif
+	   :scale: 100%
+	   :align: center
+		   
+q-EGO with Surrogate Believer
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: SDA_qEGO_SB
+
+q-EGO with Constant Liar
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. automodule:: par_sync_DFR
+.. automodule:: SDA_qEGO_CL
 
-.. image:: ../examples_diagrams/sync_EA/animated_sync_EA.gif
-	   :scale: 100%
-	   :align: center
-		   
+q-Pareto
+^^^^^^^^
 
-
-
-Efficient Global Optimization
------------------------------
-
-.. image:: ../examples_diagrams/EGO/animated_EGO.gif
-	   :scale: 100%
-	   :align: center
+.. automodule:: SDA_qPareto
 
 
-Synchronous Parallel EGO
-^^^^^^^^^^^^^^^^^^^^^^^^
+Multi-Objective Evolutionary Algorithms (surrogate-free)
+--------------------------------------------------------
 
-.. automodule:: par_sync_EGO
+Non-Domiated Sorted Genetic Algorithm (NSGA-II)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. image:: ../examples_diagrams/sync_EGO/animated_sync_EGO.gif
-	   :scale: 100%
-	   :align: center
+.. automodule:: NSGA_II
+
+Reference Vector Guided Evolutionary Algorithm (RVEA)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: RVEA
+
+RVEA*
+^^^^^
+
+.. automodule:: RVEA_star
+
+
+Multi-Objective Surrogate-Driven Algorithms
+-------------------------------------------
+
+Adaptive Bayesian Multi-Objective Evolutionary Algorithm (AB-MOEA)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: AB_MOEA
+
+Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive problems (SAEA-ME)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. automodule:: SAEA_ME

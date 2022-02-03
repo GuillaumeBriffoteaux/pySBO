@@ -40,13 +40,5 @@ class Ensemble_EC(Evolution_Control):
     def _get_ECs_list(self):
         return self.__ECs_list
 
-    #-------------_set_ECs_list-------------#
-    def _set_ECs_list(self, new_ECs_list):
-        print("[Ensemble_EC.py] Impossible to modify the ECs list")
-
-    #-------------_del_ECs_list-------------#
-    def _del_ECs_list(self):
-        print("[Ensemble_EC.py] Impossible to delete the ECs list")
-
     #-------------property-------------#
-    ECs_list=property(_get_ECs_list, _set_ECs_list, _del_ECs_list)
+    ECs_list=property(_get_ECs_list, None, None)

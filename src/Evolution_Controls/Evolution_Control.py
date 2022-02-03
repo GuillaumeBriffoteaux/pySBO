@@ -1,4 +1,3 @@
-import numpy as np
 from abc import ABC
 from abc import abstractmethod
 
@@ -47,5 +46,5 @@ class Evolution_Control(ABC):
         """
 
         assert isinstance(pop, Population)
-        assert pop.costs.size==0 and pop.fitness_modes.size==0
+        assert pop.obj_vals.size==0 and pop.fitness_modes.size==0
         pass

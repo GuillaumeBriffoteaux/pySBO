@@ -43,16 +43,8 @@ class Tournament_Position(Selection):
     def _get_size(self):
         return self.__size
 
-    #-------------_set_size-------------#
-    def _set_size(self,new_size):
-        print("[Tournament_Position.py] Impossible to modify the tournament size")
-
-    #-------------_del_size-------------#
-    def _del_size(self):
-        print("[Tournament_Position.py] Impossible to delete the tournament size")
-
     #-------------property-------------#
-    size=property(_get_size, _set_size, _del_size)
+    size=property(_get_size, None, None)
 
 
     #----------------------------------------#
@@ -64,11 +56,16 @@ class Tournament_Position(Selection):
         Selection.perform_selection(self, pop, n_par)
         assert pop.dvec.shape[0]>0
 
-        parents = Population(pop.dvec.shape[1])
+        replace_mode = False        
+        if pop.dvec.shape[0]<self.__size:
+            # can occur in RVEA
+            replace_mode = True
+
+        parents = Population(pop.pb)
 
         # n_par tournaments
         for i in range(0, n_par):
-            idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=np.int), self.__size, False)
+            idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=np.int), self.__size, replace_mode)
             parents.dvec = np.vstack( (parents.dvec, pop.dvec[np.amin(idx)]) )
                 
         return parents

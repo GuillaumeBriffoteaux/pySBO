@@ -40,16 +40,8 @@ class DoE:
     def _get_pb(self):
         return self.__pb
 
-    #-------------_set_pb-------------#
-    def _set_pb(self,new_pb):
-        print("[DoE.py] Impossible to modify the problem")
-
-    #-------------_del_pb-------------#
-    def _del_pb(self):
-        print("[DoE.py] Impossible to delete the problem")
-
     #-------------property-------------#
-    pb=property(_get_pb, _set_pb, _del_pb)
+    pb=property(_get_pb)
 
 
     #----------------------------------------#

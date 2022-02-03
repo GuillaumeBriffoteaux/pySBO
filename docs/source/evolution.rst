@@ -13,12 +13,15 @@ Classes summary
    Evolution.Polynomial.Polynomial
    Evolution.Crossover.Crossover
    Evolution.SBX.SBX
+   Evolution.Intermediate.Intermediate
+   Evolution.Two_Points.Two_Points
    Evolution.Selection.Selection
    Evolution.Tournament.Tournament
    Evolution.Tournament_Position.Tournament_Position
    Evolution.Replacement.Replacement
    Evolution.Elitist.Elitist
    Evolution.Custom_Elitism.Custom_Elitism
+   Evolution.Reference_Vector_Set.Reference_Vector_Set
    
 Population
 ----------
@@ -37,7 +40,7 @@ Polynomial
 ^^^^^^^^^^
 .. autoclass:: Evolution.Polynomial.Polynomial
 
-	       
+
 Crossover
 ---------
 
@@ -49,7 +52,15 @@ SBX
 ^^^
 .. autoclass:: Evolution.SBX.SBX	       
 
-	       
+Intermediate
+^^^^^^^^^^^^
+.. autoclass:: Evolution.Intermediate.Intermediate	       
+
+Two_Points
+^^^^^^^^^^^^
+.. autoclass:: Evolution.Two_Points.Two_Points
+
+
 Selection
 ---------
 
@@ -80,3 +91,8 @@ Elitist
 Custom_Elitism
 ^^^^^^^^^^^^^^
 .. autoclass:: Evolution.Custom_Elitism.Custom_Elitism
+
+Reference Vector Set
+--------------------
+
+.. autoclass:: Evolution.Reference_Vector_Set.Reference_Vector_Set

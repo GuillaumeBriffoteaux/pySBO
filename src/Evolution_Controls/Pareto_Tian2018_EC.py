@@ -14,6 +14,9 @@ class Pareto_Tian2018_EC(Ensemble_EC):
 
     Candidates with lowest non-dominated and highest rank according to minimization of the ECs (multiplied by their respective coefficient 1 or -1) are more promising. Then, Candidates with increasing non-dominated rank are increasingly promising.
 
+    The EC is described in :
+    `J. Tian, Y. Tan, J. Zeng, C. Sun and Y. Jin. Multi-objective Infill Criterion Driven Gaussian Process-Assisted Particle Swarm Optimization of High-Dimensional Expensive Problems. In IEEE Transactions on Evolutionary Computation 23.3 (June 2019), pp. 459–472. ISSN: 1941-0026. <https://doi.org/10.1109/TEVC.2018.2869247>`_
+
     :param coeffs: coefficients (1 or -1) to multiply the EC with (allow to convert a minimization problem into a maximization problem and reversely)
     :type coeffs: np.ndarray
     """
@@ -49,7 +52,7 @@ class Pareto_Tian2018_EC(Ensemble_EC):
 
     #-------------__str__-------------#
     def __str__(self):
-        res="Pareto-based Ensemble Evolution Control\n  coeffs:{"
+        res="Pareto-based Ensemble Evolution Control (Tian-2018)\n  coeffs:{"
         for mode in self.__coeffs:
             res+=" "+str(mode)
         res+=" }\n  ECs: {"
@@ -65,19 +68,10 @@ class Pareto_Tian2018_EC(Ensemble_EC):
 
     #-------------_get_coeffs-------------#
     def _get_coeffs(self):
-        print("[Pareto_EC.py] Impossible to get the list of coeffs")
         return self.__coeffs
-
-    #-------------_set_coeffs-------------#
-    def _set_coeffs(self, new_coeffs):
-        print("[Pareto_EC.py] Impossible to modify the list of coeffs")
-
-    #-------------_del_coeffs-------------#
-    def _del_coeffs(self):
-        print("[Pareto_EC.py] Impossible to delete the list of coeffs")
         
     #-------------property-------------#
-    coeffs=property(_get_coeffs, _set_coeffs, _del_coeffs)
+    coeffs=property(_get_coeffs, None, None)
 
 
     #----------------------------------------#

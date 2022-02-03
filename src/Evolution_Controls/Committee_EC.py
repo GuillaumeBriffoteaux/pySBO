@@ -45,26 +45,18 @@ class Committee_EC(Ensemble_EC):
         res+="}"
         return res
 
-
     
     #---------------------------------------------#
     #-------------getters and setters-------------#
     #---------------------------------------------#
+
     
     #-------------_get_n_sim-------------#
     def _get_n_sim(self):
         return self.__n_sim
 
-    #-------------_set_n_sim-------------#
-    def _set_n_sim(self,new_n_sim):
-        print("[Committee_EC.py] Impossible to modify the number of solutions to simulate")
-
-    #-------------_del_n_sim-------------#
-    def _del_n_sim(self):
-        print("[Committee_EC.py] Impossible to delete the number of solutions to simulate")
-
     #-------------property-------------#
-    n_sim=property(_get_n_sim, _set_n_sim, _del_n_sim)
+    n_sim=property(_get_n_sim, None, None)
 
 
     #----------------------------------------#
@@ -86,5 +78,5 @@ class Committee_EC(Ensemble_EC):
     
     #-------------update_active-------------#
     def update_active(self, search_progress):
-        print("[Committee_EC.py] update_active() not implemented yet")
+        print("[Committee_EC.py] update_active() not implemented")
         assert False

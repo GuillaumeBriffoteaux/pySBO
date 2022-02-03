@@ -1,5 +1,5 @@
-pySAEA Packages
-===============
+pySBO Packages
+==============
 
 .. image:: ../uml/UML.svg
 

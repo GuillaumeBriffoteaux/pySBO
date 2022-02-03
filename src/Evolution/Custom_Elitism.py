@@ -39,20 +39,13 @@ class Custom_Elitism(Replacement):
     #-------------getters and setters-------------#
     #---------------------------------------------#
 
+    
     #-------------_get_ec-------------#
     def _get_ec(self):
         return self.__ec
 
-    #-------------_set_ec-------------#
-    def _set_ec(self, new_ec):
-        print("[Custom_Elitism.py] Impossible to modify the associated Evolution Control")
-
-    #-------------_del_ec-------------#
-    def _del_ec(self):
-        print("[Custom_Elitism.py] Impossible to delete the associated Evolution Control")
-
     #-------------property-------------#
-    ec=property(_get_ec, _set_ec, _del_ec)
+    ec=property(_get_ec, None, None)
 
 
     #----------------------------------------#
@@ -72,7 +65,7 @@ class Custom_Elitism(Replacement):
         Replacement.perform_replacement(self, pop, children)
 
         # merging
-        merged_pop = Population(pop.dvec.shape[1])
+        merged_pop = Population(pop.pb)
         merged_pop.append(pop)
         merged_pop.append(children)
 

@@ -45,16 +45,8 @@ class Mutation(ABC):
     def _get_prob(self):
         return self.__prob
 
-    #-------------_set_prob-------------#
-    def _set_prob(self,new_prob):
-        print("[Mutation.py] Impossible to modify the mutation probability")
-
-    #-------------_del_prob-------------#
-    def _del_prob(self):
-        print("[Mutation.py] Impossible to delete the mutation probability")
-
     #-------------property-------------#
-    prob=property(_get_prob, _set_prob, _del_prob)
+    prob=property(_get_prob, None, None)
 
     
     #----------------------------------------#

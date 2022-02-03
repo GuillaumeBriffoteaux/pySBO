@@ -1,27 +1,21 @@
-import os
 import time
-import pickle
 import numpy as np
 import tensorflow as tf
-from sklearn.model_selection import train_test_split
-
-import warnings
-warnings.filterwarnings('ignore', category=FutureWarning)
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-import tensorflow.python.util.deprecation as deprecation
-deprecation._PRINT_DEPRECATION_WARNINGS = False
+import sklearn as sk
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import KFold
 
 from Surrogates.Surrogate import Surrogate
 from Problems.Problem import Problem
 
-    
+   
 #---------------------------------------#
 #-------------class BNN_MCD-------------#
 #---------------------------------------#
 class BNN_MCD(Surrogate):
-    """Class for Bayesian Neural Network with Monte Carlo Dropout.
+    """Class for Bayesian Neural Network approximated via Monte Carlo Dropout.
 
-    :param f_sim_archive: filename where are stored the past simulated individuals
+    :param f_sim_archive: filename where are stored the simulated candidates
     :type f_sim_archive: str
     :param pb: problem the surrogate is associated with
     :type pb: Problem
@@ -31,8 +25,12 @@ class BNN_MCD(Surrogate):
     :type f_train_log: str
     :param f_trained_model: filename where will be recorded the trained surrogate model
     :type f_trained_model: str
-    :param y_bounds: lower and upper bounds of the costs found in the training set.
+    :param y_bounds: lower and upper bounds of the objective values found in the training set
     :type y_bounds: np.ndarray
+    :param outputs_scaler: objective values normalizer
+    :type outputs_scaler: sklearn.preprocessing
+    :param n_pred_subnets: number of sub-networks
+    :type n_pred_subnets: positive int, not zero
     :param model: Keras model for the network
     :type model: tf.keras.Model
     """
@@ -42,111 +40,55 @@ class BNN_MCD(Surrogate):
     #-----------------------------------------#
  
     #-------------__init__-------------#
-    def __init__(self, f_sim_archive, pb, n_train_samples, f_train_log, f_trained_model):
+    def __init__(self, f_sim_archive, pb, n_train_samples, f_train_log, f_trained_model, n_pred_subnets):
         Surrogate.__init__(self, f_sim_archive, pb, n_train_samples, f_train_log, f_trained_model)
 
+        # BNN_MCD specific attributes
         self.__y_bounds=np.empty((2,))
-        
+        self.__outputs_scaler = None
+        self.__n_pred_subnets = n_pred_subnets
+                
         # Network hyperparameters
-        n_hidden_layers = 2
-        n_units = 256
-        p_drop = 0.05
-        act_func = 'tanh'
-        assert n_hidden_layers>0
-        assert n_units>0
-        assert p_drop>=0.0 and p_drop<=1.0
+        n_hidden_layers = 1
+        n_units = 1024
+        weight_decay = 1e-1
+        weight_init_stdev = 1e-2
+        p_drop = 0.1
+        act_func = 'relu'
+
         # Network building
         input_layer = tf.keras.Input(shape=(self.pb.n_dvar,))
-        inter_layer = tf.keras.layers.Dropout(p_drop)(input_layer, training=True)
-        inter_layer = tf.keras.layers.Dense(n_units, activation=act_func)(inter_layer)
+        inter_layer = tf.keras.layers.Dense(n_units, activation=act_func, kernel_regularizer=tf.keras.regularizers.l2(weight_decay), kernel_initializer=tf.keras.initializers.RandomNormal(mean=0., stddev=weight_init_stdev))(input_layer)
         for i in range(n_hidden_layers-1):
             inter_layer = tf.keras.layers.Dropout(p_drop)(inter_layer, training=True)
-            inter_layer = tf.keras.layers.Dense(n_units, activation=act_func)(inter_layer)
+            inter_layer = tf.keras.layers.Dense(n_units, activation=act_func, kernel_regularizer=tf.keras.regularizers.l2(weight_decay), kernel_initializer=tf.keras.initializers.RandomNormal(mean=0., stddev=weight_init_stdev))(inter_layer)
         inter_layer = tf.keras.layers.Dropout(p_drop)(inter_layer, training=True)
-        output_layer = tf.keras.layers.Dense(1)(inter_layer)
+        output_layer = tf.keras.layers.Dense(self.pb.n_obj, kernel_regularizer=tf.keras.regularizers.l2(weight_decay), kernel_initializer=tf.keras.initializers.RandomNormal(mean=0., stddev=weight_init_stdev))(inter_layer)
+        
         self.__model = tf.keras.Model(input_layer, output_layer)
-        self.__model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001, beta_1=0.9, beta_2=0.999, amsgrad=False), loss='mse')
-    
+        self.__model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss=tf.keras.losses.MeanSquaredError(), run_eagerly=False)
+        self.__model.save_weights(self.f_trained_model)
+
+        
     #-------------__del__-------------#
     def __del__(self):
         Surrogate.__del__(self)
         del self.__model
         del self.__y_bounds
+
         
     #-------------__str__-------------#
     def __str__(self):
         return "MCDropout-based Bayesian Neural Network\n  training set filename: "+self.f_sim_archive+"\n  associated problem: {"+self.pb.__str__()+"}\n  training set size = "+str(self.n_train_samples)+"\n  training log filename: "+self.f_train_log+"\n  trained model saved in "+self.f_trained_model
 
-
-    #---------------------------------------------#
-    #-------------getters and setters-------------#
-    #---------------------------------------------#
-
-    #-------------_get_model-------------#
-    def _get_model(self):
-        print("[BNN_MCD.py] Impossible to get the model")
-        return None
-
-    #-------------_set_model-------------#
-    def _set_model(self,new_model):
-        print("[BNN_MCD.py] Impossible to modify the model")
-
-    #-------------_del_model-------------#
-    def _del_model(self):
-        print("[BNN_MCD.py] Impossible to delete the model")
-
-    #-------------_get_y_bounds-------------#
-    def _get_y_bounds(self):
-        print("[BNN_MCD.py] Impossible to get the y bounds")
-        return None
-
-    #-------------_set_y_bounds-------------#
-    def _set_y_bounds(self,new_y_bounds):
-        print("[BNN_MCD.py] Impossible to set the y bounds")
-
-    #-------------_del_y_bounds-------------#
-    def _del_y_bounds(self):
-        print("[BNN_MCD.py] Impossible to delete the y bounds")
-
-        
-    #-------------property-------------#
-    model=property(_get_model, _set_model, _del_model)
-    y_bounds=property(_get_y_bounds, _set_y_bounds, _del_y_bounds)
-
     
     #----------------------------------------#
     #-------------object methods-------------#
     #----------------------------------------#
-    
-    #-------------perform_prediction-------------#
-    def perform_prediction(self, candidates):
-        assert self.pb.is_feasible(candidates)
-        if candidates.ndim==1:
-            candidates = np.array([candidates])
-            
-        # Normalizing candidates
-        copy_candidates = np.copy(candidates)
-        copy_candidates = (2/(self.pb.get_bounds()[1]-self.pb.get_bounds()[0]))*copy_candidates+(-self.pb.get_bounds()[1]-self.pb.get_bounds()[0])/(self.pb.get_bounds()[1]-self.pb.get_bounds()[0]) # lies in [-1,1]
 
-        # Predictions
-        mean_preds=np.zeros((copy_candidates.shape[0], self.pb.n_obj))
-        var_preds=np.zeros((copy_candidates.shape[0], self.pb.n_obj))
-        n_subnets=20
-        for i in range(0,n_subnets):
-            preds = self.__model.predict(copy_candidates) # lies in [-1,1]
-            preds = ((self.__y_bounds[1]-self.__y_bounds[0])*preds + (self.__y_bounds[1]+self.__y_bounds[0]))/2 # denormalization
-            mean_preds += preds
-            var_preds += pow(preds, 2)
-        mean_preds = mean_preds/n_subnets
-        mean_preds = np.ndarray.flatten(mean_preds)
-        var_preds = np.ndarray.flatten(var_preds)
-        var_preds = (var_preds/n_subnets) - pow(mean_preds, 2)
-        # print(var_preds)
-        
-        return (mean_preds, var_preds)
     
     #-------------perform_training-------------#
-    # incremental training
+    # training from scratch
     def perform_training(self):
         Surrogate.perform_training(self)
 
@@ -154,29 +96,88 @@ class BNN_MCD(Surrogate):
         (x_train, y_train) = self.load_sim_archive()
         x_train = x_train[max(x_train.shape[0]-self.n_train_samples,0):x_train.shape[0]]
         y_train = y_train[max(y_train.shape[0]-self.n_train_samples,0):y_train.shape[0]]
-        y_train = y_train.reshape(-1, 1)
+        if self.pb.n_obj==1:
+            y_train = y_train.reshape(-1, 1)
 
-        # Normalizing training data
-        x_train_scaled = (2/(self.pb.get_bounds()[1]-self.pb.get_bounds()[0]))*x_train+(-self.pb.get_bounds()[1]-self.pb.get_bounds()[0])/(self.pb.get_bounds()[1]-self.pb.get_bounds()[0]) # lies in [-1,1]
-        self.__y_bounds[0]=np.amin(y_train)
-        self.__y_bounds[1]=np.amax(y_train)
-        y_train_scaled = (2/(self.__y_bounds[1]-self.__y_bounds[0]))*y_train+(-self.__y_bounds[1]-self.__y_bounds[0])/(self.__y_bounds[1]-self.__y_bounds[0]) # lies in [-1,1]
+        # Normalize training data in [0,1]
+        x_train = (x_train - self.pb.get_bounds()[0]) / (self.pb.get_bounds()[1] - self.pb.get_bounds()[0])
+        self.__outputs_scaler = MinMaxScaler(copy=False)
+        self.__outputs_scaler.fit(y_train)
+        self.__outputs_scaler.transform(y_train)
         
         # Training
         t_start = time.time()
-        my_histo = self.__model.fit( x=x_train_scaled, y=y_train_scaled, batch_size=y_train_scaled.shape[0], epochs=10, verbose=0, callbacks=[tf.keras.callbacks.ModelCheckpoint(filepath=self.f_trained_model, monitor='val_loss', verbose=0, save_best_only=True, save_weights_only=True, mode='min', save_freq='epoch')], validation_data=(x_train_scaled, y_train_scaled), shuffle=True )
-        self.__model.load_weights(self.f_trained_model)
+        self.__model.load_weights(self.f_trained_model)        
+        kFold = KFold(n_splits=2)
+        for train, test in kFold.split(x_train, y_train):
+            my_histo = self.__model.fit( x=x_train[train], y=y_train[train], batch_size=32, epochs=10000, verbose=0, callbacks=[tf.keras.callbacks.EarlyStopping(monitor='val_loss', min_delta=1e-8, patience=32, verbose=0, mode='min', baseline=None, restore_best_weights=True)], validation_data=(x_train[test], y_train[test]), shuffle=True )
         t_end = time.time()
-        # print(t_end-t_start)
-        mse = self.__model.evaluate(x_train_scaled, y_train_scaled, verbose=0)
+        training_time = t_end-t_start
 
-        # Saving the trained model
-        self.__model.save(self.f_trained_model)
+        # Compute training MSE and R-square in real-world units
+        y_train = self.denormalize_predictions(y_train)
+        preds = self.__model.predict(x_train)
+        preds = self.denormalize_predictions(preds)
+        training_mse = sk.metrics.mean_squared_error(y_train, preds, squared=True)
+        training_r2 = sk.metrics.r2_score(y_train, preds)
 
         # Log about training
         with open(self.f_train_log, 'a') as my_file:
-            my_file.write(str(x_train_scaled.shape[0])+" "+str(mse)+" "+str((t_end-t_start))+"\n")
+            my_file.write(str(y_train.shape[0])+" "+str(training_mse)+" "+str(training_r2)+" "+str(training_time)+"\n")
+
+
+    #-------------perform_prediction-------------#
+    def perform_prediction(self, candidates):
+        assert self.pb.is_feasible(candidates)
+        if candidates.ndim==1:
+            candidates = np.array([candidates])
+
+        # Normalizing candidates in [0,1]
+        copy_candidates = (candidates - self.pb.get_bounds()[0]) / (self.pb.get_bounds()[1] - self.pb.get_bounds()[0])
+
+        # Predictions
+        preds=np.zeros((self.__n_pred_subnets, copy_candidates.shape[0], self.pb.n_obj))
+        for i in range(0,self.__n_pred_subnets):
+            preds[i,:,:] = self.__model.predict(copy_candidates, batch_size=copy_candidates.shape[0]) # lies in [0,1]
             
+        # Mean predictions and std predictions
+        mean = np.mean(preds, 0)
+        std = np.std(preds, 0)
+
+        if self.pb.n_obj==1:
+            mean = np.ndarray.flatten(mean)
+            std = np.ndarray.flatten(std)
+            
+        # normalized results
+        return (mean, std)
+
+    
+    #-------------denormalize_predictions-------------#
+    def denormalize_predictions(self, preds):
+        if self.pb.n_obj==1:
+            preds = preds.reshape(-1, 1)
+            
+        denorm_preds = self.__outputs_scaler.inverse_transform(preds)
+        
+        if self.pb.n_obj==1:
+            denorm_preds = denorm_preds.flatten()
+            
+        return denorm_preds
+
+    
+    #-------------normalize_obj_vals-------------#
+    def normalize_obj_vals(self, obj_vals):
+        if self.pb.n_obj==1:
+            obj_vals = obj_vals.reshape(-1, 1)
+
+        norm_obj_vals = self.__outputs_scaler.transform(obj_vals)
+
+        if self.pb.n_obj==1:
+            norm_obj_vals = norm_obj_vals.flatten()
+        
+        return norm_obj_vals
+    
+
     #-------------load_trained_model-------------#
     def load_trained_model(self):
         self.__model = tf.keras.models.load_model(self.f_trained_model)

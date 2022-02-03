@@ -13,7 +13,7 @@ from Problems.Problem import Problem
 class Surrogate(ABC):
     """Abstract class for surrogate models.
 
-    :param f_sim_archive: filename where are stored the past simulated individuals
+    :param f_sim_archive: filename where are stored the simulated candidates
     :type f_sim_archive: str
     :param pb: problem the surrogate is associated with
     :type pb: Problem
@@ -22,7 +22,7 @@ class Surrogate(ABC):
     :param f_train_log: filename where will be recorded training log
     :type f_train_log: str
     :param f_trained_model: filename where will be recorded the trained surrogate model
-    :type f_trianed_model: str
+    :type f_trained_model: str
     """
     
     #-----------------------------------------#
@@ -68,94 +68,59 @@ class Surrogate(ABC):
     def _get_f_sim_archive(self):
         return self.__f_sim_archive
 
-    #-------------_set_f_sim_archive-------------#
-    def _set_f_sim_archive(self,new_f_sim_archive):
-        print("[Surrogate.py] Impossible to modify the training set filename")
-
-    #-------------_del_f_sim_archive-------------#
-    def _del_f_sim_archive(self):
-        print("[Surrogate.py] Impossible to delete the training set filename")
-
     #-------------_get_pb-------------#
     def _get_pb(self):
         return self.__pb
-
-    #-------------_set_pb-------------#
-    def _set_pb(self,new_pb):
-        print("[Surrogate.py] Impossible to modify the problem")
-
-    #-------------_del_pb-------------#
-    def _del_pb(self):
-        print("[Surrogate.py] Impossible to delete the problem")
 
     #-------------_get_n_train_samples-------------#
     def _get_n_train_samples(self):
         return self.__n_train_samples
 
-    #-------------_set_n_train_samples-------------#
-    def _set_n_train_samples(self,new_n_train_samples):
-        self.__n_train_samples=new_n_train_samples
-
-    #-------------_del_n_train_samples-------------#
-    def _del_n_train_samples(self):
-        print("[Surrogate.py] Impossible to delete the number of training samples")
-
     #-------------_get_f_train_log-------------#
     def _get_f_train_log(self):
         return self.__f_train_log
 
-    #-------------_set_f_train_log-------------#
-    def _set_f_train_log(self,new_f_train_log):
-        print("[Surrogate.py] Impossible to modify the training log filename")
-
-    #-------------_del_f_train_log-------------#
-    def _del_f_train_log(self):
-        print("[Surrogate.py] Impossible to delete the training log filename")
-
     #-------------_get_f_trained_model-------------#
     def _get_f_trained_model(self):
         return self.__f_trained_model
-
-    #-------------_set_f_trained_model-------------#
-    def _set_f_trained_model(self,new_f_trained_model):
-        print("[Surrogate.py] Impossible to modify the training log filename")
-
-    #-------------_del_f_trained_model-------------#
-    def _del_f_trained_model(self):
-        print("[Surrogate.py] Impossible to delete the training log filename")
         
     #-------------property-------------#
-    f_sim_archive=property(_get_f_sim_archive, _set_f_sim_archive, _del_f_sim_archive)
-    pb=property(_get_pb, _set_pb, _del_pb)
-    n_train_samples=property(_get_n_train_samples, _set_n_train_samples, _del_n_train_samples)
-    f_train_log=property(_get_f_train_log, _set_f_train_log, _del_f_train_log)
-    f_trained_model=property(_get_f_trained_model, _set_f_trained_model, _del_f_trained_model)
+    f_sim_archive=property(_get_f_sim_archive, None, None)
+    pb=property(_get_pb, None, None)
+    n_train_samples=property(_get_n_train_samples, None, None)
+    f_train_log=property(_get_f_train_log, None, None)
+    f_trained_model=property(_get_f_trained_model, None, None)
 
-    
     #----------------------------------------#
     #-------------object methods-------------#
     #----------------------------------------#
-    
-    #-------------perform_prediction-------------#
-    @abstractmethod
-    def perform_prediction(self, candidates):
-        """Returns the predicted cost of the candidates and the uncertainty around it.
 
-        :param candidates: candidates
-        :type candidates: np.ndarray
-        :returns: predicted costs and uncertainties
-        :rtype: (np.ndarray, np.ndarray)
-        """
+    #-------------perform_training-------------#
+    @abstractmethod
+    def perform_training(self):
+        """Trains the surrogate model."""
         
         pass
 
-    #-------------perform_distance-------------#
-    def perform_distance(self, candidates):
-        """Returns the distance from each candidate to the set of past simulated individuals.
+    #-------------perform_prediction-------------#
+    @abstractmethod
+    def perform_prediction(self, candidates):
+        """Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.
 
         :param candidates: candidates
         :type candidates: np.ndarray
-        :returns: distances from the candidates to the set of past simulated individuals
+        :returns: predicted objective values and uncertainties
+        :rtype: (np.ndarray, np.ndarray)
+        """        
+        pass
+    
+    #-------------perform_distance-------------#
+    def perform_distance(self, candidates):
+        """Returns the distance from each normalized candidate to the set of normalized known candidates.
+
+        :param candidates: candidates
+        :type candidates: np.ndarray
+        :returns: distances from the normalized candidates to the set of normalized known candidates
         :rtype: np.ndarray
         """
         
@@ -164,23 +129,17 @@ class Surrogate(ABC):
             candidates = np.array([candidates])
         
         (x_train, y_train) = self.load_sim_archive()
-        dists = np.amin(sp.spatial.distance.cdist(candidates, x_train), axis=1)
+        x_train = (x_train - self.pb.get_bounds()[0]) / (self.pb.get_bounds()[1] - self.pb.get_bounds()[0]) # normalization [0,1]
+        copy_candidates = (candidates - self.pb.get_bounds()[0]) / (self.pb.get_bounds()[1] - self.pb.get_bounds()[0]) # normalization [0,1]
+        dists = np.amin(sp.spatial.distance.cdist(copy_candidates, x_train), axis=1)
 
         return dists
-
-    #-------------perform_training-------------#
-    @abstractmethod
-    def perform_training(self):
-        """Trains the surrogate model."""
-        
-        pass
     
     #-------------load_sim_archive-------------#
-    # to load the simulation archive
     def load_sim_archive(self):
-        """Returns the past simulated individuals.
+        """Returns the past simulated candidates.
 
-        :returns: past simulated decision vectors along with their cost
+        :returns: past simulated decision vectors along with their objective value
         :rtype: tuple(np.ndarray,np.ndarray)
         """
 
@@ -190,16 +149,29 @@ class Surrogate(ABC):
             n_samples = sum(1 for line in reader)
             my_file.seek(0)
 
-            # Following lines contain (candidate, cost)
+            # Following lines contain (candidate, obj_val)
             candidates = np.zeros((n_samples, self.__pb.n_dvar))
-            costs = np.zeros((n_samples, self.__pb.n_obj))
+            obj_vals = np.zeros((n_samples, self.__pb.n_obj))
             for i, line in enumerate(reader):
                 candidates[i] = np.asarray(line[0:self.__pb.n_dvar])
-                costs[i,0:self.__pb.n_obj] = np.asarray(line[self.__pb.n_dvar:self.__pb.n_dvar+self.__pb.n_obj])
-            if costs.shape[1]<2:
-                costs = np.ndarray.flatten(costs)
+                obj_vals[i,0:self.__pb.n_obj] = np.asarray(line[self.__pb.n_dvar:self.__pb.n_dvar+self.__pb.n_obj])
+            if obj_vals.shape[1]<2:
+                obj_vals = np.ndarray.flatten(obj_vals)
 
-        return (candidates, costs)
+        return (candidates, obj_vals)
+
+
+    #-------------denormalize_predictions-------------#
+    @abstractmethod
+    def denormalize_predictions(self, preds):
+        """Denormalize predicted objective value."""
+        pass
+    
+    #-------------normalize_obj_vals-------------#
+    @abstractmethod
+    def normalize_obj_vals(self, obj_vals):
+        """Normalized objective values."""
+        pass
 
     #-------------load_trained_model-------------#
     @abstractmethod

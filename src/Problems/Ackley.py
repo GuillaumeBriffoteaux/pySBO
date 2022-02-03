@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 
-from Problems.Benchmark import Benchmark
+from Problems.Single_Objective import Single_Objective
 
 
 #--------------------------------------#
 #-------------class Ackley-------------#
 #--------------------------------------#
-class Ackley(Benchmark):
-    """Class for the mono-objective Ackley problem.
+class Ackley(Single_Objective):
+    """Class for the single-objective Ackley problem.
 
     :param n_dvar: number of decision variable
     :type n_dvar: positive int, not zero
@@ -23,15 +23,15 @@ class Ackley(Benchmark):
 
     #-------------__init__-------------#    
     def __init__(self, n_dvar):
-        Benchmark.__init__(self, n_dvar, 1)
+        Single_Objective.__init__(self, n_dvar)
 
     #-------------__del__-------------#
     def __del__(self):
-        Benchmark.__del__(self)
+        Single_Objective.__del__(self)
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Ackley problem "+str(self.n_dvar)+" decision variables"
+        return "Ackley problem "+str(self.n_dvar)+" decision variables "+str(self.n_obj)+" objective"
 
 
     #----------------------------------------#
@@ -40,11 +40,11 @@ class Ackley(Benchmark):
     
     #-------------perform_real_evaluation-------------#
     def perform_real_evaluation(self, candidates):
-        """Fitness function.
+        """Objective function.
 
         :param candidates: candidate decision vectors
         :type candidates: np.ndarray
-        :return: costs (i.e. objective values)
+        :return: objective values
         :rtype: np.ndarray
         """
         
@@ -54,9 +54,9 @@ class Ackley(Benchmark):
 
         s1 = np.power(np.linalg.norm(candidates, axis=1), 2)
         s2 = np.sum(np.cos(2*np.pi*candidates), axis=1)
-        costs = -20.0 * np.exp(-0.2 * np.sqrt( (1.0/ self.n_dvar) * s1)) - np.exp( (1.0/self.n_dvar) * s2) + 20.0 + np.exp(1.0)
+        obj_vals = -20.0 * np.exp(-0.2 * np.sqrt( (1.0/ self.n_dvar) * s1)) - np.exp( (1.0/self.n_dvar) * s2) + 20.0 + np.exp(1.0)
         
-        return costs
+        return obj_vals
 
     #-------------get_bounds-------------#
     def get_bounds(self):
@@ -82,7 +82,7 @@ class Ackley(Benchmark):
         """
 
         res=False
-        if Benchmark.is_feasible(self, candidates)==True:
+        if Single_Objective.is_feasible(self, candidates)==True:
             lower_bounds=self.get_bounds()[0,:]
             upper_bounds=self.get_bounds()[1,:]
             res=(lower_bounds<=candidates).all() and (candidates<=upper_bounds).all()
@@ -90,7 +90,7 @@ class Ackley(Benchmark):
 
     #-------------plot-------------#
     def plot(self):
-        """Plot the 1D or 2-D Ackley fitness function."""
+        """Plot the 1D or 2-D Ackley objective function."""
         
         if self.n_dvar==1:
             x = np.linspace(self.get_bounds()[0], self.get_bounds()[1], 100)

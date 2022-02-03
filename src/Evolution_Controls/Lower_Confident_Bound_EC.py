@@ -10,6 +10,9 @@ class Lower_Confident_Bound_EC(Informed_EC):
     """Class for lower confident bound EC.
 
     Candidates with lower lower confident bound are more promising.
+
+    :param w: weight for LCB
+    :type w: float in [0; 3]
     """
 
     
@@ -18,7 +21,7 @@ class Lower_Confident_Bound_EC(Informed_EC):
     #-----------------------------------------#
 
     #-------------__init__-------------#
-    def __init__(self, surr):
+    def __init__(self, surr, w=1.0):
         """
         __init__ method's input
         
@@ -27,6 +30,7 @@ class Lower_Confident_Bound_EC(Informed_EC):
         """
 
         Informed_EC.__init__(self, surr)
+        self.__w=w
     
     #-------------__del__-------------#
     def __del__(self):
@@ -34,7 +38,7 @@ class Lower_Confident_Bound_EC(Informed_EC):
 
     #-------------__str__-------------#
     def __str__(self):
-        return "Lower Confident Bound Adaptive Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
+        return "Lower Confident Bound Evolution Control\n  surrogate: {"+self.surr.__str__()+"}"
 
 
     #----------------------------------------#
@@ -46,7 +50,7 @@ class Lower_Confident_Bound_EC(Informed_EC):
         Informed_EC.get_sorted_indexes(self, pop)
 
         (preds, uncert) = self.surr.perform_prediction(pop.dvec)        
-        lcbs = preds-uncert
+        lcbs = preds-self.__w*uncert
         idx = np.argsort(lcbs)
 
         return idx
@@ -55,5 +59,5 @@ class Lower_Confident_Bound_EC(Informed_EC):
     def get_IC_value(self, dvec):
         Informed_EC.get_IC_value(self, dvec)
         (preds, uncert) = self.surr.perform_prediction(dvec)
-        lcbs = preds-uncert
+        lcbs = preds-self.__w*uncert
         return lcbs

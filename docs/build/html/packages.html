@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pySAEA Packages &mdash; pySAEA 0.1 documentation</title>
+  <title>pySBO Packages &mdash; pySBO 0.1 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Problems" href="problems.html" />
-    <link rel="prev" title="About pySAEA" href="starting.html" /> 
+    <link rel="prev" title="About pySBO" href="starting.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -51,7 +51,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySAEA
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySBO
           
 
           
@@ -84,8 +84,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAEA</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">pySAEA Packages</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySBO</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pySBO Packages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution.html">Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a></li>
@@ -108,7 +108,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">pySAEA</a>
+          <a href="index.html">pySBO</a>
         
       </nav>
 
@@ -139,7 +139,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>pySAEA Packages</li>
+      <li>pySBO Packages</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,8 +158,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="pysaea-packages">
-<h1>pySAEA Packages<a class="headerlink" href="#pysaea-packages" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pysbo-packages">
+<h1>pySBO Packages<a class="headerlink" href="#pysbo-packages" title="Permalink to this headline">¶</a></h1>
 <img alt="_images/UML.svg" src="_images/UML.svg" /><p>UML diagram <a class="reference download internal" download="" href="_downloads/28999b287a4b8574c9e66583a29410af/UML.svg"><code class="xref download docutils literal notranslate"><span class="pre">zoom</span> <span class="pre">here</span></code></a></p>
 <table class="longtable docutils align-default">
 <colgroup>
@@ -168,10 +168,10 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems</span></code></p></td>
-<td><p>Package related to optimization problem’s description and design of experiment.</p></td>
+<td><p>Package related to problem description and design of experiment.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution</span></code></p></td>
-<td><p>Package related to evolutionary agorithms components.</p></td>
+<td><p>Package related to evolutionary agorithms.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls</span></code></p></td>
 <td><p>Package related to evolution controls.</p></td>
@@ -185,7 +185,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="problems.html">Problems</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="problems.html#classes-summary">Classes summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="problems.html#mono-objective-problems">Mono-objective problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems.html#abstract-classes">Abstract classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems.html#single-objective-problems">Single-Objective Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problems.html#multi-objective-problems">Multi-Objective Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="problems.html#design-of-experiments">Design of Experiments</a></li>
 </ul>
 </li>
@@ -196,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="evolution.html#crossover">Crossover</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution.html#selection">Selection</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution.html#replacement">Replacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evolution.html#reference-vector-set">Reference Vector Set</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a><ul>
@@ -209,8 +212,8 @@
 <li class="toctree-l2"><a class="reference internal" href="surrogates.html#classes-summary">Classes summary</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surrogates.html#surrogate-abstract">Surrogate (abstract)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surrogates.html#approximated-bayesian-neural-network">Approximated Bayesian Neural Network</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surrogates.html#bayesian-linear-regressor">Bayesian Linear Regressor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surrogates.html#gaussian-processes">Gaussian Processes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="surrogates.html#others">Others</a></li>
 </ul>
 </li>
 </ul>
@@ -228,7 +231,7 @@
         <a href="problems.html" class="btn btn-neutral float-right" title="Problems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="starting.html" class="btn btn-neutral float-left" title="About pySAEA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="starting.html" class="btn btn-neutral float-left" title="About pySBO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -238,7 +241,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Guillaume Briffoteaux
+        &copy; Copyright 2021, Guillaume Briffoteaux
 
     </p>
   </div>

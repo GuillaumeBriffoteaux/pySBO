@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to pySAEA’s documentation! &mdash; pySAEA 0.1 documentation</title>
+  <title>Welcome to pySBO’s documentation! &mdash; pySBO 0.1 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="About pySAEA" href="starting.html" /> 
+    <link rel="next" title="About pySBO" href="starting.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -50,7 +50,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> pySAEA
+            <a href="#" class="icon icon-home" alt="Documentation Home"> pySBO
           
 
           
@@ -83,8 +83,8 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAEA</a></li>
-<li class="toctree-l1"><a class="reference internal" href="packages.html">pySAEA Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySBO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">pySBO Packages</a></li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
 </ul>
 
@@ -101,7 +101,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">pySAEA</a>
+          <a href="#">pySBO</a>
         
       </nav>
 
@@ -132,7 +132,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to pySAEA’s documentation!</li>
+      <li>Welcome to pySBO’s documentation!</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -151,26 +151,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-pysaea-s-documentation">
-<h1>Welcome to pySAEA’s documentation!<a class="headerlink" href="#welcome-to-pysaea-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>pySAEA is a Python library for Parallel Surrogate-Assisted Evolutionary Algorithms.</p>
+  <div class="section" id="welcome-to-pysbo-s-documentation">
+<h1>Welcome to pySBO’s documentation!<a class="headerlink" href="#welcome-to-pysbo-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>pySBO is a Python library for Surrogate-Based Optimization.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySAEA</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySBO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="starting.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting.html#notes">Notes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting.html#support">Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="starting.html#background-on-surrogate-assisted-optimization">Background on Surrogate-Assisted Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="starting.html#background-on-surrogate-based-optimization">Background on Surrogate-Based Optimization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting.html#author">Author</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting.html#license">License</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting.html#supporting-institutions">Supporting institutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="starting.html#collaborators">Collaborators</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="packages.html">pySAEA Packages</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">pySBO Packages</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="problems.html#classes-summary">Classes summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="problems.html#mono-objective-problems">Mono-objective problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="problems.html#abstract-classes">Abstract classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="problems.html#single-objective-problems">Single-Objective Problems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="problems.html#multi-objective-problems">Multi-Objective Problems</a></li>
 <li class="toctree-l3"><a class="reference internal" href="problems.html#design-of-experiments">Design of Experiments</a></li>
 </ul>
 </li>
@@ -181,6 +184,7 @@
 <li class="toctree-l3"><a class="reference internal" href="evolution.html#crossover">Crossover</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evolution.html#selection">Selection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="evolution.html#replacement">Replacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="evolution.html#reference-vector-set">Reference Vector Set</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a><ul>
@@ -194,23 +198,31 @@
 <li class="toctree-l3"><a class="reference internal" href="surrogates.html#classes-summary">Classes summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="surrogates.html#surrogate-abstract">Surrogate (abstract)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="surrogates.html#approximated-bayesian-neural-network">Approximated Bayesian Neural Network</a></li>
+<li class="toctree-l3"><a class="reference internal" href="surrogates.html#bayesian-linear-regressor">Bayesian Linear Regressor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="surrogates.html#gaussian-processes">Gaussian Processes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="surrogates.html#others">Others</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#evolutionary-algorithm">Evolutionary Algorithm</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#synchronous-parallel-ea">Synchronous Parallel EA</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#synchronous-parallel-evaluations">Synchronous Parallel Evaluations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#module-EA">Single-Objective Evolutionary Algorithm (surrogate-free)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#module-SAEA">Single-Objective Surrogate-Assisted Evolutionary Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#single-objective-surrogate-driven-algorithms">Single-Objective Surrogate-Driven Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-SDA_qEGO_SB">q-EGO with Surrogate Believer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-SDA_qEGO_CL">q-EGO with Constant Liar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-SDA_qPareto">q-Pareto</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#direct-fitness-replacement">Direct Fitness Replacement</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#synchronous-parallel-dfr">Synchronous Parallel DFR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#multi-objective-evolutionary-algorithms-surrogate-free">Multi-Objective Evolutionary Algorithms (surrogate-free)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-NSGA_II">Non-Domiated Sorted Genetic Algorithm (NSGA-II)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-RVEA">Reference Vector Guided Evolutionary Algorithm (RVEA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-RVEA_star">RVEA*</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="examples.html#efficient-global-optimization">Efficient Global Optimization</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="examples.html#synchronous-parallel-ego">Synchronous Parallel EGO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html#multi-objective-surrogate-driven-algorithms">Multi-Objective Surrogate-Driven Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-AB_MOEA">Adaptive Bayesian Multi-Objective Evolutionary Algorithm (AB-MOEA)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html#module-SAEA_ME">Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive problems (SAEA-ME)</a></li>
 </ul>
 </li>
 </ul>
@@ -235,7 +247,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="starting.html" class="btn btn-neutral float-right" title="About pySAEA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="starting.html" class="btn btn-neutral float-right" title="About pySBO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -246,7 +258,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2020, Guillaume Briffoteaux
+        &copy; Copyright 2021, Guillaume Briffoteaux
 
     </p>
   </div>
