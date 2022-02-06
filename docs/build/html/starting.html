@@ -164,6 +164,7 @@
             
   <div class="section" id="about-pysbo">
 <h1>About pySBO<a class="headerlink" href="#about-pysbo" title="Permalink to this headline">¶</a></h1>
+<p>The platform aims at facilitating the implementation of parallel surrogate-based optimization algorithms. pySBO provides re-usable algorithmic components (surrogate models, evolution controls, infill criteria, evolutionary operators) as well as the foundations to ensure the components inter-changeability. Actual implementations of sequential and parallel surrogate-based optimization algorithms are supplied as ready-to-use tools to handle expensive single- and multi-objective problems with continuous decision variables. The MPI implementation of parallel algorithms allows to execute on distributed machines. Box-constraints are explicitly integrated while more elaborated constraints must be handled by the user.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Clone the Github repository from <a class="reference external" href="https://github.com/GuillaumeBriffoteaux/pySBO.git">https://github.com/GuillaumeBriffoteaux/pySBO.git</a></p>
@@ -173,8 +174,6 @@
 </div>
 <div class="section" id="notes">
 <h2>Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h2>
-<p>pySBO allows to address expensive single- and multi-objective optimization problems with continuous decision variables. Box-constraints are explicitly taken into account while more elaborated constraints must be handled by the user. The surrogate-based algorithms implemented within pySBO allow to address expensive optimization problems where the evaluation of the objective function is computationally expensive. The surrogate-free algorithms implemented within pySBO allow to address unexpensive optimization problems.</p>
-<p>pySBO has only been tested on Ubuntu20.04 both on desktop and distributed machines.</p>
 <p>pySBO is organized following the one-class-per-file Java convention. Consequently, each module is nammed after the class it contains.</p>
 </div>
 <div class="section" id="support">
