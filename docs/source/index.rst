@@ -6,7 +6,7 @@
 Welcome to pySBO's documentation!
 =================================
 
-pySBO is a Python library for Surrogate-Based Optimization.
+pySBO is a Python platform for Surrogate-Based Optimization.
 
 .. toctree::
    :maxdepth: 3
