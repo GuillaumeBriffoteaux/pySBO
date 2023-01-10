@@ -2,4 +2,14 @@ The platform aims at facilitating the implementation of parallel surrogate-based
 
 pySBO is organized following the one-class-per-file Java convention. Consequently, each module is nammed after the class it contains.
 
+At a glance:
+  - Surrogate-Assisted Evolutionary Algorithms for moderately expensive problems
+  - Surrogate-Driven Algorithms for very expensive problems
+  - Mono- and multi-objective
+  - Continuous decision variables
+  - Parallel evaluations of the objective function
+  - Parallel Acquisition Processes
+  - Centered on Evolutionary Algorithms
+  - Box-constrained problems
+
 See the documentation at https://pysbo.readthedocs.io

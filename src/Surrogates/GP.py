@@ -1,3 +1,4 @@
+import warnings
 import numpy as np
 import time
 import gpytorch
@@ -94,7 +95,22 @@ class GP(Surrogate):
     #-------------object methods-------------#
     #----------------------------------------#
 
-    
+    #-------------init_outputs_scaler-------------#
+    def init_outputs_scaler(self):
+        
+        # Loading training data
+        (x_train_np, y_train_np) = self.load_sim_archive()
+        x_train_np = x_train_np[max(x_train_np.shape[0]-self.n_train_samples,0):x_train_np.shape[0]]
+        y_train_np = y_train_np[max(y_train_np.shape[0]-self.n_train_samples,0):y_train_np.shape[0]]
+        y_train_np = y_train_np.reshape(-1, 1)
+        
+        # Normalize training data in [0,1]
+        x_train_np = (x_train_np - self.pb.get_bounds()[0]) / (self.pb.get_bounds()[1] - self.pb.get_bounds()[0])
+        self.__outputs_scaler = MinMaxScaler(copy=False)
+        self.__outputs_scaler.fit(y_train_np)
+        self.__outputs_scaler.transform(y_train_np)
+
+
     #-------------perform_training-------------#
     # from scratch (i.e. non incremental)
     def perform_training(self):
@@ -159,7 +175,9 @@ class GP(Surrogate):
         self.__model.load_state_dict(torch.load(self.f_trained_model))
         self.__model.eval()
         self.__likelihood.eval()
-        preds = self.__likelihood(self.__model(x_train)).mean
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            preds = self.__likelihood(self.__model(x_train)).mean
         preds = preds.detach().numpy()
         preds = self.denormalize_predictions(preds)
         y_train_np = self.denormalize_predictions(y_train_np)

@@ -82,9 +82,6 @@ class Population:
         :rtype: bool
         """
 
-        (self.dvec.shape[1]==self.pb.n_dvar)
-        
-
         return (self.dvec.shape[1]==self.pb.n_dvar) and ((self.obj_vals.size==0 and self.fitness_modes.size==0) or (self.obj_vals.shape[0]==self.dvec.shape[0] and self.fitness_modes.shape[0]==self.dvec.shape[0] and (self.fitness_modes.ndim==1 or self.fitness_modes.shape[1]==self.pb.n_obj) and (self.obj_vals.ndim==1 or self.obj_vals.shape[1]==self.pb.n_obj)))
 
     

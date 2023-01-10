@@ -91,9 +91,9 @@ def main():
         os.system("rm -rf "+DIR_STORAGE+"/*")
 
         # Population initialization / Parallel DoE
-        d = DoE(p)
+        sampler = DoE(p)
         pop = Population(p)
-        pop.dvec = d.latin_hypercube_sampling(POP_SIZE)
+        pop.dvec = sampler.latin_hypercube_sampling(POP_SIZE)
         nb_sim_per_proc = (POP_SIZE//nprocs)*np.ones((nprocs,), dtype=int) # number of simulations per proc
         for i in range(POP_SIZE%nprocs):
             nb_sim_per_proc[i+1]+=1
