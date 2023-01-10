@@ -12,4 +12,8 @@ At a glance:
   - Centered on Evolutionary Algorithms
   - Box-constrained problems
 
+<<<<<<< HEAD
 See the documentation at https://pysbo.readthedocs.io
+=======
+See the documentation at https://pysbo.readthedocs.io
+>>>>>>> 2e5ab76d0e8b637929cb4d52f4ecd23c01410d03
