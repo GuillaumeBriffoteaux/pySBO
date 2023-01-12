@@ -57,6 +57,7 @@ def main():
     if rank==0:
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_POP=DIR_STORAGE+"/init_db.csv"
+        os.system("mkdir "+DIR_STORAGE)
         os.system("rm -rf "+DIR_STORAGE+"/*")
     F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
     F_TRAIN_LOG=DIR_STORAGE+"/training_log.csv"

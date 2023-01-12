@@ -56,6 +56,7 @@ def main():
 
         # Files
         DIR_STORAGE = "./outputs/"
+        os.system("mkdir "+DIR_STORAGE)
         os.system("rm -rf "+DIR_STORAGE+"/*")
         F_SIM_ARCHIVE = DIR_STORAGE+"sim_archive.csv"
         F_TRAIN_LOG_BNN = DIR_STORAGE+"training_log_BNN.csv"

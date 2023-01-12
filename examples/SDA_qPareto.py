@@ -76,6 +76,7 @@ def main():
         F_INIT_DB=DIR_STORAGE+"/init_db.csv"
         F_TRAIN_LOG=DIR_STORAGE+"/training_log.csv"
         F_TRAINED_MODEL=DIR_STORAGE+"/trained_model"
+        os.system("mkdir "+DIR_STORAGE)
         os.system("rm -rf "+DIR_STORAGE+"/*")
 
         # Database initialization / Parallel DoE

@@ -67,6 +67,7 @@ def main():
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_POP=DIR_STORAGE+"/init_pop.csv"
         F_HYPERVOLUME=DIR_STORAGE+"/hypervolume.csv"
+        os.system("mkdir "+DIR_STORAGE)
         os.system("rm -rf "+DIR_STORAGE+"/*")
         
         # Population initialization / Parallel DoE
