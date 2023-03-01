@@ -129,10 +129,10 @@ def main():
 
         # Creating surrogate            
         # surr = BNN_MCD(F_SIM_ARCHIVE, p, float('inf'), F_TRAIN_LOG, F_TRAINED_MODEL, 5)
-        surr = BLR_ANN(F_SIM_ARCHIVE, p, 256, F_TRAIN_LOG, F_TRAINED_MODEL)
+        # surr = BLR_ANN(F_SIM_ARCHIVE, p, 256, F_TRAIN_LOG, F_TRAINED_MODEL)
         # surr = iKRG(F_SIM_ARCHIVE, p, 18, F_TRAIN_LOG, F_TRAINED_MODEL)
         # surr = rKRG(F_SIM_ARCHIVE, p, 18, F_TRAIN_LOG, F_TRAINED_MODEL)
-        # surr = GP(F_SIM_ARCHIVE, p, 72, F_TRAIN_LOG, F_TRAINED_MODEL, 'rbf')
+        surr = GP(F_SIM_ARCHIVE, p, 72, F_TRAIN_LOG, F_TRAINED_MODEL, 'rbf')
         surr.perform_training()
         
         # Evolution Controls

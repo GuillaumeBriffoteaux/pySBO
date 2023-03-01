@@ -65,7 +65,7 @@ class Tournament_Position(Selection):
 
         # n_par tournaments
         for i in range(0, n_par):
-            idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=np.int), self.__size, replace_mode)
+            idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=int), self.__size, replace_mode)
             parents.dvec = np.vstack( (parents.dvec, pop.dvec[np.amin(idx)]) )
                 
         return parents

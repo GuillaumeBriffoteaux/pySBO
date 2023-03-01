@@ -31,6 +31,8 @@ class iKRG(Surrogate):
     :type outputs_scaler: sklearn.preprocessing
     :param model: kriging model
     :type model: pyKriging.krige.kriging
+
+    If you encounter some "np.float deprecated" error while using iKRG.py, please refer to the following page <https://github.com/capaulson/pyKriging/pull/53/files>
     """
 
     

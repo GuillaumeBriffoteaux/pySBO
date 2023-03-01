@@ -57,7 +57,7 @@ def main():
 
         # Arguments of the search
         POP_SIZE=100
-        N_GEN=50
+        N_GEN=10
         TIME_BUDGET=0 # in seconds (int), DoE excluded (if 0 the search stops after N_GEN generations, that corresponds to N_GEN*N_SIM*POP_SIZE simulations)
         SIM_TIME=0.0001 # in seconds, duration of 1 simulation on 1 core
         if TIME_BUDGET>0:

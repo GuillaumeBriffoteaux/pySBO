@@ -76,7 +76,7 @@ class Polynomial(Mutation):
             nb_dvar_to_mutate = np.random.binomial(child.size, self.prob)
             if self.prob>0.0 and nb_dvar_to_mutate==0:
                 nb_dvar_to_mutate=1
-            dvar_to_mutate = np.random.choice(np.arange(0, child.size, 1, dtype=np.int), nb_dvar_to_mutate, replace=False)
+            dvar_to_mutate = np.random.choice(np.arange(0, child.size, 1, dtype=int), nb_dvar_to_mutate, replace=False)
             # Loop over the decision variables to mutate
             for i in dvar_to_mutate:
                 mu = np.random.uniform()

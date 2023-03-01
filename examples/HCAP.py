@@ -45,15 +45,14 @@ def main():
     rank = comm.Get_rank()
     nprocs = comm.Get_size()
 
+    # Problem
+    p = Schwefel(16)
 
     #--------------------------------#
     #-------------MASTER-------------#
     #--------------------------------#
     if rank==0:
         
-        # Problem
-        p = Schwefel(16)
-
         # Files
         DIR_STORAGE = "./outputs/"
         os.system("mkdir "+DIR_STORAGE)
@@ -69,8 +68,8 @@ def main():
     
         # Search arguments
         TIME_BUDGET = 0
-        N_GEN = 1
-        SIM_TIME = 15
+        N_GEN = 2
+        SIM_TIME = 0
         if TIME_BUDGET > 0:
             assert TIME_BUDGET > SIM_TIME
             N_GEN = 1000000000000
@@ -105,6 +104,7 @@ def main():
         pop.fitness_modes = True*np.ones(pop.obj_vals.shape, dtype=bool)
 
         # Logging
+        pop.save_to_csv_file(F_INIT_POP)
         pop.save_sim_archive(F_SIM_ARCHIVE)
         pop.update_best_sim(F_BEST_PROFILE)
         pop.save_sim_archive(F_TMP_DB)

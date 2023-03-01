@@ -1,0 +1,17 @@
+The "./outputs" folder will contain the output files of the different algorithms:
+   
+    "init_pop.csv" (or "init_db.csv") contains the initial set of decision vectors (and their associated objective values)
+    		   - the 1st line indicates the number of decision variables, number of objectives and number evaluation modes (1 for real evaluation and 0 for surrogate prediction)
+		   - the 2nd line indicates the lower bounds for each decision variables
+		   - the 3rd line indicates the upper bounds for each decision variables
+		   - each of the remaining lines indicates one initial decision vectors + its associated objective(s) + its evaluation mode(s)
+		   
+    "sim_archive.csv" contains all the decision vectors (and their associated objective value(s)) that have been evaluated with the real objective function (simulator) during the execution
+
+    "best_profile.csv" in case of single-objective optimization, it contains the best decision vector (and its associated objective value) found at each iteration. In case of multi-objective optimization, it contains the best Non-Dominated Set/Front found at each iteration (but no repetition occurs, i.e., if the hypervolume has not improved at this iteration, the NDS/NDF is not printed to the file again).
+
+    "hypervolume.csv" contains the best hypervolume at each iteration.
+
+    "training_log.csv" contains information about surrogate training for each training (1 line per training). One line structure: training set size, training mean square error, training R2 correlation coefficient, training time.
+
+    "trained_model" contains the trained parameters of the surrogate model. To be eventually used by the actual library implementing the surrogate model (e.g. tensorflow, gpytorch, pyKriging...)

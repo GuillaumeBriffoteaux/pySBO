@@ -62,7 +62,7 @@ class Tournament(Selection):
         parents = Population(pop.pb)
 
         # first tournament
-        idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=np.int), self.__size, replace_mode)
+        idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=int), self.__size, replace_mode)
         group_dvec = pop.dvec[idx,:]
         group_obj_vals = pop.obj_vals[idx]
         group_fitness_modes = pop.fitness_modes[idx]
@@ -73,7 +73,7 @@ class Tournament(Selection):
 
         # next tournaments
         for i in range(1, n_par):
-            idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=np.int), self.__size, replace_mode)
+            idx = np.random.choice(np.arange(0, pop.dvec.shape[0], 1, dtype=int), self.__size, replace_mode)
             group_dvec = pop.dvec[idx,:]
             group_obj_vals = pop.obj_vals[idx]
             group_fitness_modes = pop.fitness_modes[idx]

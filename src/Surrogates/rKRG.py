@@ -31,6 +31,8 @@ class rKRG(Surrogate):
     :type outputs_scaler: sklearn.preprocessing
     :param model: regression_kriging model
     :type model: pyKriging.krige.regression_kriging
+
+    If you encounter some "np.float deprecated" error while using rKRG.py, please refer to the following page <https://github.com/capaulson/pyKriging/pull/53/files>
     """
 
     

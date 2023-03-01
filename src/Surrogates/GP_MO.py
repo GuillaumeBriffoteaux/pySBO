@@ -1,3 +1,4 @@
+import warnings
 import numpy as np
 import time
 import pickle
@@ -164,7 +165,9 @@ class GP_MO(Surrogate):
         self.__model.load_state_dict(torch.load(self.f_trained_model))
         self.__model.eval()
         self.__likelihood.eval()
-        preds = self.__likelihood(self.__model(x_train)).mean
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            preds = self.__likelihood(self.__model(x_train)).mean       
         preds = preds.detach().numpy()
         preds = self.denormalize_predictions(preds)
         y_train_np = self.denormalize_predictions(y_train_np)

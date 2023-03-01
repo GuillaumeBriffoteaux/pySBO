@@ -119,7 +119,7 @@ class BNN_MCD(Surrogate):
 
         # Compute training MSE and R-square in real-world units
         y_train = self.denormalize_predictions(y_train)
-        preds = self.__model.predict(x_train)
+        preds = self.__model.predict(x_train, verbose=0)
         preds = self.denormalize_predictions(preds)
         training_mse = sk.metrics.mean_squared_error(y_train, preds, squared=True)
         training_r2 = sk.metrics.r2_score(y_train, preds)
@@ -141,7 +141,7 @@ class BNN_MCD(Surrogate):
         # Predictions
         preds=np.zeros((self.__n_pred_subnets, copy_candidates.shape[0], self.pb.n_obj))
         for i in range(0,self.__n_pred_subnets):
-            preds[i,:,:] = self.__model.predict(copy_candidates, batch_size=copy_candidates.shape[0]) # lies in [0,1]
+            preds[i,:,:] = self.__model.predict(copy_candidates, batch_size=copy_candidates.shape[0], verbose=0) # lies in [0,1]
             
         # Mean predictions and std predictions
         mean = np.mean(preds, 0)

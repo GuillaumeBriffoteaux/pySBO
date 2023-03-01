@@ -8,6 +8,8 @@ To run sequentially: ``python3.9 ./HSAP.py``
 To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.9 HSAP.py``
 
 To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python3.9 HSAP.py``
+
+You must set the SIM_TIME variable to a non-zero positive value. This represents the evaluation time of the objective function (which is fictitious in case of artificial benchmark functions).
 """
 
 import sys
@@ -73,7 +75,7 @@ def main():
         F_TRAINED_MODEL_GP = DIR_STORAGE+"trained_model_GP"
         F_TMP_DB=DIR_STORAGE+"tmp_db.csv"
         F_BEST_PROFILE = DIR_STORAGE+"best_profile.csv"
-        F_INIT_POP = DIR_STORAGE+"init_pop.csv"
+        F_INIT_DB = DIR_STORAGE+"init_db.csv"
 
         # Parameter for q-EGO
         q=18
@@ -98,6 +100,7 @@ def main():
         db.fitness_modes = True*np.ones(db.obj_vals.shape, dtype=bool)
             
         # Logging
+        db.save_to_csv_file(F_INIT_DB)
         db.save_sim_archive(F_SIM_ARCHIVE)
         db.update_best_sim(F_BEST_PROFILE)
         db.save_sim_archive(F_TMP_DB)
