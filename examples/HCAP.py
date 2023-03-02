@@ -220,7 +220,7 @@ def main():
             # Logging
             batch_to_simulate.save_sim_archive(F_SIM_ARCHIVE) 
             batch_to_simulate.update_best_sim(F_BEST_PROFILE)
-            os.system("cat "+F_SIM_ARCHIVE+" > "+F_TMP_DB)
+            shutil.copy(F_SIM_ARCHIVE, F_TMP_DB)
 
             # Surrogate update
             surr_BNN.perform_training()
