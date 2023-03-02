@@ -5,11 +5,15 @@ The Pareto acquisition process is described in:
 
 This algorithm is only meant to be run in parallel.
 
-To run in parallel (in 2 computational units): ``mpiexec -n 2 python3.9 SDA_qsubnets.py``
+Execution on Linux:
+  To run in parallel (in 2 computational units): ``mpiexec -n 2 python SDA_qsubnets.py``
+  To run in parallel (in 2 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 2 python SDA_qsubnets.py``
 
-To run in parallel (in 2 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 2 python3.9 SDA_qsubnets.py``
+Execution on Windows:
+  To run in parallel (in 2 computational units): ``mpiexec /np 2 python SDA_qsubnets.py``
 """
 
+import shutil
 import sys
 sys.path.append('../src')
 import os
@@ -56,13 +60,13 @@ def main():
     N_CHLD=POP_SIZE
 
     # Files
-    DIR_STORAGE="./outputs"
+    DIR_STORAGE="outputs"
     if rank==0:
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_DB=DIR_STORAGE+"/init_db.csv"
         F_INIT_WEIGHTS=DIR_STORAGE+"/init_weights"
-        os.system("mkdir "+DIR_STORAGE)
-        os.system("rm -rf "+DIR_STORAGE+"/*")
+        shutil.rmtree(DIR_STORAGE, ignore_errors=True)
+        os.makedirs(DIR_STORAGE, exist_ok=True)
     F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
     F_TRAIN_LOG=DIR_STORAGE+"/training_log.csv"
     F_TRAINED_MODEL=DIR_STORAGE+"/trained_model"

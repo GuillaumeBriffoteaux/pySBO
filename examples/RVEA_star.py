@@ -3,13 +3,17 @@
 RVEA* is described in:
 `R. Cheng, Y. Jin, M. Olhofer and B. Sendhoff. A Reference Vector Guided Evolutionary Algorithm for Many-Objective Optimization. In IEEE Transactions on Evolutionary Computation, vol. 20, no.5, pp. 773-791, Oct. 2016, <https://doi.org/10.1109/TEVC.2016.2519378>`_
 
-To run sequentially: ``python3.9 ./RVEA_star.py``
+Execution on Linux:
+  To run sequentially: ``python ./RVEA_star.py``
+  To run in parallel (in 4 computational units): ``mpiexec -n 4 python RVEA_star.py``
+  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python RVEA_star.py``
 
-To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.9 RVEA_star.py``
-
-To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python RVEA_star.py``
+Execution on Windows:
+  To run sequentially: ``python ./RVEA_star.py``
+  To run in parallel (in 4 computational units): ``mpiexec /np 4 python RVEA_star.py``
 """
 
+import shutil
 import sys
 sys.path.append('../src/')
 import os
@@ -70,13 +74,13 @@ def main():
         Global_Var.ref_point=np.array([100., 100., 100.])
 
         # Files
-        DIR_STORAGE="./outputs"
+        DIR_STORAGE="outputs"
         F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_POP=DIR_STORAGE+"/init_pop.csv"
         F_HYPERVOLUME=DIR_STORAGE+"/hypervolume.csv"
-        os.system("mkdir "+DIR_STORAGE)
-        os.system("rm -rf "+DIR_STORAGE+"/*")
+        shutil.rmtree(DIR_STORAGE, ignore_errors=True)
+        os.makedirs(DIR_STORAGE, exist_ok=True)
 
         # Reference vectors initialization
         V = Reference_Vector_Set(H, p)

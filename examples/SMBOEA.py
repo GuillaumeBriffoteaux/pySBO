@@ -5,9 +5,12 @@ The Surrogate-Model-Based Optimization + Evolutionary Algorithm is described in:
 
 This algorithm is only meant to be run in parallel in at least 3 computing cores.
 
-To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.9 SMBOEA.py``
+Execution on Linux:
+  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SMBOEA.py``
+  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SMBOEA.py``
 
-To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python3.9 SMBOEA.py``
+Execution on Windows:
+  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SMBOEA.py``
 """
 
 # Hybrid AP per cycle:
@@ -16,6 +19,7 @@ To run in parallel (in 4 computational units) specifying the units in `./hosts.t
 #  rank (nprocs-2) issues 1 new candidate through POV minimization
 # N_SIM and N_IC_OPT should be properly set
 
+import shutil
 import sys
 sys.path.append('../src')
 import os
@@ -34,7 +38,6 @@ from Evolution.Polynomial import Polynomial
 from Evolution.Elitist import Elitist
 from Evolution.Custom_Elitism import Custom_Elitism
 
-from Surrogates.BNN_MCD import BNN_MCD
 from Surrogates.GP import GP
 
 from Evolution_Controls.POV_EC import POV_EC
@@ -53,12 +56,12 @@ def main():
     p = Schwefel(16)
 
     # Files
-    DIR_STORAGE="./outputs"
+    DIR_STORAGE="outputs"
     if rank==0:
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_POP=DIR_STORAGE+"/init_db.csv"
-        os.system("mkdir "+DIR_STORAGE)
-        os.system("rm -rf "+DIR_STORAGE+"/*")
+        shutil.rmtree(DIR_STORAGE, ignore_errors=True)
+        os.makedirs(DIR_STORAGE, exist_ok=True)
     F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
     F_TRAIN_LOG=DIR_STORAGE+"/training_log.csv"
     F_TRAINED_MODEL=DIR_STORAGE+"/trained_model"

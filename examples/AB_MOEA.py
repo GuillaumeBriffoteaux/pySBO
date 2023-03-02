@@ -3,13 +3,17 @@
 AB_MOEA is described in:
 `X. Wang, Y. Jin, S. Schmitt and M. Olhofer. An adaptive Bayesian approach to surrogate-assisted evolutionary multi-objective optimization. In Information Sciences 519 (2020), pp. 317–331. ISSN: 0020-0255. <https://doi.org/10.1016/j.ins.2020.01.048>`_
 
-To run sequentially: ``python3.9 ./AB_MOEA.py``
+Execution on Linux:
+  To run sequentially: ``python ./AB_MOEA.py``
+  To run in parallel (in 4 computational units): ``mpiexec -n 4 python AB_MOEA.py``
+  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python AB_MOEA.py``
 
-To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.9 AB_MOEA.py``
-
-To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python AB_MOEA.py``
+Execution on Windows:
+  To run sequentially: ``python ./AB_MOEA.py``
+  To run in parallel (in 4 computational units): ``mpiexec /np 4 python AB_MOEA.py``
 """
 
+import shutil
 import sys
 sys.path.append('../src/')
 import os
@@ -71,15 +75,15 @@ def main():
         F_UPD = 0.1 # frequency for reference vector update
 
         # Files
-        DIR_STORAGE="./outputs"
+        DIR_STORAGE="outputs"
         F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_DB=DIR_STORAGE+"/init_db.csv"
         F_HYPERVOLUME=DIR_STORAGE+"/hypervolume.csv"
         F_TRAIN_LOG=DIR_STORAGE+"/training_log.csv"
         F_TRAINED_MODEL=DIR_STORAGE+"/trained_model"
-        os.system("mkdir "+DIR_STORAGE)
-        os.system("rm -rf "+DIR_STORAGE+"/*")
+        shutil.rmtree(DIR_STORAGE, ignore_errors=True)
+        os.makedirs(DIR_STORAGE, exist_ok=True)
 
         # Database initialization / Parallel DoE
         sampler = DoE(p)

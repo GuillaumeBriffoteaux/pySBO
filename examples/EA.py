@@ -4,15 +4,19 @@ EA is described in:
 `E. G. Talbi. Metaheuristics: From Design to Implementation. Wiley Series on Parallel and Distributed Computing. Wiley, 2009. ISBN: 9780470496909. 
 <https://books.google.fr/books?id=SIsa6zi5XV8C>`_
 
-To run sequentially: ``python3.9 ./EA.py``
+Execution on Linux:
+  To run sequentially: ``python ./EA.py``
+  To run in parallel (in 4 computational units): ``mpiexec -n 4 python EA.py``
+  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python EA.py``
 
-To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.9 EA.py``
-
-To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python EA.py``
+Execution on Windows:
+  To run sequentially: ``python ./EA.py``
+  To run in parallel (in 4 computational units): ``mpiexec /np 4 python EA.py``
 """
 
 import sys
 sys.path.append('../src/')
+import shutil
 import os
 import time
 import numpy as np
@@ -65,12 +69,12 @@ def main():
             N_GEN=1000000000000
 
         # Files
-        DIR_STORAGE="./outputs"
+        DIR_STORAGE="outputs"
         F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_POP=DIR_STORAGE+"/init_pop.csv"
-        os.system("mkdir "+DIR_STORAGE)
-        os.system("rm -rf "+DIR_STORAGE+"/*")
+        shutil.rmtree(DIR_STORAGE, ignore_errors=True)
+        os.makedirs(DIR_STORAGE, exist_ok=True)
 
         # Population initialization / Parallel DoE
         sampler = DoE(p)

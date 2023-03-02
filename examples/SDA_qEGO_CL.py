@@ -3,13 +3,17 @@
 q-EGO with Constant Liar is described in:
 `D. Ginsbourger, R. Le Riche, and L. Carraro. Kriging is well-suited to parallelize optimization. In Computational Intelligence in Expensive Optimization Problems. Springer, 2010,  pp. 131–162. <https://hal-emse.ccsd.cnrs.fr/emse-00436126>`_
 
-To run sequentially: ``python3.9 ./SDA_qEGO_CL.py``
+Execution on Linux:
+  To run sequentially: ``python ./SDA_qEGO_CL.py``
+  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SDA_qEGO_CL.py``
+  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SDA_qEGO_CL.py``
 
-To run in parallel (in 4 computational units): ``mpiexec -n 4 python3.9 SDA_qEGO_CL.py``
-
-To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python3.9 SDA_qEGO_CL.py``
+Execution on Windows:
+  To run sequentially: ``python ./SDA_qEGO_CL.py``
+  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SDA_qEGO_CL.py``
 """
 
+import shutil
 import sys
 sys.path.append('../src')
 import os
@@ -78,15 +82,15 @@ def main():
         N_CHLD=POP_SIZE
 
         # Files
-        DIR_STORAGE="./outputs"
+        DIR_STORAGE="outputs"
         F_SIM_ARCHIVE=DIR_STORAGE+"/sim_archive.csv"
         F_BEST_PROFILE=DIR_STORAGE+"/best_profile.csv"
         F_INIT_DB=DIR_STORAGE+"/init_db.csv"
         F_TMP_DB=DIR_STORAGE+"/tmp_db.csv"
         F_TRAIN_LOG=DIR_STORAGE+"/training_log.csv"
         F_TRAINED_MODEL=DIR_STORAGE+"/trained_model"
-        os.system("mkdir "+DIR_STORAGE)
-        os.system("rm -rf "+DIR_STORAGE+"/*")
+        shutil.rmtree(DIR_STORAGE, ignore_errors=True)
+        os.makedirs(DIR_STORAGE, exist_ok=True)
 
         # Database initialization / Parallel DoE
         sampler = DoE(p)
@@ -300,7 +304,7 @@ def main():
             q_cands.save_sim_archive(F_SIM_ARCHIVE)
             q_cands.update_best_sim(F_BEST_PROFILE)
             # Temporary database is re-created
-            os.system("cat "+F_SIM_ARCHIVE+" > "+F_TMP_DB)
+            shutil.copy(F_SIM_ARCHIVE, F_TMP_DB)
 
             # Update active EC in Adaptive_EC
             if isinstance(ec_op, Adaptive_EC):
