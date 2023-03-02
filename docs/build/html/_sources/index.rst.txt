@@ -13,8 +13,9 @@ pySBO is a Python platform for Surrogate-Based Optimization.
    :caption: Contents:
 	     
    starting
+   installation
    packages
-   examples
+   algorithms
 
 
 

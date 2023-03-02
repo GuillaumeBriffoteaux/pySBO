@@ -1,16 +1,16 @@
-"""Script running the synchronous parallel Reference Vector Guided Evolutionary Algorithm (RVEA) for multi-objective optimization.
+"""``RVEA.py`` Script running the synchronous parallel surrogate-free Reference Vector Guided Evolutionary Algorithm for multi-objective optimization.
 
 RVEA is described in:
 `R. Cheng, Y. Jin, M. Olhofer and B. Sendhoff. A Reference Vector Guided Evolutionary Algorithm for Many-Objective Optimization. In IEEE Transactions on Evolutionary Computation, vol. 20, no.5, pp. 773-791, Oct. 2016, <https://doi.org/10.1109/TEVC.2016.2519378>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./RVEA.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python RVEA.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python RVEA.py``
+  * To run sequentially: ``python ./RVEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python RVEA.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python RVEA.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./RVEA.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python RVEA.py``
+  * To run sequentially: ``python ./RVEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python RVEA.py``
 """
 
 import shutil

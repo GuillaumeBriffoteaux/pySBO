@@ -1,95 +1,57 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evolution &mdash; pySBO 0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Evolution Controls" href="evolution_controls.html" />
     <link rel="prev" title="Problems" href="problems.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySBO
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            pySBO
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="starting.html">About pySBO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySBO Packages</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Evolution</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classes-summary">Classes summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#population">Population</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#population">Population</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Evolution.Population.Population"><code class="docutils literal notranslate"><span class="pre">Population</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#mutation">Mutation</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#mutation-abstract">Mutation (abstract)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#polynomial">Polynomial</a></li>
@@ -114,91 +76,50 @@
 <li class="toctree-l4"><a class="reference internal" href="#custom-elitism">Custom_Elitism</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#reference-vector-set">Reference Vector Set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reference-vector-set">Reference Vector Set</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set"><code class="docutils literal notranslate"><span class="pre">Reference_Vector_Set</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="surrogates.html">Surrogates</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">pySBO</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="packages.html">pySBO Packages</a> &raquo;</li>
-        
-      <li>Evolution</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="packages.html">pySBO Packages</a></li>
+      <li class="breadcrumb-item active">Evolution</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/evolution.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-Evolution.__init__">
-<span id="evolution"></span><h1>Evolution<a class="headerlink" href="#module-Evolution.__init__" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-Evolution.__init__">
+<span id="evolution"></span><h1>Evolution<a class="headerlink" href="#module-Evolution.__init__" title="Permalink to this heading">¶</a></h1>
 <p>Package related to evolutionary agorithms.</p>
-<div class="section" id="classes-summary">
-<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<section id="classes-summary">
+<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution.Population.Population</span></code></a>(pb)</p></td>
 <td><p>Class for the population of an evolutionary algorithm.</p></td>
@@ -244,16 +165,16 @@
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="population">
-<h2>Population<a class="headerlink" href="#population" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="population">
+<h2>Population<a class="headerlink" href="#population" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt id="Evolution.Population.Population">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Population.</code><code class="sig-name descname">Population</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Population.</span></span><span class="sig-name descname"><span class="pre">Population</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for the population of an evolutionary algorithm.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem</p></li>
 <li><p><strong>dvec</strong> (<em>np.ndarray</em>) – decision vectors of the individuals</p></li>
@@ -264,67 +185,67 @@
 </dl>
 <p>__init__ method’s input</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Population.Population.print_shapes">
-<code class="sig-name descname">print_shapes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.print_shapes" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.print_shapes">
+<span class="sig-name descname"><span class="pre">print_shapes</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.print_shapes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the shapes of the arrays <cite>dvec</cite>, <cite>obj_vals</cite> and <cite>fitness_modes</cite> forming the population.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.check_integrity">
-<code class="sig-name descname">check_integrity</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.check_integrity" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.check_integrity">
+<span class="sig-name descname"><span class="pre">check_integrity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.check_integrity" title="Permalink to this definition">¶</a></dt>
 <dd><p>Checks arrays’ shapes are consistent.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True for arrays’ consistency and False otherwise</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>bool</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.append">
-<code class="sig-name descname">append</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.append" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.append">
+<span class="sig-name descname"><span class="pre">append</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Appends individuals to the current population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – individuals to be appended</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.sort">
-<code class="sig-name descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.sort" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.sort">
+<span class="sig-name descname"><span class="pre">sort</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.sort" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sorts the population according to ascending individuals’ objective value (single-objective) or non-dominated and crowded distance sorting (multi-objective).</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.split_in_batches">
-<code class="sig-name descname">split_in_batches</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">n_batch</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.split_in_batches" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.split_in_batches">
+<span class="sig-name descname"><span class="pre">split_in_batches</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_batch</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.split_in_batches" title="Permalink to this definition">¶</a></dt>
 <dd><p>Splits the population in batches.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>n_batch</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of batches</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>list of batches</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>list(<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a>)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.update_best_sim">
-<code class="sig-name descname">update_best_sim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_best_profile</span></em>, <em class="sig-param"><span class="n">f_hypervolume</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.update_best_sim" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.update_best_sim">
+<span class="sig-name descname"><span class="pre">update_best_sim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_best_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_hypervolume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.update_best_sim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the best individual (single-objective) or the best non-dominated front (multi-objective) and logs.</p>
 <p>For mono-objective:
 The best evaluated decision vector (minimisation assumed) is saved in <cite>Global_Var.dvec_min</cite> and its associated objective value is saved in <cite>Global_Var.obj_val_min</cite>.
@@ -333,7 +254,7 @@ The best evaluated decision vector is printed to a file along with its associate
 If the hypervolume has improved, the evaluated decision vectors composing the best non-dominated front are printed to a file along with their respective objective value.
 The best hyper-volume is always printed to a file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_best_profile</strong> (<em>str</em>) – filename for logging</p></li>
 <li><p><strong>f_hypervolume</strong> (<em>str</em>) – filename for logging hypervolume</p></li>
@@ -343,8 +264,8 @@ The best hyper-volume is always printed to a file.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.save_to_csv_file">
-<code class="sig-name descname">save_to_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.save_to_csv_file">
+<span class="sig-name descname"><span class="pre">save_to_csv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_pop_archive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the population to a CSV file.</p>
 <p>The CSV file is organized as follows:
 First row: number of decision variables, number of objectives, number of fitness modes
@@ -352,15 +273,15 @@ Second row: lower bounds of the decision variables
 Thrid row: upper bounds of the decision variables
 Remaining rows (one per individual): decision variables, objective values, fitness mode</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.load_from_csv_file">
-<code class="sig-name descname">load_from_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_csv_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.load_from_csv_file">
+<span class="sig-name descname"><span class="pre">load_from_csv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_pop_archive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_csv_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads the population from a CSV file.</p>
 <p>The CSV file has to be organized as follows:
 First row: number of decision variables, number of objectives, number of fitness modes
@@ -368,42 +289,42 @@ Second row: lower bounds of the decision variables
 Third row: upper bounds of the decision variables
 Remaining rows (one per individual): decision variables, objective values, fitness mode</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the CSV file</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.save_sim_archive">
-<code class="sig-name descname">save_sim_archive</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.save_sim_archive">
+<span class="sig-name descname"><span class="pre">save_sim_archive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the real-evaluated individuals to a CSV file.</p>
 <p>The CSV file is organized as follows:
 One per individual: decision variables, objective values, fitness mode.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f_sim_archive</strong> (<em>str</em>) – filename of the CSV file.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.save_to_pickle_file">
-<code class="sig-name descname">save_to_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_pickle_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.save_to_pickle_file">
+<span class="sig-name descname"><span class="pre">save_to_pickle_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_pop_archive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.save_to_pickle_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves the population to a pickle file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Population.Population.load_from_pickle_file">
-<code class="sig-name descname">load_from_pickle_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_pop_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_pickle_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Population.Population.load_from_pickle_file">
+<span class="sig-name descname"><span class="pre">load_from_pickle_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_pop_archive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Population.Population.load_from_pickle_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a population from a pickle file.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f_pop_archive</strong> (<em>str</em>) – filename of the pickle file</p>
 </dd>
 </dl>
@@ -411,33 +332,33 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="mutation">
-<h2>Mutation<a class="headerlink" href="#mutation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mutation-abstract">
-<h3>Mutation (abstract)<a class="headerlink" href="#mutation-abstract" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="mutation">
+<h2>Mutation<a class="headerlink" href="#mutation" title="Permalink to this heading">¶</a></h2>
+<section id="mutation-abstract">
+<h3>Mutation (abstract)<a class="headerlink" href="#mutation-abstract" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Mutation.Mutation">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Mutation.</code><code class="sig-name descname">Mutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Mutation.Mutation" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dt class="sig sig-object py" id="Evolution.Mutation.Mutation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Mutation.</span></span><span class="sig-name descname"><span class="pre">Mutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Mutation.Mutation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for mutation operators.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of mutation</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="polynomial">
-<h3>Polynomial<a class="headerlink" href="#polynomial" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="polynomial">
+<h3>Polynomial<a class="headerlink" href="#polynomial" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Polynomial.Polynomial">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Polynomial.</code><code class="sig-name descname">Polynomial</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em>, <em class="sig-param"><span class="n">eta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Mutation.Mutation" title="Evolution.Mutation.Mutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Mutation.Mutation</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Polynomial.Polynomial">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Polynomial.</span></span><span class="sig-name descname"><span class="pre">Polynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Mutation.Mutation" title="Evolution.Mutation.Mutation"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mutation</span></code></a></p>
 <p>Class for polynomial mutation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of mutation</p></li>
 <li><p><strong>eta</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – distribution index</p></li>
@@ -445,17 +366,17 @@ One per individual: decision variables, objective values, fitness mode.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Polynomial.Polynomial.perform_mutation">
-<code class="sig-name descname">perform_mutation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial.perform_mutation" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Polynomial.Polynomial.perform_mutation">
+<span class="sig-name descname"><span class="pre">perform_mutation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Polynomial.Polynomial.perform_mutation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Mutates the individuals of a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the mutated population</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -463,34 +384,34 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="crossover">
-<h2>Crossover<a class="headerlink" href="#crossover" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="crossover-abstract">
-<h3>Crossover (abstract)<a class="headerlink" href="#crossover-abstract" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="crossover">
+<h2>Crossover<a class="headerlink" href="#crossover" title="Permalink to this heading">¶</a></h2>
+<section id="crossover-abstract">
+<h3>Crossover (abstract)<a class="headerlink" href="#crossover-abstract" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Crossover.Crossover">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Crossover.</code><code class="sig-name descname">Crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Crossover.Crossover" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dt class="sig sig-object py" id="Evolution.Crossover.Crossover">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Crossover.</span></span><span class="sig-name descname"><span class="pre">Crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Crossover.Crossover" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for crossover operators.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of crossover</p>
 </dd>
 </dl>
 </dd></dl>
 
-</div>
-<div class="section" id="sbx">
-<h3>SBX<a class="headerlink" href="#sbx" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="sbx">
+<h3>SBX<a class="headerlink" href="#sbx" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.SBX.SBX">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.SBX.</code><code class="sig-name descname">SBX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span></em>, <em class="sig-param"><span class="n">eta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Crossover.Crossover</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.SBX.SBX">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.SBX.</span></span><span class="sig-name descname"><span class="pre">SBX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eta</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crossover</span></code></a></p>
 <p>Class for SBX crossover.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of crossover</p></li>
 <li><p><strong>eta</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – distribution index</p></li>
@@ -498,17 +419,17 @@ One per individual: decision variables, objective values, fitness mode.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.SBX.SBX.perform_crossover">
-<code class="sig-name descname">perform_crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX.perform_crossover" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.SBX.SBX.perform_crossover">
+<span class="sig-name descname"><span class="pre">perform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.SBX.SBX.perform_crossover" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies crossover to the individuals of a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the mutated population</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -516,31 +437,31 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="intermediate">
-<h3>Intermediate<a class="headerlink" href="#intermediate" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="intermediate">
+<h3>Intermediate<a class="headerlink" href="#intermediate" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Intermediate.Intermediate">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Intermediate.</code><code class="sig-name descname">Intermediate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Intermediate.Intermediate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Crossover.Crossover</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Intermediate.Intermediate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Intermediate.</span></span><span class="sig-name descname"><span class="pre">Intermediate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Intermediate.Intermediate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crossover</span></code></a></p>
 <p>Class for intermediate crossover (weighted average of decision variables).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of crossover</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Intermediate.Intermediate.perform_crossover">
-<code class="sig-name descname">perform_crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Intermediate.Intermediate.perform_crossover" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Intermediate.Intermediate.perform_crossover">
+<span class="sig-name descname"><span class="pre">perform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Intermediate.Intermediate.perform_crossover" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies crossover to the individuals of a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to mutate</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the crossed population</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -548,31 +469,31 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="two-points">
-<h3>Two_Points<a class="headerlink" href="#two-points" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="two-points">
+<h3>Two_Points<a class="headerlink" href="#two-points" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Two_Points.Two_Points">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Two_Points.</code><code class="sig-name descname">Two_Points</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">prob</span><span class="o">=</span><span class="default_value">1.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Two_Points.Two_Points" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Crossover.Crossover</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Two_Points.Two_Points">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Two_Points.</span></span><span class="sig-name descname"><span class="pre">Two_Points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Two_Points.Two_Points" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Crossover.Crossover" title="Evolution.Crossover.Crossover"><code class="xref py py-class docutils literal notranslate"><span class="pre">Crossover</span></code></a></p>
 <p>Class for 2-point crossover.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>prob</strong> (<em>float in</em><em> [</em><em>0</em><em>,</em><em>1</em><em>]</em>) – probability of crossover</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Two_Points.Two_Points.perform_crossover">
-<code class="sig-name descname">perform_crossover</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Two_Points.Two_Points.perform_crossover" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Two_Points.Two_Points.perform_crossover">
+<span class="sig-name descname"><span class="pre">perform_crossover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Two_Points.Two_Points.perform_crossover" title="Permalink to this definition">¶</a></dt>
 <dd><p>Applies crossover to the individuals of a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population of parents</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the crossed population</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -580,32 +501,32 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="selection">
-<h2>Selection<a class="headerlink" href="#selection" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="selection-abstract">
-<h3>Selection (abstract)<a class="headerlink" href="#selection-abstract" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="selection">
+<h2>Selection<a class="headerlink" href="#selection" title="Permalink to this heading">¶</a></h2>
+<section id="selection-abstract">
+<h3>Selection (abstract)<a class="headerlink" href="#selection-abstract" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Selection.Selection">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Selection.</code><code class="sig-name descname">Selection</code><a class="headerlink" href="#Evolution.Selection.Selection" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dt class="sig sig-object py" id="Evolution.Selection.Selection">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Selection.</span></span><span class="sig-name descname"><span class="pre">Selection</span></span><a class="headerlink" href="#Evolution.Selection.Selection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for selection operators.</p>
 <dl class="py method">
-<dt id="Evolution.Selection.Selection.perform_selection">
-<em class="property">abstract </em><code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Selection.Selection.perform_selection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Selection.Selection.perform_selection">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">perform_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_par</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Selection.Selection.perform_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects individuals from a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to select from</p></li>
 <li><p><strong>n_par</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of individuals to select</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the selected individuals</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -613,34 +534,34 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="tournament">
-<h3>Tournament<a class="headerlink" href="#tournament" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tournament">
+<h3>Tournament<a class="headerlink" href="#tournament" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Tournament.Tournament">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Tournament.</code><code class="sig-name descname">Tournament</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Selection.Selection</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Tournament.Tournament">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Tournament.</span></span><span class="sig-name descname"><span class="pre">Tournament</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selection</span></code></a></p>
 <p>Class for Tournament selection.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>size</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – tournament size</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Tournament.Tournament.perform_selection">
-<code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament.perform_selection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Tournament.Tournament.perform_selection">
+<span class="sig-name descname"><span class="pre">perform_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_par</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament.Tournament.perform_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects individuals from a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to select from</p></li>
 <li><p><strong>n_par</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of individuals to select</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the selected individuals</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -648,35 +569,35 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="tournament-position">
-<h3>Tournament_Position<a class="headerlink" href="#tournament-position" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="tournament-position">
+<h3>Tournament_Position<a class="headerlink" href="#tournament-position" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Tournament_Position.Tournament_Position">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Tournament_Position.</code><code class="sig-name descname">Tournament_Position</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">size</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament_Position.Tournament_Position" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Selection.Selection</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Tournament_Position.Tournament_Position">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Tournament_Position.</span></span><span class="sig-name descname"><span class="pre">Tournament_Position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament_Position.Tournament_Position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Selection.Selection" title="Evolution.Selection.Selection"><code class="xref py py-class docutils literal notranslate"><span class="pre">Selection</span></code></a></p>
 <p>Class for Tournament_Position selection.</p>
 <p>Candidates are ordered within the population according to their promise (decreasing order).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>size</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – tournament size</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Tournament_Position.Tournament_Position.perform_selection">
-<code class="sig-name descname">perform_selection</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">n_par</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament_Position.Tournament_Position.perform_selection" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Tournament_Position.Tournament_Position.perform_selection">
+<span class="sig-name descname"><span class="pre">perform_selection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_par</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Tournament_Position.Tournament_Position.perform_selection" title="Permalink to this definition">¶</a></dt>
 <dd><p>Selects individuals from a population.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to select from</p></li>
 <li><p><strong>n_par</strong> (<em>positive int</em><em>, </em><em>not zero</em>) – number of individuals to select</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the selected individuals</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
@@ -684,34 +605,34 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="replacement">
-<h2>Replacement<a class="headerlink" href="#replacement" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="replacement-abstract">
-<h3>Replacement (abstract)<a class="headerlink" href="#replacement-abstract" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="replacement">
+<h2>Replacement<a class="headerlink" href="#replacement" title="Permalink to this heading">¶</a></h2>
+<section id="replacement-abstract">
+<h3>Replacement (abstract)<a class="headerlink" href="#replacement-abstract" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Replacement.Replacement">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Replacement.</code><code class="sig-name descname">Replacement</code><a class="headerlink" href="#Evolution.Replacement.Replacement" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dt class="sig sig-object py" id="Evolution.Replacement.Replacement">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Replacement.</span></span><span class="sig-name descname"><span class="pre">Replacement</span></span><a class="headerlink" href="#Evolution.Replacement.Replacement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for replacement operators.</p>
 </dd></dl>
 
-</div>
-<div class="section" id="elitist">
-<h3>Elitist<a class="headerlink" href="#elitist" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="elitist">
+<h3>Elitist<a class="headerlink" href="#elitist" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Elitist.Elitist">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Elitist.</code><code class="sig-name descname">Elitist</code><a class="headerlink" href="#Evolution.Elitist.Elitist" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Elitist.Elitist">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Elitist.</span></span><span class="sig-name descname"><span class="pre">Elitist</span></span><a class="headerlink" href="#Evolution.Elitist.Elitist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Replacement</span></code></a></p>
 <p>Class for Elitist replacement.</p>
 <p>Minimization is assumed.</p>
 <dl class="py method">
-<dt id="Evolution.Elitist.Elitist.perform_replacement">
-<code class="sig-name descname">perform_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist.Elitist.perform_replacement" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Elitist.Elitist.perform_replacement">
+<span class="sig-name descname"><span class="pre">perform_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Elitist.Elitist.perform_replacement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Keeps the best individuals of from two populations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – first population, will store the best individuals</p></li>
 <li><p><strong>children</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – second population</p></li>
@@ -722,25 +643,25 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="custom-elitism">
-<h3>Custom_Elitism<a class="headerlink" href="#custom-elitism" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="custom-elitism">
+<h3>Custom_Elitism<a class="headerlink" href="#custom-elitism" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Evolution.Custom_Elitism.Custom_Elitism">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Custom_Elitism.</code><code class="sig-name descname">Custom_Elitism</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ec</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Custom_Elitism.Custom_Elitism" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution.Replacement.Replacement</span></code></a></p>
+<dt class="sig sig-object py" id="Evolution.Custom_Elitism.Custom_Elitism">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Custom_Elitism.</span></span><span class="sig-name descname"><span class="pre">Custom_Elitism</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Custom_Elitism.Custom_Elitism" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Evolution.Replacement.Replacement" title="Evolution.Replacement.Replacement"><code class="xref py py-class docutils literal notranslate"><span class="pre">Replacement</span></code></a></p>
 <p>Class for custom elitist replacement.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>ec</strong> (<a class="reference internal" href="surrogates.html#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><em>Surrogate</em></a>) – the criterion defining elitism</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Custom_Elitism.Custom_Elitism.perform_replacement">
-<code class="sig-name descname">perform_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">children</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Custom_Elitism.Custom_Elitism.perform_replacement" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Custom_Elitism.Custom_Elitism.perform_replacement">
+<span class="sig-name descname"><span class="pre">perform_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">children</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Custom_Elitism.Custom_Elitism.perform_replacement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Keeps the best individuals from two populations.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – first population, will store the best individuals</p></li>
 <li><p><strong>children</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – second population</p></li>
@@ -751,17 +672,17 @@ One per individual: decision variables, objective values, fitness mode.</p>
 
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="reference-vector-set">
-<h2>Reference Vector Set<a class="headerlink" href="#reference-vector-set" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="reference-vector-set">
+<h2>Reference Vector Set<a class="headerlink" href="#reference-vector-set" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt id="Evolution.Reference_Vector_Set.Reference_Vector_Set">
-<em class="property">class </em><code class="sig-prename descclassname">Evolution.Reference_Vector_Set.</code><code class="sig-name descname">Reference_Vector_Set</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">H</span></em>, <em class="sig-param"><span class="n">pb</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Reference_Vector_Set.Reference_Vector_Set">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution.Reference_Vector_Set.</span></span><span class="sig-name descname"><span class="pre">Reference_Vector_Set</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for the set of reference vectors of RVEA.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem</p></li>
 <li><p><strong>rv</strong> (<em>np.ndarray</em>) – set of reference vectors</p></li>
@@ -770,7 +691,7 @@ One per individual: decision variables, objective values, fitness mode.</p>
 </dl>
 <p>__init__ method’s input</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>H</strong> (<em>int</em>) – simplex lattice parameter</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem</p></li>
@@ -778,133 +699,108 @@ One per individual: decision variables, objective values, fitness mode.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_guided_replacement">
-<code class="sig-name descname">reference_vector_guided_replacement</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em>, <em class="sig-param"><span class="n">search_progress</span></em>, <em class="sig-param"><span class="n">budget</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_guided_replacement" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_guided_replacement">
+<span class="sig-name descname"><span class="pre">reference_vector_guided_replacement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">budget</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_guided_replacement" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs replacement based on the set of reference vectors.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – population to perform replacement on</p></li>
 <li><p><strong>search_progress</strong> (<em>int</em><em> or </em><em>float</em>) – current generation index (or elapsed time)</p></li>
 <li><p><strong>budget</strong> (<em>int</em><em> or </em><em>float</em>) – number of generations (or time) allocated for the search</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the new population</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population">Population</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_update">
-<code class="sig-name descname">reference_vector_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_update" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_update">
+<span class="sig-name descname"><span class="pre">reference_vector_update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates the set of reference vectors.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – current population</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>the updated set of reference vectors</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference internal" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set" title="Evolution.Reference_Vector_Set.Reference_Vector_Set">Reference_Vector_Set</a></p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_regeneration">
-<code class="sig-name descname">reference_vector_regeneration</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pop</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_regeneration" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_regeneration">
+<span class="sig-name descname"><span class="pre">reference_vector_regeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.reference_vector_regeneration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Regenerates the set of reference vectors (for RVEA*).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>pop</strong> (<a class="reference internal" href="#Evolution.Population.Population" title="Evolution.Population.Population"><em>Population</em></a>) – current population</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Reference_Vector_Set.Reference_Vector_Set.save_to_csv_file">
-<code class="sig-name descname">save_to_csv_file</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_rv_archive</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Reference_Vector_Set.Reference_Vector_Set.save_to_csv_file">
+<span class="sig-name descname"><span class="pre">save_to_csv_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_rv_archive</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.save_to_csv_file" title="Permalink to this definition">¶</a></dt>
 <dd><p>Prints the set of reference vectors to a CSV file.</p>
 <p>The CSV file is organized as follows:
 First row: number of reference vectors and number of objectives
 Remaining rows: the reference vectors</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>f_rv_archive</strong> (<em>str</em>) – filename of the CSV file.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Evolution.Reference_Vector_Set.Reference_Vector_Set.plot">
-<code class="sig-name descname">plot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.plot" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Evolution.Reference_Vector_Set.Reference_Vector_Set.plot">
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Evolution.Reference_Vector_Set.Reference_Vector_Set.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the 3D reference vectors.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="evolution_controls.html" class="btn btn-neutral float-right" title="Evolution Controls" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="problems.html" class="btn btn-neutral float-left" title="Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="problems.html" class="btn btn-neutral float-left" title="Problems" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="evolution_controls.html" class="btn btn-neutral float-right" title="Evolution Controls" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, Guillaume Briffoteaux
-
-    </p>
+    <p>&#169; Copyright 2021, Guillaume Briffoteaux.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

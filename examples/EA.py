@@ -1,17 +1,17 @@
-"""Script running a synchronous parallel Evolutionary Algorithm for single-objective optimization.
+"""``EA.py`` Script running a synchronous parallel Evolutionary Algorithm for single-objective optimization.
 
 EA is described in:
 `E. G. Talbi. Metaheuristics: From Design to Implementation. Wiley Series on Parallel and Distributed Computing. Wiley, 2009. ISBN: 9780470496909. 
 <https://books.google.fr/books?id=SIsa6zi5XV8C>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./EA.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python EA.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python EA.py``
+  * To run sequentially: ``python ./EA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python EA.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python EA.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./EA.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python EA.py``
+  * To run sequentially: ``python ./EA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python EA.py``
 """
 
 import sys

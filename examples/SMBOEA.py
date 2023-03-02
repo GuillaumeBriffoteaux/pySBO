@@ -1,16 +1,16 @@
-"""Script running the parallel Surrogate-Model-Based Optimization + Evolutionary Algorithm for single-objective optimization.
+"""``SMBOEA.py`` Script running the parallel Surrogate-Model-Based Optimization + Evolutionary Algorithm for single-objective optimization.
 
 The Surrogate-Model-Based Optimization + Evolutionary Algorithm is described in:
-`F. Rehback, M. Zaefferer, J. Stork, and T. Bartz-Beielstein. Comparison of parallel surrogate-assisted optimization approaches. In Proceedings of the Genetic and Evolutionary Computation Conference, GECCO ’18, page 1348–1355, New York, NY, USA, 2018. Association for Computing Machinery.`_
+`F. Rehback, M. Zaefferer, J. Stork, and T. Bartz-Beielstein. Comparison of parallel surrogate-assisted optimization approaches. In Proceedings of the Genetic and Evolutionary Computation Conference, GECCO ’18, page 1348–1355, New York, NY, USA, 2018. Association for Computing Machinery. <http://www.cmap.polytechnique.fr/~nikolaus.hansen/proceedings/2018/GECCO/proceedings/proceedings_files/pap500s3-file1.pdf>`_
 
-This algorithm is only meant to be run in parallel in at least 3 computing cores.
+This algorithm is only meant to be run in parallel in at least 3 computing units.
 
 Execution on Linux:
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SMBOEA.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SMBOEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python SMBOEA.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SMBOEA.py``
 
 Execution on Windows:
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SMBOEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python SMBOEA.py``
 """
 
 # Hybrid AP per cycle:

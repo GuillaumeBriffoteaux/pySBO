@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algorithms &mdash; pySBO 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Surrogates" href="surrogates.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            pySBO
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="starting.html">About pySBO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="packages.html">pySBO Packages</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Algorithms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-EA">Evolutionary Algorithm (surrogate-free)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-SAEA">Surrogate-Assisted Evolutionary Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#surrogate-driven-algorithms">Surrogate-Driven Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-SDA_qEGO_SB">q-EGO with Surrogate Believer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SDA_qEGO_CL">q-EGO with Constant Liar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SDA_qPareto">q-Pareto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SDA_qPostHMC">q-PostHMC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SDA_qsubnets">q-subnets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#hybrid-algorithms">Hybrid Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-SMBOEA">Surrogate-Model-Based Optimization + Evolutionary Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-HCAP">Hybrid Concurrent Acquition Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-HSAP">Hybrid Successive Acquition Process</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#multi-objective-algorithms">Multi-Objective Algorithms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-NSGA_II">Non-Domiated Sorted Genetic Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-RVEA">Reference Vector Guided Evolutionary Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-RVEA_star">RVEA*</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-AB_MOEA">Adaptive Bayesian Multi-Objective Evolutionary Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-SAEA_ME">Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive problems</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#synchronous-parallel-evaluations">Synchronous Parallel Evaluations</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">pySBO</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Algorithms</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/algorithms.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="algorithms">
+<h1>Algorithms<a class="headerlink" href="#algorithms" title="Permalink to this heading">¶</a></h1>
+<section id="module-EA">
+<span id="evolutionary-algorithm-surrogate-free"></span><h2>Evolutionary Algorithm (surrogate-free)<a class="headerlink" href="#module-EA" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">EA.py</span></code> Script running a synchronous parallel Evolutionary Algorithm for single-objective optimization.</p>
+<p>EA is described in:
+<a class="reference external" href="https://books.google.fr/books?id=SIsa6zi5XV8C">E. G. Talbi. Metaheuristics: From Design to Implementation. Wiley Series on Parallel and Distributed Computing. Wiley, 2009. ISBN: 9780470496909.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./EA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">EA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">EA.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./EA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">EA.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/EA_7.svg"><img alt="_images/EA_7.svg" class="align-center" height="544" src="_images/EA_7.svg" width="505" /></a>
+<p><a class="reference download internal" download="" href="_downloads/402ed4fc42d685c881a3183cc053cea6/animated_EA.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+</section>
+<section id="module-SAEA">
+<span id="surrogate-assisted-evolutionary-algorithm"></span><h2>Surrogate-Assisted Evolutionary Algorithm<a class="headerlink" href="#module-SAEA" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SAEA.py</span></code> Script running a synchronous parallel Surrogate-Assisted Evolutionary Algorithm for single-objective optimization.
+The surrogate is used as an evaluator and/or a filter.</p>
+<p>SAEA is described in:
+<a class="reference external" href="https://hal.inria.fr/hal-03332521">G. Briffoteaux, R. Ragonnet, M. Mezmaz, N. Melab and D. Tuyttens. Evolution Control Ensemble Models for Surrogate-Assisted Evolutionary Algorithms. In HPCS 2020 - International Conference on High Performance Computing and Simulation, 22-27 March 2021, Online conference.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SAEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SAEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SAEA.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SAEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SAEA.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/SAEA_11.svg"><img alt="_images/SAEA_11.svg" class="align-center" height="542" src="_images/SAEA_11.svg" width="673" /></a>
+<p><a class="reference download internal" download="" href="_downloads/8f1eb6c5dde832090f3fdd23fb9e312f/animated_SAEA.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+</section>
+<section id="surrogate-driven-algorithms">
+<h2>Surrogate-Driven Algorithms<a class="headerlink" href="#surrogate-driven-algorithms" title="Permalink to this heading">¶</a></h2>
+<p><a class="reference download internal" download="" href="_downloads/ec0c964ed037d12329d0724cecdec979/animated_SDA.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+<section id="module-SDA_qEGO_SB">
+<span id="q-ego-with-surrogate-believer"></span><h3>q-EGO with Surrogate Believer<a class="headerlink" href="#module-SDA_qEGO_SB" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SDA_qEGO_SB.py</span></code> Script running a synchronous parallel Surrogate-Driven Algorithm similar to q-EGO with surrogate believer for single-objective optimization.</p>
+<p>q-EGO with Kriging Believer is described in:
+<a class="reference external" href="https://hal-emse.ccsd.cnrs.fr/emse-00436126">D. Ginsbourger, R. Le Riche, and L. Carraro. Kriging is well-suited to parallelize optimization. In Computational Intelligence in Expensive Optimization Problems. Springer, 2010,  pp. 131–162.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SDA_qEGO_SB.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qEGO_SB.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qEGO_SB.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SDA_qEGO_SB.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qEGO_SB.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/sb.svg"><img alt="_images/sb.svg" class="align-center" height="382" src="_images/sb.svg" width="504" /></a>
+</section>
+<section id="module-SDA_qEGO_CL">
+<span id="q-ego-with-constant-liar"></span><h3>q-EGO with Constant Liar<a class="headerlink" href="#module-SDA_qEGO_CL" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SDA_qEGO_CL.py</span></code> Script running a synchronous parallel Surrogate-Driven Algorithm similar to q-EGO with constant liar for single-objective optimization.</p>
+<p>q-EGO with Constant Liar is described in:
+<a class="reference external" href="https://hal-emse.ccsd.cnrs.fr/emse-00436126">D. Ginsbourger, R. Le Riche, and L. Carraro. Kriging is well-suited to parallelize optimization. In Computational Intelligence in Expensive Optimization Problems. Springer, 2010,  pp. 131–162.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SDA_qEGO_CL.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qEGO_CL.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qEGO_CL.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SDA_qEGO_CL.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qEGO_CL.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/cl.svg"><img alt="_images/cl.svg" class="align-center" height="382" src="_images/cl.svg" width="504" /></a>
+</section>
+<section id="module-SDA_qPareto">
+<span id="q-pareto"></span><h3>q-Pareto<a class="headerlink" href="#module-SDA_qPareto" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SDA_qPareto.py</span></code> Script running a synchronous parallel Surrogate-Driven Algorithm based on a Pareto acquisition process for single-objective optimization.</p>
+<p>The Pareto acquisition process is described in:
+<a class="reference external" href="https://doi.org/10.1007/s10898-014-0210-2">Z. Feng, Q. Zhang, Q. Zhang, Q. Tang, T. Yang and Y. Ma. A multi-objective optimization based framework to balance the global exploration and local exploitation in expensive optimization. In Journal of Global Optimization 61.4 (Apr. 2015), pp. 677–694.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SDA_qPareto.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qPareto.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qPareto.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SDA_qPareto.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SDA_qPareto.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/qpareto.svg"><img alt="_images/qpareto.svg" class="align-center" height="472" src="_images/qpareto.svg" width="504" /></a>
+</section>
+<section id="module-SDA_qPostHMC">
+<span id="q-posthmc"></span><h3>q-PostHMC<a class="headerlink" href="#module-SDA_qPostHMC" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SDA_qPostHMC.py</span></code> Script running a synchronous parallel Surrogate-Driven Algorithm based on a sub-GPs acquisition process for single-objective optimization.</p>
+<p>The sub-GPs acquisition process is described in:
+<a class="reference external" href="https://hal.science/tel-03853862">G. Briffoteaux. Parallel surrogate-based algorithms for solving expensive optimization problems. Thesis. University of Mons (Belgium) and University of Lille (France). 2022.</a></p>
+<p>This algorithm is only meant to be run in parallel.</p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run in parallel (in 2 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">python</span> <span class="pre">SDA_qPostHMC.py</span></code></p></li>
+<li><p>To run in parallel (in 2 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">python</span> <span class="pre">SDA_qPostHMC.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run in parallel (in 2 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">2</span> <span class="pre">python</span> <span class="pre">SDA_qPostHMC.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/qsubsurr.svg"><img alt="_images/qsubsurr.svg" class="align-center" height="408" src="_images/qsubsurr.svg" width="619" /></a>
+</section>
+<section id="module-SDA_qsubnets">
+<span id="q-subnets"></span><h3>q-subnets<a class="headerlink" href="#module-SDA_qsubnets" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SDA_qsubnets.py</span></code> Script running a synchronous parallel Surrogate-Driven Algorithm based on a sub-networks acquisition process for single-objective optimization.</p>
+<p>The sub-networks acquisition process is described in:
+<a class="reference external" href="https://hal.science/tel-03853862">G. Briffoteaux. Parallel surrogate-based algorithms for solving expensive optimization problems. Thesis. University of Mons (Belgium) and University of Lille (France). 2022.</a></p>
+<p>This algorithm is only meant to be run in parallel.</p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run in parallel (in 2 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">python</span> <span class="pre">SDA_qsubnets.py</span></code></p></li>
+<li><p>To run in parallel (in 2 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">2</span> <span class="pre">python</span> <span class="pre">SDA_qsubnets.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run in parallel (in 2 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">2</span> <span class="pre">python</span> <span class="pre">SDA_qsubnets.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/qsubsurr.svg"><img alt="_images/qsubsurr.svg" class="align-center" height="4080" src="_images/qsubsurr.svg" width="6192" /></a>
+</section>
+</section>
+<section id="hybrid-algorithms">
+<h2>Hybrid Algorithms<a class="headerlink" href="#hybrid-algorithms" title="Permalink to this heading">¶</a></h2>
+<section id="module-SMBOEA">
+<span id="surrogate-model-based-optimization-evolutionary-algorithm"></span><h3>Surrogate-Model-Based Optimization + Evolutionary Algorithm<a class="headerlink" href="#module-SMBOEA" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SMBOEA.py</span></code> Script running the parallel Surrogate-Model-Based Optimization + Evolutionary Algorithm for single-objective optimization.</p>
+<p>The Surrogate-Model-Based Optimization + Evolutionary Algorithm is described in:
+<a class="reference external" href="http://www.cmap.polytechnique.fr/~nikolaus.hansen/proceedings/2018/GECCO/proceedings/proceedings_files/pap500s3-file1.pdf">F. Rehback, M. Zaefferer, J. Stork, and T. Bartz-Beielstein. Comparison of parallel surrogate-assisted optimization approaches. In Proceedings of the Genetic and Evolutionary Computation Conference, GECCO ’18, page 1348–1355, New York, NY, USA, 2018. Association for Computing Machinery.</a></p>
+<p>This algorithm is only meant to be run in parallel in at least 3 computing units.</p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SMBOEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SMBOEA.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SMBOEA.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/SMBOEA_4.svg"><img alt="_images/SMBOEA_4.svg" class="align-center" height="4768" src="_images/SMBOEA_4.svg" width="6368" /></a>
+<p><a class="reference download internal" download="" href="_downloads/d4d5ea6072fe7d454b691aaaec6f15bc/animated_SMBOEA.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+</section>
+<section id="module-HCAP">
+<span id="hybrid-concurrent-acquition-process"></span><h3>Hybrid Concurrent Acquition Process<a class="headerlink" href="#module-HCAP" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HCAP.py</span></code> Script running the parallel Hybrid Concurrent Acquition Process for single-objective optimization.</p>
+<p>The Hybrid Concurrent Acquition Process is described in:
+<a class="reference external" href="https://doi.org/10.1007/978-3-031-21094-5_10">G. Briffoteaux, N. Melab, M. Mezmaz et D. Tuyttens. Hybrid Acquisition Processes in Surrogate-based Optimization. Application to Covid-19 Contact Reduction. International Conference on Bioinspired Optimisation Methods and Their Applications, BIOMA, 2022, Maribor, Slovenia, Lecture Notes in Computer Science, vol 13627. Springer, pages 127-141</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./HCAP.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">HCAP.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">HCAP.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./HCAP.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">HCAP.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/HCAP_9.svg"><img alt="_images/HCAP_9.svg" class="align-center" height="547" src="_images/HCAP_9.svg" width="465" /></a>
+<p><a class="reference download internal" download="" href="_downloads/1f5e9a798503e0dc847e04f4dfb5edf5/animated_HCAP.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+</section>
+<section id="module-HSAP">
+<span id="hybrid-successive-acquition-process"></span><h3>Hybrid Successive Acquition Process<a class="headerlink" href="#module-HSAP" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">HSAP.py</span></code> Script running the parallel Hybrid Successive Acquition Process for single-objective optimization.</p>
+<p>The Hybrid Successive Acquition Process is described in:
+<a class="reference external" href="https://doi.org/10.1007/978-3-031-21094-5_10">G. Briffoteaux, N. Melab, M. Mezmaz et D. Tuyttens. Hybrid Acquisition Processes in Surrogate-based Optimization. Application to Covid-19 Contact Reduction. International Conference on Bioinspired Optimisation Methods and Their Applications, BIOMA, 2022, Maribor, Slovenia, Lecture Notes in Computer Science, vol 13627. Springer, pages 127-141</a></p>
+<p>You must set the SIM_TIME variable to a non-zero positive value. This represents the evaluation time of the objective function (which is fictitious in case of artificial benchmark functions).</p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./HSAP.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">HSAP.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">HSAP.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./HSAP.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">HSAP.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/HSAP.svg"><img alt="_images/HSAP.svg" class="align-center" height="1200" src="_images/HSAP.svg" width="3904" /></a>
+</section>
+</section>
+<section id="multi-objective-algorithms">
+<h2>Multi-Objective Algorithms<a class="headerlink" href="#multi-objective-algorithms" title="Permalink to this heading">¶</a></h2>
+<section id="module-NSGA_II">
+<span id="non-domiated-sorted-genetic-algorithm"></span><h3>Non-Domiated Sorted Genetic Algorithm<a class="headerlink" href="#module-NSGA_II" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">NSGA_II.py</span></code> Script running the synchronous parallel surrogate-free Non-Domiated Sorted Genetic Algorithm for multi-objective optimization.</p>
+<p>NSGA_II is described in:
+<a class="reference external" href="https://doi.org/10.1109/4235.996017">K. Deb, A. Pratap, S. Agarwal and T. Meyarivan. A fast and elitist multiobjective genetic algorithm: NSGA_II. IEEE Transactions on Evolutionary Computation,
+6(2):182–197, 2002.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./NSGA_II.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">NSGA_II.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">NSGA_II.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./NSGA_II.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">NSGA_II.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/NSGAII_3.svg"><img alt="_images/NSGAII_3.svg" class="align-center" height="504" src="_images/NSGAII_3.svg" width="430" /></a>
+<p>Selection step relies on Non-Dominated and Crowded-distance sorting criteria:</p>
+<a class="reference internal image-reference" href="_images/NDR_CD_2.svg"><img alt="_images/NDR_CD_2.svg" class="align-center" height="203" src="_images/NDR_CD_2.svg" width="280" /></a>
+</section>
+<section id="module-RVEA">
+<span id="reference-vector-guided-evolutionary-algorithm"></span><h3>Reference Vector Guided Evolutionary Algorithm<a class="headerlink" href="#module-RVEA" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">RVEA.py</span></code> Script running the synchronous parallel surrogate-free Reference Vector Guided Evolutionary Algorithm for multi-objective optimization.</p>
+<p>RVEA is described in:
+<a class="reference external" href="https://doi.org/10.1109/TEVC.2016.2519378">R. Cheng, Y. Jin, M. Olhofer and B. Sendhoff. A Reference Vector Guided Evolutionary Algorithm for Many-Objective Optimization. In IEEE Transactions on Evolutionary Computation, vol. 20, no.5, pp. 773-791, Oct. 2016,</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./RVEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">RVEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">RVEA.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./RVEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">RVEA.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/RVEA_6.svg"><img alt="_images/RVEA_6.svg" class="align-center" height="504" src="_images/RVEA_6.svg" width="516" /></a>
+<p><a class="reference download internal" download="" href="_downloads/268768b8ae4368a8a8f2a0316789a01d/animated_RVEA.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+<p>Reference vectors guided-replacement based on sub-populations:</p>
+<a class="reference internal image-reference" href="_images/REF_VECT_3.svg"><img alt="_images/REF_VECT_3.svg" class="align-center" height="314" src="_images/REF_VECT_3.svg" width="338" /></a>
+</section>
+<section id="module-RVEA_star">
+<span id="rvea"></span><h3>RVEA*<a class="headerlink" href="#module-RVEA_star" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">RVEA_star.py</span></code> Script running the synchronous parallel surrogate-free Reference Vector Guided Evolutionary Algorithm* for multi-objective optimization.</p>
+<p>RVEA* is described in:
+<a class="reference external" href="https://doi.org/10.1109/TEVC.2016.2519378">R. Cheng, Y. Jin, M. Olhofer and B. Sendhoff. A Reference Vector Guided Evolutionary Algorithm for Many-Objective Optimization. In IEEE Transactions on Evolutionary Computation, vol. 20, no.5, pp. 773-791, Oct. 2016,</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./RVEA_star.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">RVEA_star.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">RVEA_star.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./RVEA_star.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">RVEA_star.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/RVEA_star.svg"><img alt="_images/RVEA_star.svg" class="align-center" height="216" src="_images/RVEA_star.svg" width="465" /></a>
+</section>
+<section id="module-AB_MOEA">
+<span id="adaptive-bayesian-multi-objective-evolutionary-algorithm"></span><h3>Adaptive Bayesian Multi-Objective Evolutionary Algorithm<a class="headerlink" href="#module-AB_MOEA" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">AB_MOEA.py</span></code> Script running the synchronous parallel surrogate-based Adaptive Bayesian Multi-Objective Evolutionary Algorithm.</p>
+<p>AB_MOEA is described in:
+<a class="reference external" href="https://doi.org/10.1016/j.ins.2020.01.048">X. Wang, Y. Jin, S. Schmitt and M. Olhofer. An adaptive Bayesian approach to surrogate-assisted evolutionary multi-objective optimization. In Information Sciences 519 (2020), pp. 317–331. ISSN: 0020-0255.</a></p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./AB_MOEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">AB_MOEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">AB_MOEA.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./AB_MOEA.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">AB_MOEA.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/ABMOEA_3.svg"><img alt="_images/ABMOEA_3.svg" class="align-center" height="504" src="_images/ABMOEA_3.svg" width="430" /></a>
+</section>
+<section id="module-SAEA_ME">
+<span id="surrogate-assisted-evolutionary-algorithm-for-medium-scale-expensive-problems"></span><h3>Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive problems<a class="headerlink" href="#module-SAEA_ME" title="Permalink to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">SAEA_ME.py</span></code> Script running the synchronous parallel Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive multi-objective problems.</p>
+<p>SAEA_ME is described in:
+<a class="reference external" href="https://hal.archives-ouvertes.fr/hal-02932303v1">X. Ruan, K. Li, B. Derbel, and A. Liefooghe. Surrogate assisted evolutionary algorithm for medium scale multi-objective optimisation problems. In Proceedings of the 2020 Genetic and Evolutionary Computation Conference, GECCO 2020, page560–568, New York, NY, USA, 2020. Association for Computing Machinery</a></p>
+<p>The dimensionality reduction technique proposed in the paper is not reproduced.</p>
+<dl class="simple">
+<dt>Execution on Linux:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SAEA_ME.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SAEA_ME.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units) specifying the units in <cite>./hosts.txt</cite>: <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">--machinefile</span> <span class="pre">./host.txt</span> <span class="pre">-n</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SAEA_ME.py</span></code></p></li>
+</ul>
+</dd>
+<dt>Execution on Windows:</dt><dd><ul class="simple">
+<li><p>To run sequentially: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">./SAEA_ME.py</span></code></p></li>
+<li><p>To run in parallel (in 4 computational units): <code class="docutils literal notranslate"><span class="pre">mpiexec</span> <span class="pre">/np</span> <span class="pre">4</span> <span class="pre">python</span> <span class="pre">SAEA_ME.py</span></code></p></li>
+</ul>
+</dd>
+</dl>
+<a class="reference internal image-reference" href="_images/SAEA_ME_3.svg"><img alt="_images/SAEA_ME_3.svg" class="align-center" height="504" src="_images/SAEA_ME_3.svg" width="430" /></a>
+</section>
+</section>
+<section id="synchronous-parallel-evaluations">
+<h2>Synchronous Parallel Evaluations<a class="headerlink" href="#synchronous-parallel-evaluations" title="Permalink to this heading">¶</a></h2>
+<a class="reference internal image-reference" href="_images/par_sync_4.svg"><img alt="_images/par_sync_4.svg" class="align-center" height="408" src="_images/par_sync_4.svg" width="715" /></a>
+<p><a class="reference download internal" download="" href="_downloads/f378030cb64575b3da0e54f142d1377b/animated_par_sync.gif"><code class="xref download docutils literal notranslate"><span class="pre">Animated</span> <span class="pre">diagram</span></code></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="surrogates.html" class="btn btn-neutral float-left" title="Surrogates" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Guillaume Briffoteaux.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

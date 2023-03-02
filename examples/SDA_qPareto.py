@@ -1,16 +1,16 @@
-"""Script running a synchronous parallel Surrogate-Driven Algorithm based on a Pareto acquisition process for single-objective optimization.
+"""``SDA_qPareto.py`` Script running a synchronous parallel Surrogate-Driven Algorithm based on a Pareto acquisition process for single-objective optimization.
 
 The Pareto acquisition process is described in:
 `Z. Feng, Q. Zhang, Q. Zhang, Q. Tang, T. Yang and Y. Ma. A multi-objective optimization based framework to balance the global exploration and local exploitation in expensive optimization. In Journal of Global Optimization 61.4 (Apr. 2015), pp. 677–694. <https://doi.org/10.1007/s10898-014-0210-2>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./SDA_qPareto.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SDA_qPareto.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SDA_qPareto.py``
+  * To run sequentially: ``python ./SDA_qPareto.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python SDA_qPareto.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SDA_qPareto.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./SDA_qPareto.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SDA_qPareto.py``
+  * To run sequentially: ``python ./SDA_qPareto.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python SDA_qPareto.py``
 """
 
 import shutil

@@ -1,16 +1,16 @@
-"""Script running the parallel Hybrid Concurrent Acquition Process for single-objective optimization.
+"""``HCAP.py`` Script running the parallel Hybrid Concurrent Acquition Process for single-objective optimization.
 
 The Hybrid Concurrent Acquition Process is described in:
-`G. Briffoteaux. Parallel surrogate-based algorithms for solving expensive optimization problems. Thesis. 2022. <https://hal.science/tel-03853862>`_
+`G. Briffoteaux, N. Melab, M. Mezmaz et D. Tuyttens. Hybrid Acquisition Processes in Surrogate-based Optimization. Application to Covid-19 Contact Reduction. International Conference on Bioinspired Optimisation Methods and Their Applications, BIOMA, 2022, Maribor, Slovenia, Lecture Notes in Computer Science, vol 13627. Springer, pages 127-141 <https://doi.org/10.1007/978-3-031-21094-5_10>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./HCAP.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python HCAP.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python HCAP.py``
+  * To run sequentially: ``python ./HCAP.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python HCAP.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python HCAP.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./HCAP.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python HCAP.py``
+  * To run sequentially: ``python ./HCAP.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python HCAP.py``
 """
 
 import shutil

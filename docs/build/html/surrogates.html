@@ -1,97 +1,59 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Surrogates &mdash; pySBO 0.1 documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-
-  
-  
-  
-  
-
-  
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Examples" href="examples.html" />
+    <link rel="next" title="Algorithms" href="algorithms.html" />
     <link rel="prev" title="Evolution Controls" href="evolution_controls.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pySBO
           
-
-          
+          <a href="index.html" class="icon icon-home">
+            pySBO
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="starting.html">About pySBO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="packages.html">pySBO Packages</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="problems.html">Problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution.html">Evolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="evolution_controls.html">Evolution Controls</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Surrogates</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#classes-summary">Classes summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#surrogate-abstract">Surrogate (abstract)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#surrogate-abstract">Surrogate (abstract)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Surrogates.Surrogate.Surrogate"><code class="docutils literal notranslate"><span class="pre">Surrogate</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#approximated-bayesian-neural-network">Approximated Bayesian Neural Network</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#monte-carlo-dropout">Monte Carlo Dropout</a></li>
 </ul>
@@ -111,118 +73,74 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithms.html">Algorithms</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">pySBO</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-          <li><a href="packages.html">pySBO Packages</a> &raquo;</li>
-        
-      <li>Surrogates</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="packages.html">pySBO Packages</a></li>
+      <li class="breadcrumb-item active">Surrogates</li>
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/surrogates.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="module-Surrogates.__init__">
-<span id="surrogates"></span><h1>Surrogates<a class="headerlink" href="#module-Surrogates.__init__" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="module-Surrogates.__init__">
+<span id="surrogates"></span><h1>Surrogates<a class="headerlink" href="#module-Surrogates.__init__" title="Permalink to this heading">¶</a></h1>
 <p>Package related to surrogate models.</p>
-<div class="section" id="classes-summary">
-<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<section id="classes-summary">
+<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a>(…)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a>(...)</p></td>
 <td><p>Abstract class for surrogate models.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.BNN_MCD.BNN_MCD" title="Surrogates.BNN_MCD.BNN_MCD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.BNN_MCD.BNN_MCD</span></code></a>(f_sim_archive, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.BNN_MCD.BNN_MCD" title="Surrogates.BNN_MCD.BNN_MCD"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.BNN_MCD.BNN_MCD</span></code></a>(f_sim_archive, ...)</p></td>
 <td><p>Class for Bayesian Neural Network approximated via Monte Carlo Dropout.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.BLR_ANN.BLR_ANN" title="Surrogates.BLR_ANN.BLR_ANN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.BLR_ANN.BLR_ANN</span></code></a>(f_sim_archive, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.BLR_ANN.BLR_ANN" title="Surrogates.BLR_ANN.BLR_ANN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.BLR_ANN.BLR_ANN</span></code></a>(f_sim_archive, ...)</p></td>
 <td><p>Class for Bayesian Linear Regressor with Artificial Neural Network basis functions.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.iKRG.iKRG" title="Surrogates.iKRG.iKRG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.iKRG.iKRG</span></code></a>(f_sim_archive, pb, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.iKRG.iKRG" title="Surrogates.iKRG.iKRG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.iKRG.iKRG</span></code></a>(f_sim_archive, pb, ...)</p></td>
 <td><p>Class for interpolating Kriging surrogate model.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.rKRG.rKRG" title="Surrogates.rKRG.rKRG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.rKRG.rKRG</span></code></a>(f_sim_archive, pb, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.rKRG.rKRG" title="Surrogates.rKRG.rKRG"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.rKRG.rKRG</span></code></a>(f_sim_archive, pb, ...)</p></td>
 <td><p>Class for regression Kriging surrogate model.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.GP.GP" title="Surrogates.GP.GP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP.GP</span></code></a>(f_sim_archive, pb, …)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#Surrogates.GP.GP" title="Surrogates.GP.GP"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP.GP</span></code></a>(f_sim_archive, pb, ...)</p></td>
 <td><p>Class for Gaussian Process.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.GP_MO.GP_MO" title="Surrogates.GP_MO.GP_MO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_MO.GP_MO</span></code></a>(f_sim_archive, pb, …)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#Surrogates.GP_MO.GP_MO" title="Surrogates.GP_MO.GP_MO"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Surrogates.GP_MO.GP_MO</span></code></a>(f_sim_archive, pb, ...)</p></td>
 <td><p>Class for Gaussian Process multitask model (multi dimensional targets only).</p></td>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="surrogate-abstract">
-<h2>Surrogate (abstract)<a class="headerlink" href="#surrogate-abstract" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="surrogate-abstract">
+<h2>Surrogate (abstract)<a class="headerlink" href="#surrogate-abstract" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
-<dt id="Surrogates.Surrogate.Surrogate">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.Surrogate.</code><code class="sig-name descname">Surrogate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.Surrogate.</span></span><span class="sig-name descname"><span class="pre">Surrogate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for surrogate models.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -233,91 +151,91 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.perform_training">
-<em class="property">abstract </em><code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.perform_training">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.perform_prediction">
-<em class="property">abstract </em><code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.perform_prediction">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known candidates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.denormalize_predictions">
-<em class="property">abstract </em><code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.denormalize_predictions">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.normalize_obj_vals">
-<em class="property">abstract </em><code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.normalize_obj_vals">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_vals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.Surrogate.Surrogate.load_trained_model">
-<em class="property">abstract </em><code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.Surrogate.Surrogate.load_trained_model">
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.Surrogate.Surrogate.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 </dd></dl>
 
-</div>
-<div class="section" id="approximated-bayesian-neural-network">
-<h2>Approximated Bayesian Neural Network<a class="headerlink" href="#approximated-bayesian-neural-network" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="monte-carlo-dropout">
-<h3>Monte Carlo Dropout<a class="headerlink" href="#monte-carlo-dropout" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="approximated-bayesian-neural-network">
+<h2>Approximated Bayesian Neural Network<a class="headerlink" href="#approximated-bayesian-neural-network" title="Permalink to this heading">¶</a></h2>
+<section id="monte-carlo-dropout">
+<h3>Monte Carlo Dropout<a class="headerlink" href="#monte-carlo-dropout" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Surrogates.BNN_MCD.BNN_MCD">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.BNN_MCD.</code><code class="sig-name descname">BNN_MCD</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em>, <em class="sig-param"><span class="n">n_pred_subnets</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.BNN_MCD.</span></span><span class="sig-name descname"><span class="pre">BNN_MCD</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_pred_subnets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogate</span></code></a></p>
 <p>Class for Bayesian Neural Network approximated via Monte Carlo Dropout.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -332,72 +250,72 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.perform_training">
-<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.perform_training">
+<span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.perform_prediction">
-<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.perform_prediction">
+<span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.denormalize_predictions">
-<code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.denormalize_predictions">
+<span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.normalize_obj_vals">
-<code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.normalize_obj_vals">
+<span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_vals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.load_trained_model">
-<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.load_trained_model">
+<span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BNN_MCD.BNN_MCD.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BNN_MCD.BNN_MCD.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BNN_MCD.BNN_MCD.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known candidates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
@@ -405,19 +323,19 @@
 
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="bayesian-linear-regressor">
-<h2>Bayesian Linear Regressor<a class="headerlink" href="#bayesian-linear-regressor" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="artificial-neural-network-basis-functions">
-<h3>Artificial Neural Network basis functions<a class="headerlink" href="#artificial-neural-network-basis-functions" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="bayesian-linear-regressor">
+<h2>Bayesian Linear Regressor<a class="headerlink" href="#bayesian-linear-regressor" title="Permalink to this heading">¶</a></h2>
+<section id="artificial-neural-network-basis-functions">
+<h3>Artificial Neural Network basis functions<a class="headerlink" href="#artificial-neural-network-basis-functions" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Surrogates.BLR_ANN.BLR_ANN">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.BLR_ANN.</code><code class="sig-name descname">BLR_ANN</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.BLR_ANN.</span></span><span class="sig-name descname"><span class="pre">BLR_ANN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogate</span></code></a></p>
 <p>Class for Bayesian Linear Regressor with Artificial Neural Network basis functions.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -429,72 +347,72 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.perform_training">
-<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.perform_training">
+<span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.perform_prediction">
-<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.perform_prediction">
+<span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known individuals.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known individuals</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.denormalize_predictions">
-<code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.denormalize_predictions">
+<span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.normalize_obj_vals">
-<code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.normalize_obj_vals">
+<span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.load_trained_model">
-<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.load_trained_model">
+<span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.BLR_ANN.BLR_ANN.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.BLR_ANN.BLR_ANN.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.BLR_ANN.BLR_ANN.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
@@ -502,19 +420,19 @@
 
 </dd></dl>
 
-</div>
-</div>
-<div class="section" id="gaussian-processes">
-<h2>Gaussian Processes<a class="headerlink" href="#gaussian-processes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="interpolation-kriging">
-<h3>Interpolation Kriging<a class="headerlink" href="#interpolation-kriging" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="gaussian-processes">
+<h2>Gaussian Processes<a class="headerlink" href="#gaussian-processes" title="Permalink to this heading">¶</a></h2>
+<section id="interpolation-kriging">
+<h3>Interpolation Kriging<a class="headerlink" href="#interpolation-kriging" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Surrogates.iKRG.iKRG">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.iKRG.</code><code class="sig-name descname">iKRG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.iKRG.</span></span><span class="sig-name descname"><span class="pre">iKRG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogate</span></code></a></p>
 <p>Class for interpolating Kriging surrogate model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -527,18 +445,19 @@
 </ul>
 </dd>
 </dl>
+<p>If you encounter some “np.float deprecated” error while using iKRG.py, please refer to the following page &lt;<a class="reference external" href="https://github.com/capaulson/pyKriging/pull/53/files">https://github.com/capaulson/pyKriging/pull/53/files</a>&gt;</p>
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.perform_training">
-<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.perform_training">
+<span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.add_point">
-<code class="sig-name descname">add_point</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidate</span></em>, <em class="sig-param"><span class="n">obj_val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.add_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.add_point">
+<span class="sig-name descname"><span class="pre">add_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.add_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Partial update (used in q-EGO)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>candidate</strong> (<em>np.ndarray</em>) – new candidate to add to the training set</p></li>
 <li><p><strong>obj_val</strong> (<em>np.ndarray</em>) – objective value associated to the candidate</p></li>
@@ -548,66 +467,66 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.perform_prediction">
-<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.perform_prediction">
+<span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.denormalize_predictions">
-<code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.denormalize_predictions">
+<span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.normalize_obj_vals">
-<code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.normalize_obj_vals">
+<span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_vals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.load_trained_model">
-<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.load_trained_model">
+<span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.iKRG.iKRG.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.iKRG.iKRG.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.iKRG.iKRG.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known candidates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
@@ -615,16 +534,16 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="regression-kriging">
-<h3>Regression Kriging<a class="headerlink" href="#regression-kriging" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="regression-kriging">
+<h3>Regression Kriging<a class="headerlink" href="#regression-kriging" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Surrogates.rKRG.rKRG">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.rKRG.</code><code class="sig-name descname">rKRG</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.rKRG.</span></span><span class="sig-name descname"><span class="pre">rKRG</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogate</span></code></a></p>
 <p>Class for regression Kriging surrogate model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -637,18 +556,19 @@
 </ul>
 </dd>
 </dl>
+<p>If you encounter some “np.float deprecated” error while using rKRG.py, please refer to the following page &lt;<a class="reference external" href="https://github.com/capaulson/pyKriging/pull/53/files">https://github.com/capaulson/pyKriging/pull/53/files</a>&gt;</p>
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.perform_training">
-<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.perform_training">
+<span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.add_point">
-<code class="sig-name descname">add_point</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidate</span></em>, <em class="sig-param"><span class="n">obj_val</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.add_point" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.add_point">
+<span class="sig-name descname"><span class="pre">add_point</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">obj_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.add_point" title="Permalink to this definition">¶</a></dt>
 <dd><p>Partial update (used in q-EGO)</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>candidate</strong> (<em>np.ndarray</em>) – new candidate to add to the training set</p></li>
 <li><p><strong>obj_val</strong> (<em>np.ndarray</em>) – objective value associated to the candidate</p></li>
@@ -658,66 +578,66 @@
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.perform_prediction">
-<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.perform_prediction">
+<span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.denormalize_predictions">
-<code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.denormalize_predictions">
+<span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.normalize_obj_vals">
-<code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.normalize_obj_vals">
+<span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_vals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.load_trained_model">
-<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.load_trained_model">
+<span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.rKRG.rKRG.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.rKRG.rKRG.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.rKRG.rKRG.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known candidates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
@@ -725,16 +645,16 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="gp-with-different-kernels">
-<h3>GP with different kernels<a class="headerlink" href="#gp-with-different-kernels" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="gp-with-different-kernels">
+<h3>GP with different kernels<a class="headerlink" href="#gp-with-different-kernels" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Surrogates.GP.GP">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.GP.</code><code class="sig-name descname">GP</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em>, <em class="sig-param"><span class="n">kernel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<dt class="sig sig-object py" id="Surrogates.GP.GP">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.GP.</span></span><span class="sig-name descname"><span class="pre">GP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogate</span></code></a></p>
 <p>Class for Gaussian Process.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -749,72 +669,72 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Surrogates.GP.GP.perform_training">
-<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.perform_training">
+<span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP.GP.perform_prediction">
-<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.perform_prediction">
+<span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP.GP.denormalize_predictions">
-<code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.denormalize_predictions">
+<span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP.GP.normalize_obj_vals">
-<code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.normalize_obj_vals">
+<span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_vals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP.GP.load_trained_model">
-<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.load_trained_model">
+<span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP.GP.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP.GP.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP.GP.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP.GP.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known candidates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
@@ -822,16 +742,16 @@
 
 </dd></dl>
 
-</div>
-<div class="section" id="gp-for-multiple-ojbectives">
-<h3>GP for multiple ojbectives<a class="headerlink" href="#gp-for-multiple-ojbectives" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="gp-for-multiple-ojbectives">
+<h3>GP for multiple ojbectives<a class="headerlink" href="#gp-for-multiple-ojbectives" title="Permalink to this heading">¶</a></h3>
 <dl class="py class">
-<dt id="Surrogates.GP_MO.GP_MO">
-<em class="property">class </em><code class="sig-prename descclassname">Surrogates.GP_MO.</code><code class="sig-name descname">GP_MO</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">f_sim_archive</span></em>, <em class="sig-param"><span class="n">pb</span></em>, <em class="sig-param"><span class="n">n_train_samples</span></em>, <em class="sig-param"><span class="n">f_train_log</span></em>, <em class="sig-param"><span class="n">f_trained_model</span></em>, <em class="sig-param"><span class="n">kernel</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogates.Surrogate.Surrogate</span></code></a></p>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Surrogates.GP_MO.</span></span><span class="sig-name descname"><span class="pre">GP_MO</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_sim_archive</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pb</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_train_samples</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_train_log</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_trained_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#Surrogates.Surrogate.Surrogate" title="Surrogates.Surrogate.Surrogate"><code class="xref py py-class docutils literal notranslate"><span class="pre">Surrogate</span></code></a></p>
 <p>Class for Gaussian Process multitask model (multi dimensional targets only).</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f_sim_archive</strong> (<em>str</em>) – filename where are stored the simulated candidates</p></li>
 <li><p><strong>pb</strong> (<a class="reference internal" href="problems.html#Problems.Problem.Problem" title="Problems.Problem.Problem"><em>Problem</em></a>) – problem the surrogate is associated with</p></li>
@@ -846,72 +766,72 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.perform_training">
-<code class="sig-name descname">perform_training</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.perform_training" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.perform_training">
+<span class="sig-name descname"><span class="pre">perform_training</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.perform_training" title="Permalink to this definition">¶</a></dt>
 <dd><p>Trains the surrogate model.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.perform_prediction">
-<code class="sig-name descname">perform_prediction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.perform_prediction" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.perform_prediction">
+<span class="sig-name descname"><span class="pre">perform_prediction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.perform_prediction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the predicted objective value of the candidates and the uncertainty around it. Both quantities are normalized.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>predicted objective values and uncertainties</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>(np.ndarray, np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.denormalize_predictions">
-<code class="sig-name descname">denormalize_predictions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">preds</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.denormalize_predictions">
+<span class="sig-name descname"><span class="pre">denormalize_predictions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">preds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.denormalize_predictions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Denormalize predicted objective value.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.normalize_obj_vals">
-<code class="sig-name descname">normalize_obj_vals</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj_vals</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.normalize_obj_vals">
+<span class="sig-name descname"><span class="pre">normalize_obj_vals</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_vals</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.normalize_obj_vals" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized objective values.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.load_trained_model">
-<code class="sig-name descname">load_trained_model</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.load_trained_model" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.load_trained_model">
+<span class="sig-name descname"><span class="pre">load_trained_model</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.load_trained_model" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads a model trained in the past.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.load_sim_archive">
-<code class="sig-name descname">load_sim_archive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.load_sim_archive" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.load_sim_archive">
+<span class="sig-name descname"><span class="pre">load_sim_archive</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.load_sim_archive" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the past simulated candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>past simulated decision vectors along with their objective value</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
 <dd class="field-even"><p>tuple(np.ndarray,np.ndarray)</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
-<dt id="Surrogates.GP_MO.GP_MO.perform_distance">
-<code class="sig-name descname">perform_distance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">candidates</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.perform_distance" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="Surrogates.GP_MO.GP_MO.perform_distance">
+<span class="sig-name descname"><span class="pre">perform_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Surrogates.GP_MO.GP_MO.perform_distance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the distance from each normalized candidate to the set of normalized known candidates.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>candidates</strong> (<em>np.ndarray</em>) – candidates</p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>distances from the normalized candidates to the set of normalized known candidates</p>
 </dd>
-<dt class="field-odd">Return type</dt>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
@@ -919,64 +839,39 @@
 
 </dd></dl>
 
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="evolution_controls.html" class="btn btn-neutral float-left" title="Evolution Controls" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="evolution_controls.html" class="btn btn-neutral float-left" title="Evolution Controls" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="algorithms.html" class="btn btn-neutral float-right" title="Algorithms" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        
-        &copy; Copyright 2021, Guillaume Briffoteaux
-
-    </p>
+    <p>&#169; Copyright 2021, Guillaume Briffoteaux.</p>
   </div>
-    
-    
-    
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
-    
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

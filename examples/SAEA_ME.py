@@ -1,4 +1,4 @@
-"""Script running the synchronous parallel Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive multi-objective problems (SAEA_ME).
+"""``SAEA_ME.py`` Script running the synchronous parallel Surrogate-Assisted Evolutionary Algorithm for Medium Scale Expensive multi-objective problems.
 
 SAEA_ME is described in:
 `X. Ruan, K. Li, B. Derbel, and A. Liefooghe. Surrogate assisted evolutionary algorithm for medium scale multi-objective optimisation problems. In Proceedings of the 2020 Genetic and Evolutionary Computation Conference, GECCO 2020, page560–568, New York, NY, USA, 2020. Association for Computing Machinery <https://hal.archives-ouvertes.fr/hal-02932303v1>`_
@@ -6,13 +6,13 @@ SAEA_ME is described in:
 The dimensionality reduction technique proposed in the paper is not reproduced.
 
 Execution on Linux:
-  To run sequentially: ``python ./SAEA_ME.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SAEA_ME.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SAEA_ME.py``
+  * To run sequentially: ``python ./SAEA_ME.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python SAEA_ME.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SAEA_ME.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./SAEA_ME.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SAEA_ME.py``
+  * To run sequentially: ``python ./SAEA_ME.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python SAEA_ME.py``
 """
 
 import shutil

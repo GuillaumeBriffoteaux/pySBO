@@ -1,4 +1,4 @@
-"""Script running a synchronous parallel Surrogate-Assisted Evolutionary Algorithm for single-objective optimization.
+"""``SAEA.py`` Script running a synchronous parallel Surrogate-Assisted Evolutionary Algorithm for single-objective optimization.
 The surrogate is used as an evaluator and/or a filter.
 
 SAEA is described in:
@@ -6,13 +6,13 @@ SAEA is described in:
 
 
 Execution on Linux:
-  To run sequentially: ``python ./SAEA.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SAEA.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SAEA.py``
+  * To run sequentially: ``python ./SAEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python SAEA.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SAEA.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./SAEA.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SAEA.py``
+  * To run sequentially: ``python ./SAEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python SAEA.py``
 """
 
 import shutil

@@ -21,7 +21,7 @@ sys.path.insert(0, os.path.abspath('../../examples'))
 
 import sphinx_rtd_theme
 
-autodoc_mock_imports = ["mpi4py"]
+autodoc_mock_imports = ["mpi4py", "pyro", "torch", "gpytorch"]
 
 # -- Project information -----------------------------------------------------
 
@@ -77,3 +77,5 @@ autodoc_default_options = {
 autodoc_member_order = 'bysource'
 
 autoclass_content = "both"
+
+highlight_language = 'shell-session'

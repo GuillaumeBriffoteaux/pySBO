@@ -1,16 +1,16 @@
-"""Script running the synchronous parallel Adaptive Bayesian Multi-Objective Evolutionary Algorithm (AB_MOEA).
+"""``AB_MOEA.py`` Script running the synchronous parallel surrogate-based Adaptive Bayesian Multi-Objective Evolutionary Algorithm.
 
 AB_MOEA is described in:
 `X. Wang, Y. Jin, S. Schmitt and M. Olhofer. An adaptive Bayesian approach to surrogate-assisted evolutionary multi-objective optimization. In Information Sciences 519 (2020), pp. 317–331. ISSN: 0020-0255. <https://doi.org/10.1016/j.ins.2020.01.048>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./AB_MOEA.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python AB_MOEA.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python AB_MOEA.py``
+  * To run sequentially: ``python ./AB_MOEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python AB_MOEA.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python AB_MOEA.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./AB_MOEA.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python AB_MOEA.py``
+  * To run sequentially: ``python ./AB_MOEA.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python AB_MOEA.py``
 """
 
 import shutil

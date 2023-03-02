@@ -1,16 +1,16 @@
-"""Script running a synchronous parallel Surrogate-Driven Algorithm similar to q-EGO with constant liar for single-objective optimization.
+"""``SDA_qEGO_CL.py`` Script running a synchronous parallel Surrogate-Driven Algorithm similar to q-EGO with constant liar for single-objective optimization.
 
 q-EGO with Constant Liar is described in:
 `D. Ginsbourger, R. Le Riche, and L. Carraro. Kriging is well-suited to parallelize optimization. In Computational Intelligence in Expensive Optimization Problems. Springer, 2010,  pp. 131–162. <https://hal-emse.ccsd.cnrs.fr/emse-00436126>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./SDA_qEGO_CL.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python SDA_qEGO_CL.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SDA_qEGO_CL.py``
+  * To run sequentially: ``python ./SDA_qEGO_CL.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python SDA_qEGO_CL.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python SDA_qEGO_CL.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./SDA_qEGO_CL.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python SDA_qEGO_CL.py``
+  * To run sequentially: ``python ./SDA_qEGO_CL.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python SDA_qEGO_CL.py``
 """
 
 import shutil

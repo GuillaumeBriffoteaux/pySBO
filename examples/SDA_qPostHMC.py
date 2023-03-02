@@ -1,16 +1,16 @@
-"""Script running a synchronous parallel Surrogate-Driven Algorithm based on a sub-GPs acquisition process for single-objective optimization.
+"""``SDA_qPostHMC.py`` Script running a synchronous parallel Surrogate-Driven Algorithm based on a sub-GPs acquisition process for single-objective optimization.
 
-The Pareto acquisition process is described in:
-`G. Briffoteaux. Parallel surrogate-based algorithms for solving expensive optimization problems. Thesis. 2022. <https://hal.science/tel-03853862>`_
+The sub-GPs acquisition process is described in:
+`G. Briffoteaux. Parallel surrogate-based algorithms for solving expensive optimization problems. Thesis. University of Mons (Belgium) and University of Lille (France). 2022. <https://hal.science/tel-03853862>`_
 
 This algorithm is only meant to be run in parallel.
 
 Execution on Linux:
-  To run in parallel (in 2 computational units): ``mpiexec -n 2 python SDA_qPostHMC.py``
-  To run in parallel (in 2 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 2 python SDA_qPostHMC.py``
+  * To run in parallel (in 2 computational units): ``mpiexec -n 2 python SDA_qPostHMC.py``
+  * To run in parallel (in 2 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 2 python SDA_qPostHMC.py``
 
 Execution on Windows:
-  To run in parallel (in 2 computational units): ``mpiexec /np 2 python SDA_qPostHMC.py``
+  * To run in parallel (in 2 computational units): ``mpiexec /np 2 python SDA_qPostHMC.py``
 """
 
 import shutil

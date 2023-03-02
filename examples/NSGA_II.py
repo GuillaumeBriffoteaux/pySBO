@@ -1,17 +1,17 @@
-"""Script running the synchronous parallel Non-Domiated Sorted Genetic Algorithm (NSGA_II) for multi-objective optimization.
+"""``NSGA_II.py`` Script running the synchronous parallel surrogate-free Non-Domiated Sorted Genetic Algorithm for multi-objective optimization.
 
 NSGA_II is described in:
 `K. Deb, A. Pratap, S. Agarwal and T. Meyarivan. A fast and elitist multiobjective genetic algorithm: NSGA_II. IEEE Transactions on Evolutionary Computation,
 6(2):182–197, 2002. <https://doi.org/10.1109/4235.996017>`_
 
 Execution on Linux:
-  To run sequentially: ``python ./NSGA_II.py``
-  To run in parallel (in 4 computational units): ``mpiexec -n 4 python NSGA_II.py``
-  To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python NSGA_II.py``
+  * To run sequentially: ``python ./NSGA_II.py``
+  * To run in parallel (in 4 computational units): ``mpiexec -n 4 python NSGA_II.py``
+  * To run in parallel (in 4 computational units) specifying the units in `./hosts.txt`: ``mpiexec --machinefile ./host.txt -n 4 python NSGA_II.py``
 
 Execution on Windows:
-  To run sequentially: ``python ./NSGA_II.py``
-  To run in parallel (in 4 computational units): ``mpiexec /np 4 python NSGA_II.py``
+  * To run sequentially: ``python ./NSGA_II.py``
+  * To run in parallel (in 4 computational units): ``mpiexec /np 4 python NSGA_II.py``
 """
 
 import shutil
