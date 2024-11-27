@@ -5,17 +5,17 @@ Installation
 Linux
 -----
 
-This procedure has been tested on Ubuntu20.04 and on Debian11.
+This procedure has been tested on Ubuntu22.04 (Linux x86).
 
 1.  Open a terminal.
 
 2.  Download Miniconda by running::
       
-      $ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+      $ curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 
 3.  Install Miniconda by running::
       
-      $ bash Miniconda3-latest-Linux-x86_64.sh
+      $ bash ~/Miniconda3-latest-Linux-x86_64.sh
       
     * Accept the license term.
     * Accept the installation folder.

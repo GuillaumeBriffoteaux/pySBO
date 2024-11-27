@@ -1,19 +1,19 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Problems &mdash; pySBO 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -109,10 +109,10 @@
            <div itemprop="articleBody">
              
   <section id="module-Problems.__init__">
-<span id="problems"></span><h1>Problems<a class="headerlink" href="#module-Problems.__init__" title="Permalink to this heading">¶</a></h1>
+<span id="problems"></span><h1>Problems<a class="headerlink" href="#module-Problems.__init__" title="Link to this heading">¶</a></h1>
 <p>Package related to problem description and design of experiment.</p>
 <section id="classes-summary">
-<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this heading">¶</a></h2>
+<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Link to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#Problems.Problem.Problem" title="Problems.Problem.Problem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Problems.Problem.Problem</span></code></a>(n_dvar, n_obj)</p></td>
@@ -161,12 +161,12 @@
 </table>
 </section>
 <section id="abstract-classes">
-<h2>Abstract classes<a class="headerlink" href="#abstract-classes" title="Permalink to this heading">¶</a></h2>
+<h2>Abstract classes<a class="headerlink" href="#abstract-classes" title="Link to this heading">¶</a></h2>
 <section id="problem">
-<h3>Problem<a class="headerlink" href="#problem" title="Permalink to this heading">¶</a></h3>
+<h3>Problem<a class="headerlink" href="#problem" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Problem.Problem">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Problem.</span></span><span class="sig-name descname"><span class="pre">Problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Problem.Problem" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Problem.</span></span><span class="sig-name descname"><span class="pre">Problem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Problem.Problem" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for real-valued optimization problems.</p>
 <dl class="field-list simple">
@@ -181,20 +181,20 @@
 
 </section>
 <section id="box-constrained">
-<h3>Box-constrained<a class="headerlink" href="#box-constrained" title="Permalink to this heading">¶</a></h3>
+<h3>Box-constrained<a class="headerlink" href="#box-constrained" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Box_Constrained.Box_Constrained">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Box_Constrained.</span></span><span class="sig-name descname"><span class="pre">Box_Constrained</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Box_Constrained.Box_Constrained" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Box_Constrained.</span></span><span class="sig-name descname"><span class="pre">Box_Constrained</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Box_Constrained.Box_Constrained" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Problem.Problem" title="Problems.Problem.Problem"><code class="xref py py-class docutils literal notranslate"><span class="pre">Problem</span></code></a></p>
 <p>Abstract class for real-valued box-constrained optimization problems.</p>
 </dd></dl>
 
 </section>
 <section id="single-objective">
-<h3>Single_Objective<a class="headerlink" href="#single-objective" title="Permalink to this heading">¶</a></h3>
+<h3>Single_Objective<a class="headerlink" href="#single-objective" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Single_Objective.Single_Objective">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Single_Objective.</span></span><span class="sig-name descname"><span class="pre">Single_Objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Single_Objective.Single_Objective" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Single_Objective.</span></span><span class="sig-name descname"><span class="pre">Single_Objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Single_Objective.Single_Objective" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Box_Constrained.Box_Constrained" title="Problems.Box_Constrained.Box_Constrained"><code class="xref py py-class docutils literal notranslate"><span class="pre">Box_Constrained</span></code></a></p>
 <p>Abstract class for artificial single-objective real-valued box-constrained optimization problems.</p>
 <dl class="field-list simple">
@@ -206,10 +206,10 @@
 
 </section>
 <section id="multi-objective">
-<h3>Multi_Objective<a class="headerlink" href="#multi-objective" title="Permalink to this heading">¶</a></h3>
+<h3>Multi_Objective<a class="headerlink" href="#multi-objective" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Multi_Objective.Multi_Objective">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Multi_Objective.</span></span><span class="sig-name descname"><span class="pre">Multi_Objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Multi_Objective.Multi_Objective" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Multi_Objective.</span></span><span class="sig-name descname"><span class="pre">Multi_Objective</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Multi_Objective.Multi_Objective" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Box_Constrained.Box_Constrained" title="Problems.Box_Constrained.Box_Constrained"><code class="xref py py-class docutils literal notranslate"><span class="pre">Box_Constrained</span></code></a></p>
 <p>Abstract class for artificial multi-objective real-valued box-constrained optimization problems.</p>
 <dl class="field-list simple">
@@ -222,12 +222,12 @@
 </section>
 </section>
 <section id="single-objective-problems">
-<h2>Single-Objective Problems<a class="headerlink" href="#single-objective-problems" title="Permalink to this heading">¶</a></h2>
+<h2>Single-Objective Problems<a class="headerlink" href="#single-objective-problems" title="Link to this heading">¶</a></h2>
 <section id="ackley">
-<h3>Ackley<a class="headerlink" href="#ackley" title="Permalink to this heading">¶</a></h3>
+<h3>Ackley<a class="headerlink" href="#ackley" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Ackley.Ackley">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Ackley.</span></span><span class="sig-name descname"><span class="pre">Ackley</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Ackley.</span></span><span class="sig-name descname"><span class="pre">Ackley</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for the single-objective Ackley problem.</p>
 <dl class="field-list simple">
@@ -237,7 +237,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Ackley.Ackley.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -254,7 +254,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Ackley.Ackley.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -268,7 +268,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Ackley.Ackley.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -285,7 +285,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Ackley.Ackley.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Ackley.Ackley.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 1D or 2-D Ackley objective function.</p>
 </dd></dl>
 
@@ -293,15 +293,15 @@
 
 </section>
 <section id="xiong">
-<h3>Xiong<a class="headerlink" href="#xiong" title="Permalink to this heading">¶</a></h3>
+<h3>Xiong<a class="headerlink" href="#xiong" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Xiong.Xiong">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Xiong.</span></span><span class="sig-name descname"><span class="pre">Xiong</span></span><a class="headerlink" href="#Problems.Xiong.Xiong" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Xiong.</span></span><span class="sig-name descname"><span class="pre">Xiong</span></span><a class="headerlink" href="#Problems.Xiong.Xiong" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for 1D single-objective Xiong problem.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Xiong.Xiong.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -318,7 +318,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Xiong.Xiong.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -332,7 +332,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Xiong.Xiong.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -349,7 +349,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Xiong.Xiong.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Xiong.Xiong.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 1D Xiong objective function.</p>
 </dd></dl>
 
@@ -357,10 +357,10 @@
 
 </section>
 <section id="schwefel">
-<h3>Schwefel<a class="headerlink" href="#schwefel" title="Permalink to this heading">¶</a></h3>
+<h3>Schwefel<a class="headerlink" href="#schwefel" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Schwefel.Schwefel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Schwefel.</span></span><span class="sig-name descname"><span class="pre">Schwefel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Schwefel.</span></span><span class="sig-name descname"><span class="pre">Schwefel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for the single-objective Schwefel problem.</p>
 <dl class="field-list simple">
@@ -370,7 +370,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Schwefel.Schwefel.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -387,7 +387,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Schwefel.Schwefel.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -401,7 +401,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Schwefel.Schwefel.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -418,7 +418,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Schwefel.Schwefel.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Schwefel.Schwefel.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 1D or 2D Schwefel objective function.</p>
 </dd></dl>
 
@@ -426,10 +426,10 @@
 
 </section>
 <section id="rastrigin">
-<h3>Rastrigin<a class="headerlink" href="#rastrigin" title="Permalink to this heading">¶</a></h3>
+<h3>Rastrigin<a class="headerlink" href="#rastrigin" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Rastrigin.Rastrigin">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Rastrigin.</span></span><span class="sig-name descname"><span class="pre">Rastrigin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Rastrigin.</span></span><span class="sig-name descname"><span class="pre">Rastrigin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for the single-objective Rastrigin problem.</p>
 <dl class="field-list simple">
@@ -439,7 +439,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rastrigin.Rastrigin.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -456,7 +456,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rastrigin.Rastrigin.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -470,7 +470,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rastrigin.Rastrigin.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -487,7 +487,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rastrigin.Rastrigin.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rastrigin.Rastrigin.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 1D or 2D Rastrigin objective function.</p>
 </dd></dl>
 
@@ -495,10 +495,10 @@
 
 </section>
 <section id="rosenbrock">
-<h3>Rosenbrock<a class="headerlink" href="#rosenbrock" title="Permalink to this heading">¶</a></h3>
+<h3>Rosenbrock<a class="headerlink" href="#rosenbrock" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.Rosenbrock.Rosenbrock">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Rosenbrock.</span></span><span class="sig-name descname"><span class="pre">Rosenbrock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.Rosenbrock.</span></span><span class="sig-name descname"><span class="pre">Rosenbrock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for the single-objective Rosenbrock problem.</p>
 <dl class="field-list simple">
@@ -508,7 +508,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rosenbrock.Rosenbrock.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -525,7 +525,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rosenbrock.Rosenbrock.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -539,7 +539,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rosenbrock.Rosenbrock.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -556,7 +556,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.Rosenbrock.Rosenbrock.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.Rosenbrock.Rosenbrock.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 2D Rosenbrock objective function.</p>
 </dd></dl>
 
@@ -564,10 +564,10 @@
 
 </section>
 <section id="cec2013">
-<h3>CEC2013<a class="headerlink" href="#cec2013" title="Permalink to this heading">¶</a></h3>
+<h3>CEC2013<a class="headerlink" href="#cec2013" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.CEC2013.CEC2013">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.CEC2013.</span></span><span class="sig-name descname"><span class="pre">CEC2013</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.CEC2013.</span></span><span class="sig-name descname"><span class="pre">CEC2013</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for single-objective problems from the CEC2013.</p>
 <dl class="field-list simple">
@@ -580,7 +580,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2013.CEC2013.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -597,7 +597,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2013.CEC2013.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -611,7 +611,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2013.CEC2013.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -628,7 +628,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2013.CEC2013.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2013.CEC2013.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 2D CEC2013 considered problem’s objective function.</p>
 </dd></dl>
 
@@ -636,10 +636,10 @@
 
 </section>
 <section id="cec2014">
-<h3>CEC2014<a class="headerlink" href="#cec2014" title="Permalink to this heading">¶</a></h3>
+<h3>CEC2014<a class="headerlink" href="#cec2014" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.CEC2014.CEC2014">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.CEC2014.</span></span><span class="sig-name descname"><span class="pre">CEC2014</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.CEC2014.</span></span><span class="sig-name descname"><span class="pre">CEC2014</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Single_Objective.Single_Objective" title="Problems.Single_Objective.Single_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Single_Objective</span></code></a></p>
 <p>Class for single-objective problems from the CEC2014.</p>
 <dl class="field-list simple">
@@ -652,7 +652,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2014.CEC2014.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -669,7 +669,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2014.CEC2014.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -683,7 +683,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2014.CEC2014.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -700,7 +700,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.CEC2014.CEC2014.plot">
-<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.plot" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">plot</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.CEC2014.CEC2014.plot" title="Link to this definition">¶</a></dt>
 <dd><p>Plot the 2D CEC2014 considered problem’s objective function.</p>
 </dd></dl>
 
@@ -709,12 +709,12 @@
 </section>
 </section>
 <section id="multi-objective-problems">
-<h2>Multi-Objective Problems<a class="headerlink" href="#multi-objective-problems" title="Permalink to this heading">¶</a></h2>
+<h2>Multi-Objective Problems<a class="headerlink" href="#multi-objective-problems" title="Link to this heading">¶</a></h2>
 <section id="dtlz">
-<h3>DTLZ<a class="headerlink" href="#dtlz" title="Permalink to this heading">¶</a></h3>
+<h3>DTLZ<a class="headerlink" href="#dtlz" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.DTLZ.DTLZ">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.DTLZ.</span></span><span class="sig-name descname"><span class="pre">DTLZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.DTLZ.</span></span><span class="sig-name descname"><span class="pre">DTLZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_obj</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Multi_Objective.Multi_Objective" title="Problems.Multi_Objective.Multi_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multi_Objective</span></code></a></p>
 <p>Class for multi-objective problems from the DTLZ test suite.</p>
 <dl class="field-list simple">
@@ -728,7 +728,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.DTLZ.DTLZ.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -745,7 +745,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.DTLZ.DTLZ.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -759,7 +759,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.DTLZ.DTLZ.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DTLZ.DTLZ.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -778,10 +778,10 @@
 
 </section>
 <section id="zdt">
-<h3>ZDT<a class="headerlink" href="#zdt" title="Permalink to this heading">¶</a></h3>
+<h3>ZDT<a class="headerlink" href="#zdt" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.ZDT.ZDT">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.ZDT.</span></span><span class="sig-name descname"><span class="pre">ZDT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.ZDT.</span></span><span class="sig-name descname"><span class="pre">ZDT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_dvar</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Problems.Multi_Objective.Multi_Objective" title="Problems.Multi_Objective.Multi_Objective"><code class="xref py py-class docutils literal notranslate"><span class="pre">Multi_Objective</span></code></a></p>
 <p>Class for bi-objective problems from the ZDT test suite.</p>
 <dl class="field-list simple">
@@ -794,7 +794,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.ZDT.ZDT.perform_real_evaluation">
-<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.perform_real_evaluation" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">perform_real_evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.perform_real_evaluation" title="Link to this definition">¶</a></dt>
 <dd><p>Objective function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -811,7 +811,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.ZDT.ZDT.get_bounds">
-<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.get_bounds" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_bounds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.get_bounds" title="Link to this definition">¶</a></dt>
 <dd><p>Returns search space bounds.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -825,7 +825,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.ZDT.ZDT.is_feasible">
-<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.is_feasible" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">is_feasible</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">candidates</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.ZDT.ZDT.is_feasible" title="Link to this definition">¶</a></dt>
 <dd><p>Check feasibility of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -845,10 +845,10 @@
 </section>
 </section>
 <section id="design-of-experiments">
-<h2>Design of Experiments<a class="headerlink" href="#design-of-experiments" title="Permalink to this heading">¶</a></h2>
+<h2>Design of Experiments<a class="headerlink" href="#design-of-experiments" title="Link to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="Problems.DoE.DoE">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.DoE.</span></span><span class="sig-name descname"><span class="pre">DoE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DoE.DoE" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Problems.DoE.</span></span><span class="sig-name descname"><span class="pre">DoE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pb</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DoE.DoE" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for Design of Experiments.</p>
 <dl class="field-list simple">
@@ -858,7 +858,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.DoE.DoE.random_uniform_sampling">
-<span class="sig-name descname"><span class="pre">random_uniform_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DoE.DoE.random_uniform_sampling" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">random_uniform_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DoE.DoE.random_uniform_sampling" title="Link to this definition">¶</a></dt>
 <dd><p>Returns samples generated by random uniform sampling over the search space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -875,7 +875,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Problems.DoE.DoE.latin_hypercube_sampling">
-<span class="sig-name descname"><span class="pre">latin_hypercube_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DoE.DoE.latin_hypercube_sampling" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">latin_hypercube_sampling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nb_samples</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Problems.DoE.DoE.latin_hypercube_sampling" title="Link to this definition">¶</a></dt>
 <dd><p>Returns samples generated by latin hypercube sampling over the search space.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

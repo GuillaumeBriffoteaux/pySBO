@@ -1,19 +1,19 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Evolution Controls &mdash; pySBO 0.1 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -110,10 +110,10 @@
            <div itemprop="articleBody">
              
   <section id="module-Evolution_Controls.__init__">
-<span id="evolution-controls"></span><h1>Evolution Controls<a class="headerlink" href="#module-Evolution_Controls.__init__" title="Permalink to this heading">¶</a></h1>
+<span id="evolution-controls"></span><h1>Evolution Controls<a class="headerlink" href="#module-Evolution_Controls.__init__" title="Link to this heading">¶</a></h1>
 <p>Package related to evolution controls.</p>
 <section id="classes-summary">
-<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Permalink to this heading">¶</a></h2>
+<h2>Classes summary<a class="headerlink" href="#classes-summary" title="Link to this heading">¶</a></h2>
 <table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Evolution_Controls.Evolution_Control.Evolution_Control"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Evolution_Controls.Evolution_Control.Evolution_Control</span></code></a>()</p></td>
@@ -177,17 +177,17 @@
 </table>
 </section>
 <section id="naive">
-<h2>Naive<a class="headerlink" href="#naive" title="Permalink to this heading">¶</a></h2>
+<h2>Naive<a class="headerlink" href="#naive" title="Link to this heading">¶</a></h2>
 <section id="evolution-control-abstract">
-<h3>Evolution Control (abstract)<a class="headerlink" href="#evolution-control-abstract" title="Permalink to this heading">¶</a></h3>
+<h3>Evolution Control (abstract)<a class="headerlink" href="#evolution-control-abstract" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Evolution_Control.Evolution_Control">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Evolution_Control.</span></span><span class="sig-name descname"><span class="pre">Evolution_Control</span></span><a class="headerlink" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Evolution_Control.</span></span><span class="sig-name descname"><span class="pre">Evolution_Control</span></span><a class="headerlink" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Abstract class for evolution controls.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Evolution_Control.Evolution_Control.get_sorted_indexes">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Evolution_Control.Evolution_Control.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Evolution_Control.Evolution_Control.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -206,15 +206,15 @@
 
 </section>
 <section id="random">
-<h3>Random<a class="headerlink" href="#random" title="Permalink to this heading">¶</a></h3>
+<h3>Random<a class="headerlink" href="#random" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Random_EC.Random_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Random_EC.</span></span><span class="sig-name descname"><span class="pre">Random_EC</span></span><a class="headerlink" href="#Evolution_Controls.Random_EC.Random_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Random_EC.</span></span><span class="sig-name descname"><span class="pre">Random_EC</span></span><a class="headerlink" href="#Evolution_Controls.Random_EC.Random_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Evolution_Controls.Evolution_Control.Evolution_Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution_Control</span></code></a></p>
 <p>Class for random evolution control.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Random_EC.Random_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Random_EC.Random_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Random_EC.Random_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -234,12 +234,12 @@
 </section>
 </section>
 <section id="informed">
-<h2>Informed<a class="headerlink" href="#informed" title="Permalink to this heading">¶</a></h2>
+<h2>Informed<a class="headerlink" href="#informed" title="Link to this heading">¶</a></h2>
 <section id="informed-abstract">
-<h3>Informed (abstract)<a class="headerlink" href="#informed-abstract" title="Permalink to this heading">¶</a></h3>
+<h3>Informed (abstract)<a class="headerlink" href="#informed-abstract" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Informed_EC.Informed_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Informed_EC.</span></span><span class="sig-name descname"><span class="pre">Informed_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Informed_EC.</span></span><span class="sig-name descname"><span class="pre">Informed_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Evolution_Controls.Evolution_Control.Evolution_Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution_Control</span></code></a></p>
 <p>Abstract class for informed evolution controls.</p>
 <dl class="field-list simple">
@@ -249,7 +249,7 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Informed_EC.Informed_EC.get_IC_value">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Informed_EC.Informed_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Informed_EC.Informed_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -266,7 +266,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Informed_EC.Informed_EC.get_sorted_indexes">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Informed_EC.Informed_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Informed_EC.Informed_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -285,10 +285,10 @@
 
 </section>
 <section id="predicted-objective-value">
-<h3>Predicted Objective Value<a class="headerlink" href="#predicted-objective-value" title="Permalink to this heading">¶</a></h3>
+<h3>Predicted Objective Value<a class="headerlink" href="#predicted-objective-value" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.POV_EC.POV_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.POV_EC.</span></span><span class="sig-name descname"><span class="pre">POV_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.POV_EC.POV_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.POV_EC.</span></span><span class="sig-name descname"><span class="pre">POV_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.POV_EC.POV_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for best predicted EC.</p>
 <p>Candidates with lower predicted objective value (POV)
@@ -301,7 +301,7 @@ by the surrogate are more promising.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.POV_EC.POV_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.POV_EC.POV_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.POV_EC.POV_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -318,7 +318,7 @@ by the surrogate are more promising.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.POV_EC.POV_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.POV_EC.POV_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.POV_EC.POV_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -337,10 +337,10 @@ by the surrogate are more promising.</p>
 
 </section>
 <section id="distance">
-<h3>Distance<a class="headerlink" href="#distance" title="Permalink to this heading">¶</a></h3>
+<h3>Distance<a class="headerlink" href="#distance" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Distance_EC.Distance_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Distance_EC.</span></span><span class="sig-name descname"><span class="pre">Distance_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Distance_EC.Distance_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Distance_EC.</span></span><span class="sig-name descname"><span class="pre">Distance_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Distance_EC.Distance_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for distance EC.</p>
 <p>Candidates with greater distance from the set of already simulated candidates are more promising.</p>
@@ -352,7 +352,7 @@ by the surrogate are more promising.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Distance_EC.Distance_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Distance_EC.Distance_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Distance_EC.Distance_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -369,7 +369,7 @@ by the surrogate are more promising.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Distance_EC.Distance_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Distance_EC.Distance_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Distance_EC.Distance_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -388,10 +388,10 @@ by the surrogate are more promising.</p>
 
 </section>
 <section id="predictive-standard-deviation">
-<h3>Predictive Standard Deviation<a class="headerlink" href="#predictive-standard-deviation" title="Permalink to this heading">¶</a></h3>
+<h3>Predictive Standard Deviation<a class="headerlink" href="#predictive-standard-deviation" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Pred_Stdev_EC.</span></span><span class="sig-name descname"><span class="pre">Pred_Stdev_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Pred_Stdev_EC.</span></span><span class="sig-name descname"><span class="pre">Pred_Stdev_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for predictive standard deviation EC.</p>
 <p>Candidates with greater predictive standard deviation are more promising.</p>
@@ -403,7 +403,7 @@ by the surrogate are more promising.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -420,7 +420,7 @@ by the surrogate are more promising.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pred_Stdev_EC.Pred_Stdev_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -439,10 +439,10 @@ by the surrogate are more promising.</p>
 
 </section>
 <section id="expected-improvement">
-<h3>Expected Improvement<a class="headerlink" href="#expected-improvement" title="Permalink to this heading">¶</a></h3>
+<h3>Expected Improvement<a class="headerlink" href="#expected-improvement" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Expected_Improvement_EC.</span></span><span class="sig-name descname"><span class="pre">Expected_Improvement_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Expected_Improvement_EC.</span></span><span class="sig-name descname"><span class="pre">Expected_Improvement_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for expected improvement EC.</p>
 <p>Candidates with greater expected improvement are more promising.</p>
@@ -454,7 +454,7 @@ by the surrogate are more promising.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -471,7 +471,7 @@ by the surrogate are more promising.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Expected_Improvement_EC.Expected_Improvement_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -490,10 +490,10 @@ by the surrogate are more promising.</p>
 
 </section>
 <section id="probability-improvement">
-<h3>Probability Improvement<a class="headerlink" href="#probability-improvement" title="Permalink to this heading">¶</a></h3>
+<h3>Probability Improvement<a class="headerlink" href="#probability-improvement" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Probability_Improvement_EC.</span></span><span class="sig-name descname"><span class="pre">Probability_Improvement_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Probability_Improvement_EC.</span></span><span class="sig-name descname"><span class="pre">Probability_Improvement_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for probability of improvement EC.</p>
 <p>Candidates with greater probability of improvement are more promising.</p>
@@ -505,7 +505,7 @@ by the surrogate are more promising.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -522,7 +522,7 @@ by the surrogate are more promising.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Probability_Improvement_EC.Probability_Improvement_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -541,10 +541,10 @@ by the surrogate are more promising.</p>
 
 </section>
 <section id="lower-confident-bound">
-<h3>Lower Confident Bound<a class="headerlink" href="#lower-confident-bound" title="Permalink to this heading">¶</a></h3>
+<h3>Lower Confident Bound<a class="headerlink" href="#lower-confident-bound" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Lower_Confident_Bound_EC.</span></span><span class="sig-name descname"><span class="pre">Lower_Confident_Bound_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Lower_Confident_Bound_EC.</span></span><span class="sig-name descname"><span class="pre">Lower_Confident_Bound_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for lower confident bound EC.</p>
 <p>Candidates with lower lower confident bound are more promising.</p>
@@ -561,7 +561,7 @@ by the surrogate are more promising.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -578,7 +578,7 @@ by the surrogate are more promising.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Lower_Confident_Bound_EC.Lower_Confident_Bound_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -597,10 +597,10 @@ by the surrogate are more promising.</p>
 
 </section>
 <section id="adaptive-from-wang-2020">
-<h3>Adaptive (from Wang-2020)<a class="headerlink" href="#adaptive-from-wang-2020" title="Permalink to this heading">¶</a></h3>
+<h3>Adaptive (from Wang-2020)<a class="headerlink" href="#adaptive-from-wang-2020" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Adaptive_Wang2020_EC.</span></span><span class="sig-name descname"><span class="pre">Adaptive_Wang2020_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_budget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncert_treatment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Adaptive_Wang2020_EC.</span></span><span class="sig-name descname"><span class="pre">Adaptive_Wang2020_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_budget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">uncert_treatment</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for Wang-2020’s adaptive EC.</p>
 <p>The EC is described in:
@@ -630,7 +630,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -647,7 +647,7 @@ exploration).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -664,7 +664,7 @@ exploration).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.update_EC">
-<span class="sig-name descname"><span class="pre">update_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.update_EC" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_Wang2020_EC.Adaptive_Wang2020_EC.update_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Set the weight according to the search progress.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -677,10 +677,10 @@ exploration).</p>
 
 </section>
 <section id="multi-objective-pov-and-lcb-from-ruan-2020">
-<h3>Multi-objective POV and LCB (from Ruan-2020)<a class="headerlink" href="#multi-objective-pov-and-lcb-from-ruan-2020" title="Permalink to this heading">¶</a></h3>
+<h3>Multi-objective POV and LCB (from Ruan-2020)<a class="headerlink" href="#multi-objective-pov-and-lcb-from-ruan-2020" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.MO_POV_LCB_EC.</span></span><span class="sig-name descname"><span class="pre">MO_POV_LCB_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.MO_POV_LCB_EC.</span></span><span class="sig-name descname"><span class="pre">MO_POV_LCB_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for the EC based on multi-objective POV and LCB from:</p>
 <p><a class="reference external" href="https://hal.archives-ouvertes.fr/hal-02932303v1">X. Ruan, K. Li, B. Derbel, and A. Liefooghe. Surrogate assisted evolutionary algorithm for medium scale multi-objective optimisation problems. In Proceedings of the 2020 Genetic and Evolutionary Computation Conference, GECCO 2020, page560–568, New York, NY, USA, 2020. Association for Computing Machinery</a></p>
@@ -697,7 +697,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -714,7 +714,7 @@ exploration).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_EC.MO_POV_LCB_EC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -733,7 +733,7 @@ exploration).</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.MO_POV_LCB_IC.</span></span><span class="sig-name descname"><span class="pre">MO_POV_LCB_IC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.MO_POV_LCB_IC.</span></span><span class="sig-name descname"><span class="pre">MO_POV_LCB_IC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Informed_EC.Informed_EC" title="Evolution_Controls.Informed_EC.Informed_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Informed_EC</span></code></a></p>
 <p>Class for the IC based on multi-objective POV and LCB from:</p>
 <p><a class="reference external" href="https://hal.archives-ouvertes.fr/hal-02932303v1">X. Ruan, K. Li, B. Derbel, and A. Liefooghe. Surrogate assisted evolutionary algorithm for medium scale multi-objective optimisation problems. In Proceedings of the 2020 Genetic and Evolutionary Computation Conference, GECCO 2020, page560–568, New York, NY, USA, 2020. Association for Computing Machinery</a></p>
@@ -745,7 +745,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -762,7 +762,7 @@ exploration).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC.get_IC_value">
-<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC.get_IC_value" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_IC_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dvec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.MO_POV_LCB_IC.MO_POV_LCB_IC.get_IC_value" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the promisingness values of candidates.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -782,12 +782,12 @@ exploration).</p>
 </section>
 </section>
 <section id="ensemble">
-<h2>Ensemble<a class="headerlink" href="#ensemble" title="Permalink to this heading">¶</a></h2>
+<h2>Ensemble<a class="headerlink" href="#ensemble" title="Link to this heading">¶</a></h2>
 <section id="ensemble-abstract">
-<h3>Ensemble (abstract)<a class="headerlink" href="#ensemble-abstract" title="Permalink to this heading">¶</a></h3>
+<h3>Ensemble (abstract)<a class="headerlink" href="#ensemble-abstract" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Ensemble_EC.Ensemble_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Ensemble_EC.</span></span><span class="sig-name descname"><span class="pre">Ensemble_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Ensemble_EC.</span></span><span class="sig-name descname"><span class="pre">Ensemble_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Evolution_Control.Evolution_Control" title="Evolution_Controls.Evolution_Control.Evolution_Control"><code class="xref py py-class docutils literal notranslate"><span class="pre">Evolution_Control</span></code></a></p>
 <p>Abstract class for ensembles of EC.</p>
 <dl class="field-list simple">
@@ -797,7 +797,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Ensemble_EC.Ensemble_EC.get_sorted_indexes">
-<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -816,10 +816,10 @@ exploration).</p>
 
 </section>
 <section id="pareto">
-<h3>Pareto<a class="headerlink" href="#pareto" title="Permalink to this heading">¶</a></h3>
+<h3>Pareto<a class="headerlink" href="#pareto" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Pareto_EC.Pareto_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Pareto_EC.</span></span><span class="sig-name descname"><span class="pre">Pareto_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distinct_mode</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_EC.Pareto_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Pareto_EC.</span></span><span class="sig-name descname"><span class="pre">Pareto_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distinct_mode</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_EC.Pareto_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ensemble_EC</span></code></a></p>
 <p>Class for Pareto-based EC.</p>
 <p>Candidate minimazing the first EC (multiplied by its coefficient -1 or 1) is the most promising. Candidate minimizing the second EC (multiplied by its coefficient -1 or 1) is the second most promising. Remaining candidates are ordering according to their non-dominated rank (the lowest the rank the more promising is the candidate). Candidates with same non-dominated rank are ordered either according to their crowding distance <cite>cd</cite> or according to their hypervolume contribution <cite>hvc</cite>.</p>
@@ -839,7 +839,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Pareto_EC.Pareto_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_EC.Pareto_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_EC.Pareto_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -858,10 +858,10 @@ exploration).</p>
 
 </section>
 <section id="pareto-based-from-tian-2018">
-<h3>Pareto-based (from Tian-2018)<a class="headerlink" href="#pareto-based-from-tian-2018" title="Permalink to this heading">¶</a></h3>
+<h3>Pareto-based (from Tian-2018)<a class="headerlink" href="#pareto-based-from-tian-2018" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Pareto_Tian2018_EC.</span></span><span class="sig-name descname"><span class="pre">Pareto_Tian2018_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Pareto_Tian2018_EC.</span></span><span class="sig-name descname"><span class="pre">Pareto_Tian2018_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coeffs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ensemble_EC</span></code></a></p>
 <p>Class for bi-objective Pareto-based EC from Tian-2018.</p>
 <p>Candidates with lowest non-dominated and highest rank according to minimization of the ECs (multiplied by their respective coefficient 1 or -1) are more promising. Then, Candidates with increasing non-dominated rank are increasingly promising.</p>
@@ -880,7 +880,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Pareto_Tian2018_EC.Pareto_Tian2018_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -899,10 +899,10 @@ exploration).</p>
 
 </section>
 <section id="dynamic-exclusive">
-<h3>Dynamic Exclusive<a class="headerlink" href="#dynamic-exclusive" title="Permalink to this heading">¶</a></h3>
+<h3>Dynamic Exclusive<a class="headerlink" href="#dynamic-exclusive" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Dynamic_Exclusive_EC.</span></span><span class="sig-name descname"><span class="pre">Dynamic_Exclusive_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_budget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Dynamic_Exclusive_EC.</span></span><span class="sig-name descname"><span class="pre">Dynamic_Exclusive_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_budget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sections</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ensemble_EC</span></code></a></p>
 <p>Class for dynamic exclusive EC.</p>
 <p>Only one EC is active at a time. The active EC changes during the search according to the search budget, the activation sections and the current search progress.</p>
@@ -923,7 +923,7 @@ exploration).</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -940,7 +940,7 @@ exploration).</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC.update_active">
-<span class="sig-name descname"><span class="pre">update_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC.update_active" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Exclusive_EC.Dynamic_Exclusive_EC.update_active" title="Link to this definition">¶</a></dt>
 <dd><p>Update the active EC.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -953,10 +953,10 @@ exploration).</p>
 
 </section>
 <section id="dynamic-inclusive">
-<h3>Dynamic Inclusive<a class="headerlink" href="#dynamic-inclusive" title="Permalink to this heading">¶</a></h3>
+<h3>Dynamic Inclusive<a class="headerlink" href="#dynamic-inclusive" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Dynamic_Inclusive_EC.</span></span><span class="sig-name descname"><span class="pre">Dynamic_Inclusive_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_budget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_SIM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_PRED</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Dynamic_Inclusive_EC.</span></span><span class="sig-name descname"><span class="pre">Dynamic_Inclusive_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_budget</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_SIM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">N_PRED</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ensemble_EC</span></code></a></p>
 <p>Class for dynamic inclusive EC.</p>
 <p>Designed as an ensemble of 2 ECs only.
@@ -979,7 +979,7 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -996,7 +996,7 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC.update_active">
-<span class="sig-name descname"><span class="pre">update_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC.update_active" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_progress</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Dynamic_Inclusive_EC.Dynamic_Inclusive_EC.update_active" title="Link to this definition">¶</a></dt>
 <dd><p>Update the proportion of use of each EC.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1009,10 +1009,10 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 
 </section>
 <section id="adaptive">
-<h3>Adaptive<a class="headerlink" href="#adaptive" title="Permalink to this heading">¶</a></h3>
+<h3>Adaptive<a class="headerlink" href="#adaptive" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_EC.Adaptive_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Adaptive_EC.</span></span><span class="sig-name descname"><span class="pre">Adaptive_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_best_obj_val</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Adaptive_EC.</span></span><span class="sig-name descname"><span class="pre">Adaptive_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init_best_obj_val</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ensemble_EC</span></code></a></p>
 <p>Class for adaptive EC.</p>
 <p>Only one EC is active at a time. The active EC is switched according to a stagnation detection mechanism and a reward mechanism. The stagnation detection mechanism triggers the EC switch when the best simulated objective value found so far has not improve by at least 1e-8 during 8 batches (i.e. 8 acquisition processes). The reward mechanism chooses which EC becomes active by rewarding and penalizing all the ECs at each batch (i.e. each acquisition process) according to the error between the simulated objective values and the predicted objective values computed on the last batch of candidates.</p>
@@ -1041,7 +1041,7 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_EC.Adaptive_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1058,7 +1058,7 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Adaptive_EC.Adaptive_EC.update_active">
-<span class="sig-name descname"><span class="pre">update_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_best_obj_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC.update_active" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">update_active</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sim_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pred_obj_vals</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_best_obj_val</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Adaptive_EC.Adaptive_EC.update_active" title="Link to this definition">¶</a></dt>
 <dd><p>Set the rewards/penalties, update the threshold and the counter. Potentially update the active EC.</p>
 <p>Reward mechanism: The error, computed as the difference between simulated and predicted objective values over the last batch of candidates, is compared to the threshold. A small error produces a reward for ECs that should have decided to simulate (including the active EC) and produces a penalty for other ECs. A large error produces a penalty for ECs that should have decided to simulate (including the active EC) and produces a reward for other ECs.</p>
 <p>Stagnation detection mechanism: if the best simulated objective value found so far has not improved by at least 1e-2 during 8 iteration, the active EC is updated. If the last active EC get the higher reward, it remains the active EC. When the stagnation detection occurs, the counter and the reward vector are reset.</p>
@@ -1077,10 +1077,10 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 
 </section>
 <section id="committee">
-<h3>Committee<a class="headerlink" href="#committee" title="Permalink to this heading">¶</a></h3>
+<h3>Committee<a class="headerlink" href="#committee" title="Link to this heading">¶</a></h3>
 <dl class="py class">
 <dt class="sig sig-object py" id="Evolution_Controls.Committee_EC.Committee_EC">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Committee_EC.</span></span><span class="sig-name descname"><span class="pre">Committee_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sim</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Committee_EC.Committee_EC" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Evolution_Controls.Committee_EC.</span></span><span class="sig-name descname"><span class="pre">Committee_EC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_sim</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ECs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Committee_EC.Committee_EC" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#Evolution_Controls.Ensemble_EC.Ensemble_EC" title="Evolution_Controls.Ensemble_EC.Ensemble_EC"><code class="xref py py-class docutils literal notranslate"><span class="pre">Ensemble_EC</span></code></a></p>
 <p>Class for committee of evolution controls.</p>
 <p>All the ECs vote to determine the promise of the candidates.</p>
@@ -1097,7 +1097,7 @@ Two ECs are active at a time. The proportion of use of each EC changes during th
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="Evolution_Controls.Committee_EC.Committee_EC.get_sorted_indexes">
-<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Committee_EC.Committee_EC.get_sorted_indexes" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">get_sorted_indexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pop</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Evolution_Controls.Committee_EC.Committee_EC.get_sorted_indexes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the candidates’ indexes sorted in descending promise order.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
