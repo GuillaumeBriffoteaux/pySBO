@@ -19,7 +19,7 @@ sys.path.insert(0, os.path.abspath('../../examples'))
 # sys.path.append('../src/')
 # sys.path.append('../examples/')
 
-# import sphinx_rtd_theme
+import sphinx_rtd_theme
 
 autodoc_mock_imports = ["mpi4py", "pyro", "torch", "gpytorch", "pygmo", "tensorflow"]
 
