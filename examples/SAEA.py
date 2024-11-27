@@ -81,7 +81,7 @@ def main():
         N_DISC = 144 # number of rejections per batch
         assert (N_SIM+N_PRED+N_DISC)*N_BATCH==N_CHLD
         assert N_SIM!=0
-        N_GEN = 2
+        N_GEN = 3
         if TIME_BUDGET > 0:
             assert TIME_BUDGET > SIM_TIME
             N_GEN = 1000000000000
